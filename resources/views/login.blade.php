@@ -8,7 +8,7 @@
     @vite('/resources/css/app.css')
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+<body class="flex items-center justify-center h-screen" style="background-color: #FAE8E0 ">
 
 <div class="bg-white p-8 rounded-lg shadow-md w-full sm:w-96">
     <h1 class="text-3xl font-bold mb-4 montserrat colorViolet" >Login</h1>
