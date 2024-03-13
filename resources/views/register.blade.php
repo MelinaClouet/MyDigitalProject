@@ -79,7 +79,7 @@
             </div>
         </form>
         <footer class="mt-4 px-4 py-2 text-center border-t" style="border-top-color: #9C84C2; border-top-width: 2px;">
-            <p class="text-sm mt-2 colorOrange">Vous avez déjà un compte? <a href="/login" class="text-blue-300">Connectez-vous</a></p>
+            <p class="text-sm mt-2 text-black">Vous avez déjà un compte? <a href="/login" class="colorOrange">Connectez-vous</a></p>
         </footer>
 
 
