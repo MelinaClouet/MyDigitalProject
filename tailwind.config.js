@@ -1,12 +1,20 @@
+
 /** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-    ],
+module.exports = {
+    content: ["./src/**/*.{html,js,blade.php}"],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'gris': '#F0F3F8',
+                'bleu': '#0958ce',
+                'beige':'#FAE8E0',
+
+
+            },
+            fontFamily: {
+                'OpenSans': ['Open sans', 'sans-serif'],
+            },
+        }
     },
     plugins: [],
 }
