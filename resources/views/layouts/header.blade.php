@@ -9,7 +9,7 @@
                 <a href="">SERVICES</a>
                 <a href="">RÉSERVATION</a>
             </div>
-            <p>LOGO</p>
+            <img src="/assets/logo.png" class="w-24">
         </div>
         <div class="flex mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(11, 11, 11, 1);">

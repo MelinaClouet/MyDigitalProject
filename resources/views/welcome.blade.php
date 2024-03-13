@@ -12,51 +12,90 @@
 </head>
 <body class="" style="background-color: #FAE8E0 ">
     @include ('layouts.header')
-    <div class="h-1/2">
-        <div class="flex justify-between mt-4">
-            <div class="relative flex static w-1/3">
-                <div class="absolute z-0 mt-10 -ml-24 h-52 w-52 transform rotate-45">
-                    <img src="/assets/1.png" alt="My image" class="h-full w-full object-cover rounded-full">
-                </div>
-                <div class="absolute z-0 h-52 w-52 transform rotate-90 mt-5">
-                    <img src="/assets/8.png" alt="My image" class="h-full w-full object-cover rounded-full">
-                </div>
-
+    <div class="flex justify-between mt-16">
+        <div class="relative flex static w-1/3">
+            <div class="absolute z-0 mt-10 -ml-24 h-52 w-52 transform rotate-45">
+                <img src="/assets/1.png" alt="My image" class="h-full w-full object-cover rounded-full">
+            </div>
+            <div class="absolute z-0 h-52 w-52 transform rotate-90 mt-5">
+                <img src="/assets/8.png" alt="My image" class="h-full w-full object-cover rounded-full">
             </div>
 
-            <div class="w-1/3">
-                <div class="rounded-full overflow-hidden h-72 w-64 ">
-                    <img src="/assets/enfantDos.jpg" alt="My image" class="h-full w-full object-cover rounded-full">
-                </div>
+        </div>
+
+        <div class="w-1/3">
+            <div class="rounded-full overflow-hidden h-80 w-72  ">
+                <img src="/assets/enfantDos.jpg" alt="My image" class=" object-cover rounded-full">
+            </div>
+        </div>
+
+
+
+        <div class="w-1/3 ">
+            <div class="flex items-center justify-center mr-24">
+                <p class="montserrat text-2xl mt-10 text-center">
+                    MAYUDA, <br> qu'est ce que c'est ?
+                </p>
+            </div>
+            <div class="mt-7 mr-24 montserrat">
+                <p class="text-justify">
+                    Une entreprise spécialisée dans le bien-être de l'enfant et de l'adolescent. Un accompagnement personnalisé et adapté aux besoins de chacun. Des formations de qualité pour enfants, adolescents et adultes.
+                </p>
             </div>
 
+            <div class="rounded-full overflow-hidden h-32 w-32 mt-12 ">
+                <img src="/assets/7.png" alt="My image" class="h-full w-full object-cover rounded-full">
+            </div>
 
-
-            <div class="w-1/3 mt-16">
-                <div>
-                    <p class="montserrat text-2xl text-center -ml-16">
-                        MAYUDA QU’EST-CE <br> QUE C’EST ?
-                    </p>
-                </div>
-                <div class="mt-7 mr-20 montserrat">
-                    <p class="text-justify">
-                        Entreprise spécialisée dans le bien-être de l’enfant, Mayuda accompagne l’enfant dans son parcours vers l’adolescence.
-                    </p>
-                </div>
-
-                <div class="rounded-full overflow-hidden h-32 w-32 mt-20 ">
-                    <img src="/assets/7.png" alt="My image" class="h-full w-full object-cover rounded-full">
-                </div>
-
-                <div class="rounded-full overflow-hidden h-32 w-32 -mt-24 ml-28">
-                    <img src="/assets/8.png" alt="My image" class="h-full w-full object-cover rounded-full">
-                </div>
-
-
+            <div class="rounded-full overflow-hidden h-32 w-32 -mt-24 ml-28">
+                <img src="/assets/8.png" alt="My image" class="h-full w-full object-cover rounded-full">
             </div>
         </div>
     </div>
 
-@include ('layouts.footer')
+    <div class="flex justify-between mt-20 ">
+        <div class="bg-purple-600 w-full flex justify-between items-center" style="background-color: #F8B59C;">
+            <p class="ml-4">Text</p>
+            <div class="-mr-20">
+                <img src="/assets/7.png" alt="My image" class="object-cover rounded-full h-36">
+            </div>
+        </div>
+
+        <div class="w-full flex justify-center items-center">
+           <p>Image</p>
+        </div>
+    </div>
+
+    <div style="background-color: #FD6D2F;">
+        <div class="flex items-center justify-center ">
+            <p class="text-white montserrat text-lg mt-5 font-bold">NOS SERVICES</p>
+        </div>
+        <div class="-mt-24 flex justify-end">
+            <img src="/assets/6.png" alt="My image" class="object-cover rounded-full h-36">
+        </div>
+        <div class="flex justify-evenly">
+            <div>
+                <img src="/assets/5.png" alt="Image 1" class="object-cover h-36" >
+                <p class="text-center text-white montserrat font-semibold mt-4">
+                    Soutient <br> scolaire
+                </p>
+            </div>
+            <div>
+                <img src="/assets/4.png" alt="Image 2" class="object-cover h-36" >
+                <p class="text-center text-white montserrat font-semibold mt-4">Développement <br> personnel</p>
+            </div>
+            <div>
+                <img src="/assets/3.png" alt="Image 3" class="object-cover h-36" >
+                <p class="text-center text-white montserrat font-semibold mt-4">Conseil <br> parental</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    @include ('layouts.footer')
 </body>
 </html>
