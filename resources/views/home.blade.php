@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="flex justify-between mt-20 ">
+    <div class="flex justify-between">
         <div class="bg-purple-600 w-full flex justify-between items-center" style="background-color: #F8B59C;">
             <p class="ml-4">Text</p>
             <div class="-mr-20">
@@ -90,11 +90,7 @@
             </div>
         </div>
     </div>
-
-
-
-
-
+    @include ('layouts.contact')
 
     @include ('layouts.footer')
 </body>

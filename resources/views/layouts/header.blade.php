@@ -4,8 +4,8 @@
     <nav class="flex items-center justify-between w-full bg-white py-4 montserrat">
         <div class="flex justify-between w-1/2">
             <div class="flex gap-4 ml-3">
-                <a href="">ACCUEIL</a>
-                <a href="">À PROPOS</a>
+                <a href="/">ACCUEIL</a>
+                <a href="/about">À PROPOS</a>
                 <a href="">SERVICES</a>
                 <a href="">RÉSERVATION</a>
             </div>
