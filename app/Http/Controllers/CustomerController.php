@@ -27,6 +27,7 @@ class CustomerController extends Controller
     public function login(Request $request){
         $customer = Customer::where('email', $request->email)->first();
         if($customer && Hash::check($request->password, $customer->password)){
+            session()->put('me', $customer);
             return redirect('/');
         }
         return redirect('/login');
