@@ -9,6 +9,7 @@
 
     <body class="" style="background-color: #FAE8E0">
         @include('layouts.header')
+        <p>{{$me}}</p>
 
         @include('layouts.footer')
     </body>

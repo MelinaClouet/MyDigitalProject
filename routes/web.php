@@ -16,7 +16,7 @@ Route::get('/services', function () {
 })->name('services');
 
 Route::get('/reservation', function () {
-    return view('reservation');
+    return view('reservation',['me' => session('me')]);
 })->name('reservation');
 
 Route::get('/login', function () {
