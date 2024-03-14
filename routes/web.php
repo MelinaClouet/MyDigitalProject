@@ -15,6 +15,10 @@ Route::get('/services', function () {
     return view('service');
 })->name('services');
 
+Route::get('/reservation', function () {
+    return view('reservation');
+})->name('reservation');
+
 Route::get('/login', function () {
     return view('login');
 });
