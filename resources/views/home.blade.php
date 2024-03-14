@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<div style="background-color: #FD6D2F;">
+<div class="pb-10" style="background-color: #FD6D2F;">
     <div class="flex items-center justify-center ">
         <p class="text-white montserrat text-lg mt-5 font-bold">NOS SERVICES</p>
     </div>
