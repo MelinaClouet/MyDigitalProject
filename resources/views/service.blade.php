@@ -52,21 +52,33 @@
         </div>
         <div class="w-full">
             <div class="h-1/3 flex">
-                <div class="w-1/2 flex items-center justify-center flex-col">
+                <div class="w-1/2 flex items-center justify-center flex-col px-24 pt-10">
                     <p class="colorOrange font-semibold text-xl">SOUTIEN PARENTAL</p>
                     <p class=" montserrat mt-12 text-justify">Nous croyons fermement que les parents jouent un rôle essentiel dans le développement de leurs enfants.</p>
                     <p class=" montserrat mt-12 text-justify">C'est pourquoi nous offrons des séances de soutien parental pour fournir aux parents les outils et les ressources dont ils ont besoin pour soutenir efficacement leurs enfants pendant cette période de transition critique.</p>
                 </div>
-                <div class="w-1/2">
-
+                <div class="w-1/2 flex items-center justify-end -mt-80 -mr-16">
+                    <img src="/assets/11.png" class="w-1/4">
                 </div>
             </div>
 
-            <div class="h-1/3">
+            <div class="h-1/3 flex ">
+                <div class="w-1/2 flex flex-row items-center justify-center">
+                    <img src="/assets/13.png" class=" h-1/3 ">
+                    <img src="/assets/7.png" class="h-1/4 -mt-32 -ml-9">
+
+
+                </div>
+                <div class="w-1/2 flex items-center justify-center flex-col px-24">
+                    <p class="colorOrange font-semibold text-xl">ATELIER INTERACTIFS</p>
+                    <p class="montserrat mt-12 text-justify">Nos ateliers interactifs offrent aux enfants l'opportunité de se connecter avec d'autre enfants de leur âge dans un environnement  amusant et stimulant.</p>
+                    <p class="montserrat mt-12 text-justify mt-10">À travers une variété d'activités créatives et éducatves, les enfants développent des compétences sociales, renforcent leur estime de soi et découvrent de nouvelles passions.</p>
+                </div>
 
             </div>
 
-            <div class="h-1/3">
+            <div class="h-1/3 flex items-center justify-center px-28 pb-10">
+                <p class="montserrat mt-12 text-center">Chez Mayuda, nous nous engageons à fournir des services de haute qualité qui favorisent le bien-être global de chaque enfant. Contactez-nous dès aujourd'hui pour en savoir plus sur la façon dont nous pouvons soutenir votre enfant sur son chemin vers l'adolescence.</p>
 
             </div>
         </div>
