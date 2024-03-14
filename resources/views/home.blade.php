@@ -14,16 +14,14 @@
 </head>
 <body class="" style="background-color: #FAE8E0 ">
 @include ('layouts.headerHome')
-<div class="flex justify-between mt-28">
-    <div class="relative flex static w-1/3">
-        <div class="absolute z-0 mt-10 -ml-24 h-52 w-52 transform rotate-45">
-            <img src="/assets/1.png" alt="My image" class="h-full w-full object-cover rounded-full">
+<div class="flex justify-between mt-32">
+    <div class="w-1/3">
+        <div class="flex">
+            <img src="/assets/1.png" class="w-56 h-56 -ml-28 mt-20">
+            <img src="/assets/8.png" class="w-32 h-32 -ml-24 mt-24">
         </div>
-        <div class="absolute z-0 h-52 w-52 transform rotate-90 mt-5">
-            <img src="/assets/8.png" alt="My image" class="h-full w-full object-cover rounded-full">
-        </div>
-
     </div>
+
 
     <div class="w-1/3">
         <div class="rounded-full overflow-hidden h-80 w-72  ">

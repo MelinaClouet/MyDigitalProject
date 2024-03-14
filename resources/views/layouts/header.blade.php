@@ -8,7 +8,7 @@
             <div class="flex gap-4 items-center">
                 <a href="/">ACCUEIL</a>
                 <a href="/about">À PROPOS</a>
-                <a href="">SERVICES</a>
+                <a href="/services">SERVICES</a>
                 <a href="">RÉSERVATION</a>
             </div>
         </div>
