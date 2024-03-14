@@ -3,17 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        @vite('/resources/css/app.css')
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet">
+        @vite(['resources/css/app.css','resources/js/app.js'])
 
     </head>
 
-    <body class="" style="background-color: #FAE8E0">
+    <body class="bg-beige" >
         @include ('layouts.header')
 
         <div class="w-full mt-24 flex ">
@@ -29,14 +23,14 @@
 
             <div class="flex items-center justify-center w-2/3">
                 <div class=" px-24">
-                    <p class="madimi-one-regular text-center font-bold colorOrange text-3xl">SERVICES</p>
+                    <p class="madimi-one-regular text-center font-bold text-orange text-3xl">SERVICES</p>
                     <p class="montserrat text-justify mt-10">Chez Mayuda, nous sommes dévoués à offrir une gamme complète de services conçus pour soutenir le bien-être et le développement de chaque enfant sur leur chemin vers l'adolescence.</p>
                     <p class="montserrat text-justify mt-10">Nous comprenons que chaque enfant est unique, c'est pourquoi nos services sont adaptés pour répondre à leurs besoins individuels!</p>
                 </div>
             </div>
         </div>
-        <div class="flex w-full" style="background-color: #FD6D2F">
-            <div class="w-1/2 flex items-center justify-center flex-col m-10" style="color: #FAE8E0">
+        <div class="flex w-full bg-orange">
+            <div class="w-1/2 flex items-center justify-center flex-col m-10 text-beige">
                 <p class="font-semibold text-xl text-center montserrat">ENTRETIENS INDIVIDUELS</p>
                 <p class=" montserrat mt-12 text-justify">Nos séances individuelles offrent un espace sûr et confidentiel où chaque enfant peut explorer ses pensées, ses émotions et ses préoccupations avec un professionnel qualifié.</p>
                 <p class=" montserrat mt-7 text-justify"> Nous travaillons en étroite collaboration avec chaque enfant pour développer des stratégies de gestions du stress, renforcer la confinace en soi et promouboir un bien-être émotionnel durable.</p>
@@ -53,7 +47,7 @@
         <div class="w-full">
             <div class="h-1/3 flex">
                 <div class="w-1/2 flex items-center justify-center flex-col px-24 pt-10">
-                    <p class="colorOrange font-semibold text-xl">SOUTIEN PARENTAL</p>
+                    <p class="text-orange font-semibold text-xl">SOUTIEN PARENTAL</p>
                     <p class=" montserrat mt-12 text-justify">Nous croyons fermement que les parents jouent un rôle essentiel dans le développement de leurs enfants.</p>
                     <p class=" montserrat mt-12 text-justify">C'est pourquoi nous offrons des séances de soutien parental pour fournir aux parents les outils et les ressources dont ils ont besoin pour soutenir efficacement leurs enfants pendant cette période de transition critique.</p>
                 </div>
@@ -70,7 +64,7 @@
 
                 </div>
                 <div class="w-1/2 flex items-center justify-center flex-col px-24">
-                    <p class="colorOrange font-semibold text-xl">ATELIER INTERACTIFS</p>
+                    <p class="text-orange font-semibold text-xl">ATELIER INTERACTIFS</p>
                     <p class="montserrat mt-12 text-justify">Nos ateliers interactifs offrent aux enfants l'opportunité de se connecter avec d'autre enfants de leur âge dans un environnement  amusant et stimulant.</p>
                     <p class="montserrat mt-12 text-justify mt-10">À travers une variété d'activités créatives et éducatves, les enfants développent des compétences sociales, renforcent leur estime de soi et découvrent de nouvelles passions.</p>
                 </div>

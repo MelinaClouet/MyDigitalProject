@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('/resources/css/app.css')
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    @vite(['resources/css/app.css','resources/js/app.js'])
+
 
 </head>
-<body class="" style="background-color: #FAE8E0 ">
+<body class="bg-beige">
 @include ('layouts.headerHome')
 <div class="flex justify-between mt-32">
     <div class="w-1/3">
@@ -55,7 +50,7 @@
 </div>
 
 <div class="flex justify-between">
-    <div class="bg-purple-600 w-full flex justify-between items-center" style="background-color: #F8B59C;">
+    <div class="w-full flex justify-between items-center bg-orangeClair" >
         <p class="ml-4">Text</p>
         <div class="-mr-20">
             <img src="/assets/7.png" alt="My image" class="object-cover rounded-full h-36">
@@ -67,9 +62,9 @@
     </div>
 </div>
 
-<div class="pb-10" style="background-color: #FD6D2F;">
+<div class="pb-10 bg-orange">
     <div class="flex items-center justify-center ">
-        <p class="text-white montserrat text-lg mt-5 font-bold">NOS SERVICES</p>
+        <p class="text-beige montserrat text-lg mt-5 font-bold">NOS SERVICES</p>
     </div>
     <div class="-mt-24 flex justify-end -mr-3">
         <img src="/assets/11.png" alt="My image" class="object-cover rounded-full h-36">

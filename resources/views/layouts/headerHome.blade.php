@@ -1,6 +1,5 @@
 <header class="fixed top-0 w-full">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    @vite('/resources/css/app.css')
+    @vite(['resources/css/app.css','resources/js/app.js'])
     <nav class="flex items-center justify-between w-full bg-white py-4 montserrat " style="z-index: 9999">
         <div class="flex justify-between w-1/2">
             <div class="flex gap-4 ml-3 items-center">

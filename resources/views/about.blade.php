@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('/resources/css/app.css')
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    @vite(['resources/css/app.css','resources/js/app.js'])
+
 
 </head>
 
-<body class="" style="background-color: #FAE8E0">
+<body class="bg-beige">
 
 @include ('layouts.header')
 
 <div class="w-full flex mt-20">
     <div class="w-1/2 px-16">
-        <p class="colorViolet font-bold flex justify-center text-3xl mt-12 madimi-one-regular">QUELQUES MOTS <br> SUR
+        <p class="text-violet font-bold flex justify-center text-3xl mt-12 madimi-one-regular">QUELQUES MOTS <br> SUR
             L'ENTREPRISE</p>
         <p class="montserrat my-10 text-justify ">Diplomée d'une licence de Psychologie et sciences de l'education ainsi
             que d'un Master 2 MEEF (Métiers de l'enseignement, de l'éducation et de la Formation), mon cursus a toujours
@@ -54,8 +49,7 @@
                 possibilité de grandir autrement, c'est apprendre à aimer son corps et son être comme il se doit.</p>
             <div class="flex justify-center mt-12">
                 <a href="/sevices">
-                    <button class="rounded-3xl w-full h-10 text-white montserrat items-center mx-10"
-                            style="background-color: #FD6D2F">
+                    <button class="rounded-3xl w-full h-10 text-white montserrat items-center mx-10 bg-orange">
                         NOS SERVICES
                     </button>
                 </a>
@@ -76,8 +70,7 @@
         <p class="montserrat text-justify mt-12"> Bienvenue chez Mayuda! </p>
         <div class="flex justify-center mt-12">
             <a href="/contact">
-                <button class="rounded-3xl w-full h-10 text-white montserrat items-center mx-10"
-                        style="background-color: #FD6D2F">
+                <button class="rounded-3xl w-full h-10 text-white montserrat items-center mx-10 bg-orange">
                     NOUS CONTACTER
                 </button>
             </a>

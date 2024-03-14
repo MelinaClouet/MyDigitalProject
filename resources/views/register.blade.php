@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('/resources/css/app.css')
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    @vite(['resources/css/app.css','resources/js/app.js'])
 
 </head>
-<body class="flex items-center justify-center h-screen" style="background-color: #FAE8E0 ">
+<body class="flex items-center justify-center h-screen bg-beige">
 
     <div id="form-container" class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3">
         <h1 class="text-3xl font-bold mb-4 montserrat colorViolet" >Register</h1>
@@ -20,50 +16,50 @@
             <div id="personal-info">
                 <div class="flex mb-4">
                     <div class="w-1/2 mr-2">
-                        <label for="firstName" class="block text-sm font-medium montserrat colorOrangeC">Prénom</label>
+                        <label for="firstName" class="block text-sm font-medium montserrat text-orangeClair">Prénom</label>
                         <input type="text" id="firstName" name="firstName" class="mt-1 p-2 w-full border rounded-md">
                     </div>
                     <div class="w-1/2 ml-2">
-                        <label for="lastName" class="block text-sm font-medium montserrat colorOrangeC">Nom</label>
+                        <label for="lastName" class="block text-sm font-medium montserrat text-orangeClair">Nom</label>
                         <input type="text" id="lastName" name="lastName" class="mt-1 p-2 w-full border rounded-md">
                     </div>
                 </div>
                 <div class="flex mb-4">
                     <div class="w-1/2 mr-2">
-                        <label for="address" class="block text-sm font-medium montserrat colorOrangeC">Addresse</label>
+                        <label for="address" class="block text-sm font-medium montserrat text-orangeClair">Addresse</label>
                         <input type="text" id="address" name="address" class="mt-1 p-2 w-full border rounded-md">
                     </div>
                     <div class="w-1/2 ml-2">
-                        <label for="postalCode" class="block text-sm font-medium montserrat colorOrangeC">Code Postal</label>
+                        <label for="postalCode" class="block text-sm font-medium montserrat text-orangeClair">Code Postal</label>
                         <input type="text" id="postalCode" name="postalCode" class="mt-1 p-2 w-full border rounded-md">
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label for="city" class="block text-sm font-medium montserrat colorOrangeC">Ville</label>
+                    <label for="city" class="block text-sm font-medium montserrat text-orangeClair">Ville</label>
                     <input type="text" id="city" name="city" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="mb-4">
-                    <label for="phone" class="block text-sm font-medium montserrat colorOrangeC">Téléphone</label>
+                    <label for="phone" class="block text-sm font-medium montserrat text-orangeClair">Téléphone</label>
                     <input type="text" id="phone" name="phone" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="flex justify-end">
-                    <button id="next" class="px-4 py-2 text-white rounded-md " style="background-color: #FD6D2F">Next</button>
+                    <button id="next" class="px-4 py-2 text-white rounded-md bg-orange ">Next</button>
                 </div>
             </div>
 
             <div id="account-info" class="hidden">
                 <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium montserrat colorOrangeC">Email</label>
+                    <label for="email" class="block text-sm font-medium montserrat text-orangeClair">Email</label>
                     <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium montserrat colorOrangeC" >Mot de passe</label>
+                    <label for="password" class="block text-sm font-medium montserrat text-orangeClair" >Mot de passe</label>
                     <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md">
                     <p id="passwordMessage" class="text-sm text-red-500 hidden">Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un caractère spécial et un chiffre.</p>
 
                 </div>
                 <div class="mb-6">
-                    <label for="password_confirmation" class="block text-sm font-medium montserrat colorOrangeC">Confirmation mot de passe</label>
+                    <label for="password_confirmation" class="block text-sm font-medium montserrat text-orangeClair">Confirmation mot de passe</label>
                     <input type="password" id="password_confirmation" name="password_confirmation" class="mt-1 p-2 w-full border rounded-md">
                     <p id="passwordConfirmationMessage" class="text-sm text-red-500 hidden">Mots de passe incorect</p>
 
@@ -73,12 +69,12 @@
                     <!-- Bouton "Previous" -->
                     <button id="prev" class="px-4 py-2 bg-gray-200 text-gray-600 rounded-md hover:bg-gray-400 focus:outline-none focus:bg-gray-400" >Previous</button>
                     <!-- Bouton "Register" -->
-                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md " style="background-color: #FD6D2F">Register</button>
+                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md bg-orange " style="background-color: #FD6D2F">Register</button>
                 </div>
             </div>
         </form>
-        <footer class="mt-4 px-4 py-2 text-center border-t" style="border-top-color: #9C84C2; border-top-width: 2px;">
-            <p class="text-sm mt-2 text-black">Vous avez déjà un compte? <a href="/login" class="colorOrange">Connectez-vous</a></p>
+        <footer class="mt-4 px-4 py-2 text-center border-t border-violet">
+            <p class="text-sm mt-2 text-black">Vous avez déjà un compte? <a href="/login" class="text-orange">Connectez-vous</a></p>
         </footer>
 
 
