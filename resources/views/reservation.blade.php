@@ -7,7 +7,7 @@
 
     </head>
 
-    <body class="" style="background-color: #FAE8E0">
+    <body class=" bg-beige" >
         @include('layouts.header')
         <p>{{$me}}</p>
 
