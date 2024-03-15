@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="w-1/3 ">
+    <div class="w-1/3">
         <div class="flex items-center justify-center mr-24">
             <p class="montserrat text-2xl mt-10 text-center">
                 MAYUDA, <br> qu'est ce que c'est ?

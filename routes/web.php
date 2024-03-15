@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,9 @@ Route::post('/addCustomer', [CustomerController:: class , 'addCustomer'])->name(
 
 Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
+Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent');
+
+Route::get('/getEvents', [EventController:: class , 'getEvents'])->name('getEvents');
 
 Route::get('/trash', function () {
     return view('trash');

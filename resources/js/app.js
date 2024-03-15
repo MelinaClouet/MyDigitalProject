@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         initialView: 'dayGridMonth',
         buttonIcons: true,
-
+        themeSystem: 'bootstrap5',
         buttonText: {
             prev:'<',
             next:'>',
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             week: 'Semaine',
             day: 'Jour'
         },
+        events: 'https://fullcalendar.io/api/demo-feeds/events.json'
 
 
     });

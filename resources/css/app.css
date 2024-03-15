@@ -31,26 +31,15 @@
      font-style: normal;
 }
 
-/* Définir les styles des boutons */
-.fc.button {  /* Targets buttons with class "custom-button" within FullCalendar elements with class "fc" */
+.fc-btn {
+    background-color: #FD6D2F;
     color: #FAE8E0;
-    background-color: #F8B59C;
-    border-color: #F8B59C;
+    border: none;
+}
+.fc-btn-primary{
+    background-color: #9C84C2;
+    color: #FAE8E0;
+    border: none;
 }
 
-.custom-button:hover {
-    color: #F8B59C;
-    background: #FD6D2F;
-}
 
-#calendar{
-    padding: 30px;
-}
-.red-button {
-    background-color: red;
-    color: white;
-}
-.blue-button {
-    background-color: blue;
-    color: white;
-}

@@ -1,15 +1,8 @@
 <header class="fixed top-0 w-full z-30">
     @vite(['resources/css/app.css','resources/js/app.js'])
     <nav class="flex items-center justify-between w-full bg-white py-4 montserrat ">
-        <div class="flex justify-between w-full md:w-1/2">
-            <div class="flex  w-full md:w-1/2">
-                <img src="/assets/logoSeul.png" class="w-16 flex items-center">
-                <button class="block md:hidden" id="hbg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(11, 11, 11, 1);">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </button>
-            </div>
+        <div class="flex justify-evenly w-full md:w-1/2">
+            <img src="/assets/logoSeul.png" class="w-16 flex items-center">
             <!-- Liens de navigation -->
             <div class="hidden md:flex gap-4 items-center " id="navLinks">
                 <a href="/">ACCUEIL</a>
@@ -44,13 +37,6 @@
             </svg>
         </div>
     </nav>
-    <script>
-        const header = document.querySelector('header');
-        hbg = header.querySelector('#hbg');
-        hbg.addEventListener('click', function(){
-            header.classList.toggle('active');
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-    </script>
+
 </header>
 
