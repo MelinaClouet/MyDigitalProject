@@ -9,7 +9,7 @@
 <body class="flex items-center justify-center h-screen bg-beige" >
 
 <div class="bg-white p-8 rounded-lg shadow-md w-full sm:w-96">
-    <h1 class="text-3xl font-bold mb-4 montserrat text-violet" >Login</h1>
+    <h1 class="text-3xl font-bold mb-4 montserrat text-violet" >Connexion</h1>
     <form action="{{route('login')}}" method="POST">
         @csrf
 

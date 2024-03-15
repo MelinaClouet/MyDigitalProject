@@ -48,7 +48,7 @@
                 propre guérison. Se dirige vers un mieux-être c'est apprendre à gérer ses émotions, c'est découvrir la
                 possibilité de grandir autrement, c'est apprendre à aimer son corps et son être comme il se doit.</p>
             <div class="flex justify-center mt-12">
-                <a href="/sevices">
+                <a href="/services">
                     <button class="rounded-3xl w-full h-10 text-white montserrat items-center mx-10 bg-orange">
                         NOS SERVICES
                     </button>

@@ -10,7 +10,7 @@
     <body class="bg-beige" >
         @include ('layouts.header')
 
-        <div class="w-full mt-24 flex ">
+        <div class="w-full mt-24 flex">
             <div class="w-1/3 ">
                 <div class="flex">
                     <img src="/assets/8.png" class="w-40 mt-12">
@@ -63,7 +63,7 @@
 
 
                 </div>
-                <div class="w-1/2 flex items-center justify-center flex-col px-24">
+                <div class="w-1/2 flex items-center justify-center flex-col px-24 -mt-32">
                     <p class="text-orange font-semibold text-xl">ATELIER INTERACTIFS</p>
                     <p class="montserrat mt-12 text-justify">Nos ateliers interactifs offrent aux enfants l'opportunité de se connecter avec d'autre enfants de leur âge dans un environnement  amusant et stimulant.</p>
                     <p class="montserrat mt-12 text-justify mt-10">À travers une variété d'activités créatives et éducatves, les enfants développent des compétences sociales, renforcent leur estime de soi et découvrent de nouvelles passions.</p>
@@ -71,7 +71,7 @@
 
             </div>
 
-            <div class="h-1/3 flex items-center justify-center px-28 pb-10">
+            <div class="h-1/3 flex items-center justify-center px-28 pb-10 -mt-24">
                 <p class="montserrat mt-12 text-center">Chez Mayuda, nous nous engageons à fournir des services de haute qualité qui favorisent le bien-être global de chaque enfant. Contactez-nous dès aujourd'hui pour en savoir plus sur la façon dont nous pouvons soutenir votre enfant sur son chemin vers l'adolescence.</p>
 
             </div>

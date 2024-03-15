@@ -32,3 +32,7 @@ Route::post('/addCustomer', [CustomerController:: class , 'addCustomer'])->name(
 Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
 
+Route::get('/trash', function () {
+    return view('trash');
+})->name('trash');
+

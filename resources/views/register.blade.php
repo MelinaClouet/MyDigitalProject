@@ -9,7 +9,7 @@
 <body class="flex items-center justify-center h-screen bg-beige">
 
     <div id="form-container" class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3">
-        <h1 class="text-3xl font-bold mb-4 montserrat colorViolet" >Register</h1>
+        <h1 class="text-3xl font-bold mb-4 montserrat colorViolet" >Inscription</h1>
 
         <form id="register-form" action="{{route('addCustomer')}}" method="POST">
             @csrf
