@@ -1,0 +1,11 @@
+{
+    "firstName" : "Admin",
+    "lastName" : "Admin",
+    "email" : "maelle.angot@yahoo.fr",
+    "password" : "admin",
+    "phone" : "0677573493",
+    "address" :"148 Ham. Dulong",
+    "city":"Lieurey",
+    "postal_code":"27560",
+    "status" : "1"
+}

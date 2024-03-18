@@ -40,3 +40,8 @@ Route::get('/trash', function () {
     return view('trash');
 })->name('trash');
 
+Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
+
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');

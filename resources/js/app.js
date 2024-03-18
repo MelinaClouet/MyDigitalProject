@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             endTime: '18:00'
         },
         initialView: 'dayGridMonth',
+        editable:false,
         buttonIcons: true,
         themeSystem: 'bootstrap5',
         buttonText: {

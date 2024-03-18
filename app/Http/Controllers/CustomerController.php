@@ -19,8 +19,13 @@ class CustomerController extends Controller
         $customer->city = $request->city;
         $customer->postal_code = $request->postalCode;
         $customer->save();
+        if($customer->status == 0){
+            return redirect('/');
+        }
+        if($customer->status == 1){
+            return redirect('/admin');
+        }
 
-        return redirect('/');
 
     }
 
@@ -31,6 +36,11 @@ class CustomerController extends Controller
             return redirect('/');
         }
         return redirect('/login');
+    }
+
+    public function logout(){
+        session()->forget('me');
+        return redirect('/');
     }
 
 }

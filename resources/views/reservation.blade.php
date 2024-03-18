@@ -39,9 +39,7 @@
             <div class="w-full p-10" id="calendar"></div>
         </div>
 
-        @foreach($me->events as $event)
-            <p>{{ $event->lastName }}</p>
-        @endforeach
+
 
 
 
