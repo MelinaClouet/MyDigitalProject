@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
+
         <script src="/assets/js/calendar.js"></script>
 
 
@@ -33,26 +36,7 @@
             <hr class="flex-grow h-1 bg-orangeClair">
         </div>
         <div class="flex w-full">
-            <div class="w-2/3" id="calendar"></div>
-            <div>
-                <div class="">
-                    <p class="mx-2">
-                        🟢 - Congé accepté
-                    </p>
-                    <p class="mx-2">
-                        🟣 - Congé pré-accepté
-                    </p>
-                    <p class="mx-2">
-                        ⚪ - Congé en attente
-                    </p>
-                    <p class="mx-2">
-                        🟠 - Congé pré-refusé
-                    </p>
-                    <p class="mx-2">
-                        🔴 - Congé refusé
-                    </p>
-                </div>
-            </div>
+            <div class="w-full p-10" id="calendar"></div>
         </div>
 
         @foreach($me->events as $event)

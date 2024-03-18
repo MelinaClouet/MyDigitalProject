@@ -34,7 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
             week: 'Semaine',
             day: 'Jour'
         },
-        events: 'https://fullcalendar.io/api/demo-feeds/events.json'
+        events: function (fetchInfo, successCallback, failureCallback) {
+            var events=[];
+            // Récupérer les congés depuis la route getAllLeave
+            $.ajax({
+                url: '/getEvents',
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    var reservations= response.events;
+                    for (var i = 0; i < reservations.length; i++) {
+                        console.log(reservations[i]);
+                        events.push({
+                            title: reservations[i].lastName + ' ' + reservations[i].firstName,
+                            start: reservations[i].startDate,
+                            end: reservations[i].endDate,
+                            color: typeEvent(reservations[i].type_event),
+                        });
+                    }
+                    console.log(events);
+                    successCallback(events);
+                }
+            });
+        },
 
 
     });
@@ -42,3 +64,18 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
 
 });
+
+function typeEvent(type) {
+    switch (type) {
+        case 'meeting':
+            return '#9C84C2';
+        case 'sick':
+            return 'bg-primary';
+        case 'Maladie':
+            return 'bg-warning';
+        case 'Télétravail':
+            return 'bg-success';
+        default:
+            return 'bg-info';
+    }
+}

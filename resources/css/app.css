@@ -31,15 +31,15 @@
      font-style: normal;
 }
 
-.fc-btn {
-    background-color: #FD6D2F;
-    color: #FAE8E0;
-    border: none;
+
+.fc-button-primary{
+    background-color: #F8B59C !important;
+    border: none !important;
 }
-.fc-btn-primary{
-    background-color: #9C84C2;
-    color: #FAE8E0;
-    border: none;
+
+.fc-col-header-cell-cushion{
+    color: #9C84C2 !important;
+    backface-visibility: hidden !important;
 }
 
 
