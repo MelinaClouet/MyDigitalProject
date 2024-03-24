@@ -1,4 +1,4 @@
-<header class="fixed top-0 w-full">
+<header class="fixed top-0 w-full z-50">
     @vite(['resources/css/app.css','resources/js/app.js'])
     <nav class="flex items-center justify-between w-full bg-white py-4 montserrat " style="z-index: 9999">
         <div class="flex justify-between w-1/2">

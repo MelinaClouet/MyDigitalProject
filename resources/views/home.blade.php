@@ -9,29 +9,30 @@
 </head>
 <body class="bg-beige">
 @include ('layouts.headerHome')
-<div class="flex justify-between mt-32">
-    <div class="w-1/3">
-        <div class="flex">
-            <img src="/assets/1.png" class="w-56 h-56 -ml-28 mt-20">
-            <img src="/assets/8.png" class="w-32 h-32 -ml-24 mt-24">
+<div class="flex flex-col mt-20">
+    <div class="flex flex-row" id="image">
+        <div class="-ml-16 ">
+            <div class="flex justify-start -ml-16">
+                <img src="/assets/1.png" class="w-56 h-56 mt-20">
+                <img src="/assets/8.png" class="w-32 h-32 mt-24 -ml-24 ">
+            </div>
+        </div>
+
+
+        <div class="w-1/2 mt-20 ml-10">
+            <div class="rounded-full overflow-hidden ">
+                <img src="/assets/enfantDos.jpg" alt="My image" class="object-cover rounded-full">
+            </div>
         </div>
     </div>
 
-
-    <div class="w-1/3">
-        <div class="rounded-full overflow-hidden h-80 w-72  ">
-            <img src="/assets/enfantDos.jpg" alt="My image" class=" object-cover rounded-full">
-        </div>
-    </div>
-
-
-    <div class="w-1/3">
-        <div class="flex items-center justify-center mr-24">
-            <p class="montserrat text-2xl mt-10 text-center">
+    <div class="mx-10" id="text">
+        <div class="flex items-center justify-center md:justify-start md:mt-10">
+            <p class="montserrat text-2xl sm:text-xl mt-10 text-center md:text-left">
                 MAYUDA, <br> qu'est ce que c'est ?
             </p>
         </div>
-        <div class="mt-7 mr-24 montserrat">
+        <div class="mt-7 montserrat text-center md:text-left">
             <p class="text-justify">
                 Une entreprise spécialisée dans le bien-être de l'enfant et de l'adolescent. Un accompagnement
                 personnalisé et adapté aux besoins de chacun. Des formations de qualité pour enfants, adolescents et
@@ -39,53 +40,56 @@
             </p>
         </div>
 
-        <div class="rounded-full overflow-hidden h-32 w-32 mt-12 ml-28 ">
-            <img src="/assets/7.png" alt="My image" class="h-full w-full object-cover rounded-full">
+        <div class="flex relative justify-center -mt-6">
+            <div class="rounded-full overflow-hidden absolute z-10 mr-16 mt-10">
+                <img src="/assets/7.png" alt="My image" class="h-16 w-full ">
+            </div>
+
+            <div class="rounded-full overflow-hidden relative z-0">
+                <img src="/assets/8.png" alt="My image" class="h-24 w-full">
+            </div>
         </div>
 
-        <div class="rounded-full overflow-hidden h-36 w-36 -mt-24 ml-52">
-            <img src="/assets/8.png" alt="My image" class="h-full w-full object-cover rounded-full">
+    </div>
+</div>
+<div class="flex relative justify-between w-full mt-10">
+    <div class="w-1/2 flex justify-center items-center bg-orangeClair relative">
+        <p class="text-lg text-beige text-center mx-2 z-0" style="font-family: 'Heiti TC'">"Il est grand temps de rallumer les étoiles."</p>
+    </div>
+
+    <div class="h-full w-1/2 z-10 relative">
+        <div class="absolute inset-0 flex justify-start items-center -ml-9">
+            <img src="/assets/7.png" alt="Another Image" class="object-cover h-20">
         </div>
+        <img src="/assets/15.jpg" class="w-full">
     </div>
 </div>
 
-<div class="flex justify-between">
-    <div class="w-full flex justify-between items-center bg-orangeClair" >
-        <p class="ml-4">Text</p>
-        <div class="-mr-20">
-            <img src="/assets/7.png" alt="My image" class="object-cover rounded-full h-36">
-        </div>
-    </div>
-
-    <div class="w-full flex justify-center items-center">
-        <p>Image</p>
-    </div>
-</div>
-
-<div class="pb-10 bg-orange">
-    <div class="flex items-center justify-center ">
+<div class="pb-10 bg-orange relative">
+    <div class="flex items-center justify-center z-20">
         <p class="text-beige montserrat text-lg mt-5 font-bold">NOS SERVICES</p>
     </div>
-    <div class="-mt-24 flex justify-end -mr-3">
-        <img src="/assets/11.png" alt="My image" class="object-cover rounded-full h-36">
+    <div class="absolute top-0 right-0 -mt-10 -mr-4 z-30">
+        <img src="/assets/11.png" alt="My image" class="object-cover rounded-full h-24">
     </div>
-    <div class="flex justify-evenly">
+    <div class="flex justify-evenly z-20 mt-5">
         <div>
-            <img src="/assets/5.png" alt="Image 1" class="object-cover h-36">
+            <img src="/assets/5.png" alt="Image 1" class="object-cover h-24">
             <p class="text-center text-white montserrat font-semibold mt-4">
                 Soutient <br> scolaire
             </p>
         </div>
         <div>
-            <img src="/assets/4.png" alt="Image 2" class="object-cover h-36">
+            <img src="/assets/4.png" alt="Image 2" class="object-cover h-24">
             <p class="text-center text-white montserrat font-semibold mt-4">Développement <br> personnel</p>
         </div>
         <div>
-            <img src="/assets/3.png" alt="Image 3" class="object-cover h-36">
+            <img src="/assets/3.png" alt="Image 3" class="object-cover h-24">
             <p class="text-center text-white montserrat font-semibold mt-4">Conseil <br> parental</p>
         </div>
     </div>
 </div>
+
 @include ('layouts.contact')
 
 @include ('layouts.footer')

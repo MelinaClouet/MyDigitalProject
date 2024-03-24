@@ -22,9 +22,7 @@ class CustomerController extends Controller
         if($customer->status == 0){
             return redirect('/');
         }
-        if($customer->status == 1){
-            return redirect('/admin');
-        }
+
 
 
     }
@@ -33,6 +31,9 @@ class CustomerController extends Controller
         $customer = Customer::where('email', $request->email)->first();
         if($customer && Hash::check($request->password, $customer->password)){
             session()->put('me', $customer);
+            if($customer->status==1){
+                return redirect('/admin');
+            }
             return redirect('/');
         }
         return redirect('/login');
