@@ -10,12 +10,12 @@
 
 <body class="bg-beige">
 
-@include ('layouts.header')
+@include ('layouts.header', ['active' => 'about'])
 
 <div class="w-screen mt-16 flex flex-col md:flex-row  ">
     <div class="w-full p-8 md:ml-10">
         <div class="lg:flex lg:items-center lg:justify-center ">
-            <p class="text-violet font-bold text-3xl mt-12 madimi-one-regular">QUELQUES MOTS <br> SUR
+            <p class="text-violet font-bold text-2xl text-center mt-12 madimi-one-regular">QUELQUES MOTS <br> SUR
                 L'ENTREPRISE</p>
         </div>
 

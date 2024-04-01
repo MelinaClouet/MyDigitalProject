@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MAYUDA</title>
+    <title>Acme Rockets</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/main.js" defer></script>
 </head>
 
 <body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white">
-<header class=" fixed top-0 w-full z-50">
+<header class="fixed top-0 w-full z-50">
     @vite(['resources/css/app.css','resources/js/app.js'])
 
 
@@ -29,45 +29,26 @@
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul class="font-medium flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-beige md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        @if($active == 'home')
-                            <a id="home" href="/" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ACCUEIL</a>
-                        @else
-                            <a id="home" href="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">ACCUEIL</a>
-
-                        @endif
-                    </li>
-                    <li> @if($active == 'about')
-                            <a id="about" href="/about" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">À PROPOS</a>
-                        @else
-                            <a id="about" href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">À PROPOS</a>
-
-                        @endif
+                        <a href="/" class="block py-2 px-3 text-white bg-orange rounded md:bg-transparent md:text-orange md:p-0 dark:text-white md:dark:text-orange" aria-current="page">ACCEUIL</a>
                     </li>
                     <li>
-                        @if($active == 'services')
-                            <a id="services" href="/services" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">SERVICES</a>
-
-                        @else
-                        <a id="services" href="/services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">SERVICES</a>
-                        @endif
+                        <a href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">À PROPOS</a>
                     </li>
                     <li>
-                        @if($active == 'reservation')
-                            <a id="reservation" href="/reservation" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">RÉSERVATION</a>
-                        @else
-                        <a id="reservation" href="/reservation" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ $active == 'reservation' ? 'active-link' : '' }}">RÉSERVATION</a>
-                        @endif
+                        <a href="/services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">SERVICES</a>
                     </li>
-
+                    <li>
+                        <a href="/reservation" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">RÉSERVATION</a>
+                    </li>
                     <div class="flex items-center justify-between">
-                        <a href="/login" class="mr-5">
+                        <a href="/login" class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                                 <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z">
                                 </path>
                             </svg>
                         </a>
                         <li class="flex items-center">
-                            <a href="/logout" class="mr-5">
+                            <a href="/logout" class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                                     <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
                                     <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
@@ -93,10 +74,3 @@
             </div>
         </div>
     </nav>
-</header>
-</body>
-</html>
-
-<script>
-
-</script>

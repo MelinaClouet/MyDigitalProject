@@ -8,7 +8,7 @@
     </head>
 
     <body class="bg-beige" >
-        @include ('layouts.header')
+        @include ('layouts.header', ['active' => 'services'])
 
         <div class="w-full mt-32 flex mb-5 lg:mt-[15rem] " >
             <div class="w-1/3">
@@ -17,7 +17,7 @@
                     <img src="/assets/10.png" class="w-20 -ml-10 mt-7 lg:-mt-[5rem] lg:w-32 lg:-ml-20">
                 </div>
                 <div class="h-full relative md:h-1/4">
-                    <img src="/assets/petiteFillePeinture.jpg" class="w-full absolute bottom-[5.5rem] left-3 rounded-t-full md:w-1/2 md:-bottom-[4.6rem] md:ml-28 lg:w-1/2 lg:-bottom-[4.7rem] lg:ml-56">
+                    <img src="/assets/petiteFillePeinture.jpg" class="w-full absolute bottom-[5.5rem] left-3 rounded-t-full md:w-1/2 md:-bottom-[4.6rem] md:ml-28 lg:w-1/2 lg:-bottom-[5.8rem] lg:ml-44">
                 </div>
 
             </div>
@@ -42,9 +42,9 @@
                     enfant leur permettant de développer ses propres stratégies afin d’apprendre à gérer ses émotions,
                     renforcer sa confiance et son estime de soi et ce, afin de promouvoir un bien-être émotionnel durable.</p>
 
-                <img src="/assets/enfantsColor.jpg" class="w-2/3 rounded-full ml-52 md:w-1/2 md:ml-[45rem] md:-mt-12 lg:w-1/3 lg:ml-[90rem] lg:-mt-52"  style="transform: rotate(12deg)">
-
-                <p class="montserrat font-semibold text-xl text-center mt-2 md:-mt-20 lg:text-2xl">SÉANCES DE RELAXATION</p>
+                <img src="/assets/enfantsColor.jpg" class="w-2/3 rounded-full ml-40 md:w-1/2 md:ml-[45rem] md:-mt-12 lg:w-1/2 lg:ml-[70rem] lg:-mt-36"  style="transform: rotate(12deg)">
+                <img src="/assets/7.png" class="w-1/3 -mt-20 -ml-56 md:-mt-52 lg:-mt-64 lg:-ml-[40rem]">
+                <p class="montserrat font-semibold text-xl text-center mt-2 md:-mt-2 lg:text-2xl lg:-mt-20">SÉANCES DE RELAXATION</p>
                 <p class=" montserrat my-5 text-justify lg:mb-20">La relaxation est un outil qui permet à l’enfant de prendre contact avec ses émotions. Le but étant de
                     les reconnaître afin d’apprendre à les gérer et augmenter le sentiment de bien-être au quotidien.</p>
              </div>
@@ -60,7 +60,7 @@
                 <p class=" montserrat mt-6 text-justify">Le but étant d’échanger sur celle-ci afin d’enrichir les connaissances de chacun toujours dans
                     le but de mieux comprendre son enfant.</p>
                 <div class="relative">
-                    <img src="/assets/11.png" class="w-1/4 absolute bottom-72 -right-11 md:bottom-44 md:w-1/6 lg:w-32 lg:bottom-44 lg:-right-[47rem]">
+                    <img src="/assets/11.png" class="w-1/4 absolute bottom-72 -right-11 md:bottom-44 md:w-1/6 lg:w-32 lg:bottom-44 lg:-right-[48rem]">
                 </div>
             </div>
 

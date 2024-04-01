@@ -7,9 +7,9 @@
 
 
 </head>
-<body class="bg-beige">
-@include ('layouts.headerHome')
-<div class="flex flex-col lg:flex-row mt-20 w-full">
+<body class="bg-beige mt-10">
+@include ('layouts.header', ['active' => 'home'])
+<div class="flex flex-col lg:flex-row w-full position-relative">
     <div class="flex flex-row lg:w-1/2 " id="image">
         <div class="-ml-16 lg:mt-20">
             <div class="flex justify-start -ml-16">
@@ -26,8 +26,8 @@
         </div>
     </div>
 
-    <div class="mx-10 lg:w-1/2 lg:mt-10" id="text">
-        <div class="flex items-center justify-center md:justify-start md:mt-10 lg:justify-center">
+    <div class="mx-10 lg:w-1/2 lg:mt-28" id="text">
+        <div class="flex items-center justify-center md:justify-centermd:mt-10 lg:justify-center">
             <p class="montserrat text-2xl sm:text-xl mt-10 text-center lg:text-center lg:text-3xl">
                 MAYUDA, <br> qu'est ce que c'est ?
             </p>

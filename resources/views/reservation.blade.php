@@ -14,8 +14,8 @@
     </head>
 
     <body class=" bg-beige" >
-        @include('layouts.header')
-        <h1 class="text-violet text-5xl font-bold mt-32 flex items-center justify-center montserrat">RÉSERVATION</h1>
+        @include('layouts.header', ['active' => 'reservation'])
+        <h1 class="text-violet text-3xl font-bold mt-32 flex items-center justify-center montserrat md:text-5xl">RÉSERVATION</h1>
 
         <div class="flex items-center mt-14">
             <hr class="flex-grow h-1 bg-orangeClair">
@@ -31,7 +31,7 @@
                 $annee = date('Y');
 
                 ?>
-                <p class="text-orange font-semibold text-2xl montserrat">Planning du mois de {{$mois}} {{$annee}} </p>
+                <p class="text-orange font-semibold text-xl montserrat md:text-2xl">Planning du mois de {{$mois}} {{$annee}} </p>
             </div>
             <hr class="flex-grow h-1 bg-orangeClair">
         </div>
