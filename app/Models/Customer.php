@@ -11,4 +11,12 @@ class Customer extends Model
     public function events(){
         return $this->hasMany('App\Models\Event');
     }
+    public function isAdmin(){
+        if($this->status == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

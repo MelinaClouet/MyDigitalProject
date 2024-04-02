@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EventController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,6 +43,12 @@ Route::get('/trash', function () {
 
 Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
 
+
 Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
+    return view('admin.admin');
+})->name('admin')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/users', function () {
+    $customers= App\Models\Customer::all();
+    return view('admin.users', ['customers' => $customers]);
+})->name('admin')->middleware(AdminMiddleware::class);
