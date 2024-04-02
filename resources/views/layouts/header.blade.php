@@ -15,47 +15,47 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 
 
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white border-beige dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="/assets/logo.png" class="h-20" alt="Flowbite Logo" />
             </a>
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-beige focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-orange rounded-lg md:hidden hover:bg-beige focus:outline-none focus:ring-2 focus:ring-orange dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="font-medium flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-beige md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <ul class="font-medium flex flex-col items-center p-4 md:p-0 mt-4 border border-beige rounded-lg bg-beige md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         @if($active == 'home')
-                            <a id="home" href="/" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ACCUEIL</a>
+                            <a id="home" href="/" class="block py-2 px-3 text-orange rounded  md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">ACCUEIL</a>
                         @else
-                            <a id="home" href="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">ACCUEIL</a>
+                            <a id="home" href="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-orangeClair md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-orange dark:hover:text-white md:dark:hover:bg-transparent ">ACCUEIL</a>
 
                         @endif
                     </li>
                     <li> @if($active == 'about')
-                            <a id="about" href="/about" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">À PROPOS</a>
+                            <a id="about" href="/about" class="block py-2 px-3 text-orange rounded  md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">À PROPOS</a>
                         @else
-                            <a id="about" href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">À PROPOS</a>
+                            <a id="about" href="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-orangeClair md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">À PROPOS</a>
 
                         @endif
                     </li>
                     <li>
                         @if($active == 'services')
-                            <a id="services" href="/services" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">SERVICES</a>
+                            <a id="services" href="/services" class="block py-2 px-3 text-orange rounded  md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">SERVICES</a>
 
                         @else
-                        <a id="services" href="/services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">SERVICES</a>
+                        <a id="services" href="/services" class="block py-2 px-3 text-gray-900 rounded hover:bg-orangeClair md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">SERVICES</a>
                         @endif
                     </li>
                     <li>
                         @if($active == 'reservation')
-                            <a id="reservation" href="/reservation" class="block py-2 px-3 text-orange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">RÉSERVATION</a>
+                            <a id="reservation" href="/reservation" class="block py-2 px-3 text-orange rounded  md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">RÉSERVATION</a>
                         @else
-                        <a id="reservation" href="/reservation" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ $active == 'reservation' ? 'active-link' : '' }}">RÉSERVATION</a>
+                        <a id="reservation" href="/reservation" class="block py-2 px-3 text-gray-900 rounded hover:bg-orangeClair md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ $active == 'reservation' ? 'active-link' : '' }}">RÉSERVATION</a>
                         @endif
                     </li>
 
