@@ -6,6 +6,7 @@
 
         <img src="/assets/6.png" alt="Image 2" class="absolute h-20 mt-64 -ml-2 lg:h-32">
 
+
         <div class="w-2/3 mx-auto text-beige">
             <div class="flex justify-between mt-20 md:mt-14" >
                 <p class="montserrat font-semibold text-lg lg:text-2xl">MAIL</p>

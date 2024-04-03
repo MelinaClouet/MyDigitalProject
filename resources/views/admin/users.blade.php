@@ -7,11 +7,37 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.css">
+
+    <!-- Ajoutez votre propre fichier CSS pour personnaliser les boutons -->
+    <style>
+        .dt-button {
+            background-color: #FD6D2F !important;
+            color: white !important;
+            border: 1px solid white !important ;
+            border-radius: 10px !important;
+        }
+
+    </style>
 </head>
 
 <body class="bg-beige mt-32">
 
 @include ('layouts.header', ['active' => 'about'])
+
+<div class="flex py-4">
+    <div class="w-3/4">
+        <p class="text-3xl pl-10 text-orange font-bold"> • • Gestion des clients • •</p>
+    </div>
+    <div class="w-1/4 flex justify-end">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
+
+</div>
+
 <div class="flex justify-center items-center">
     <div class="bg-white w-3/4 rounded overflow-hidden shadow-lg p-3">
         <table class="w-full cell-border stripe" id="myTable">
@@ -37,17 +63,26 @@
                         <a href="#" class="text-blue-500 mr-2 ml-4">
                             <i class="fas fa-pencil-alt"></i> <!-- Icone de crayon -->
                         </a>
-                        <a href="#" class="text-red-500">
+                        <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="deleteModal">
+                            <div class="flex items-center justify-center min-h-screen">
+                                <div class="relative bg-white w-96 max-w-md mx-auto rounded shadow-lg">
+                                    <div class="p-6">
+                                        <h2 class="text-xl font-semibold text-red-600">Confirmation de suppression</h2>
+                                        <p class="text-gray-600">Êtes-vous sûr de vouloir supprimer ce client ?</p>
+                                        <div class="mt-6 flex justify-end">
+                                            <button class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 mr-2" onclick="closeDeleteModal()">Annuler</button>
+                                            <button class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" id="suppression{{$customer->id}}" onclick="deleteClient({{$customer->id}})">Supprimer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-red-500" id="delete{{$customer->id}}" onclick="openDeleteModal({{$customer->id}})">
                             <i class="fas fa-trash-alt"></i> <!-- Icone de poubelle -->
                         </a>
                     </td>
-
-
-
                 </tr>
-
             @endforeach
-
             </tbody>
         </table>
     </div>
@@ -65,11 +100,9 @@
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
 
-
 <script>
     $(document).ready( function () {
         $('#myTable').DataTable({
-
             scrollX: true,
             layout: {
                 topStart: {
@@ -78,9 +111,48 @@
             },
             pageLength:10,
             language : {url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"},
-
         });
-    } );
+    });
 </script>
+<script>
+
+
+
+    function openDeleteModal(id) {
+        console.log(id);
+        document.getElementById('deleteModal').classList.remove('hidden');
+        return id;
+    }
+
+    function closeDeleteModal() {
+        document.getElementById('deleteModal').classList.add('hidden');
+    }
+
+    function deleteClient(id) {
+        console.log('suppression');
+        console.log(id);
+        let url='/admin/deleteUser/'+id;
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                id: id,
+                _token: "{{ csrf_token() }}",
+            },
+            success: function (response) {
+
+                console.log(response);
+                reloadTable();
+                closeDeleteModal();
+            }
+        });
+    }
+    //recharge le tableau après suppression
+    function reloadTable() {
+        $('#myTable').DataTable().ajax.reload();
+    }
+</script>
+
 </body>
 </html>

@@ -28,15 +28,17 @@
 
     <div class="mx-10 lg:w-1/2 lg:mt-28" id="text">
         <div class="flex items-center justify-center md:justify-centermd:mt-10 lg:justify-center">
-            <p class="montserrat text-2xl sm:text-xl mt-10 text-center lg:text-center lg:text-3xl">
-                MAYUDA, <br> qu'est ce que c'est ?
-            </p>
+
+
+            <h1 class="montserrat text-2xl sm:text-xl mt-10 text-center lg:text-center lg:text-3xl">Mayuda - Accompagnement au bien-être <br> pour enfants et adolescents</h1>
         </div>
         <div class="mt-7 montserrat text-center md:text-left">
             <p class="text-justify lg:text-lg">
-                Une entreprise spécialisée dans le bien-être de l'enfant et de l'adolescent. Un accompagnement
-                personnalisé et adapté aux besoins de chacun. Des formations de qualité pour enfants, adolescents et
-                adultes.
+                Découvrez Mayuda, votre partenaire pour le développement personnel de vos enfants.
+                Formée en psychologie et éducation,
+                notre coach offre des séances individuelles et des ateliers axés sur la relaxation,
+                la gestion des émotions et la construction de l'estime de soi.
+                Ensemble, construisons un avenir serein pour vos enfants.
             </p>
         </div>
 
@@ -67,25 +69,37 @@
 
 <div class="pb-10 bg-orange relative">
     <div class="flex items-center justify-center z-20">
-        <p class="text-beige montserrat text-lg mt-5 font-bold lg:text-2xl">NOS SERVICES</p>
+        <h2 class="text-beige montserrat text-lg mt-5 font-bold lg:text-2xl">NOS SERVICES</h2>
     </div>
+    <div class="flex items-center justify-center">
+        <div class="w-2/3">
+            <p class="text-justify py-5 lg:p-20 montserrat lg:text-lg text-white">
+                Nous proposons une gamme complète de services, comprenant des séances individuelles,
+                des ateliers de groupe et des formations sur mesure.
+                Que vous soyez à la recherche d'une relaxation profonde,
+                de techniques pour gérer le stress ou de conseils pour renforcer votre estime de soi,
+                Mayuda est là pour vous accompagner.
+            </p>
+        </div>
+    </div>
+
     <div class="absolute top-0 right-0 -mt-10 -mr-4 z-30">
         <img src="/assets/11.png" alt="My image" class="object-cover rounded-full h-24">
     </div>
     <div class="flex justify-evenly z-20 mt-5">
         <div>
             <img src="/assets/5.png" alt="Image 1" class="object-cover h-24 md:h-32 lg:h-40">
-            <p class="text-center text-white montserrat font-semibold mt-4">
+            <h3 class="text-center text-white montserrat font-semibold mt-4">
                 Soutient <br> scolaire
-            </p>
+            </3>
         </div>
         <div>
             <img src="/assets/4.png" alt="Image 2" class="object-cover h-24 md:h-32 lg:h-40">
-            <p class="text-center text-white montserrat font-semibold mt-4">Développement <br> personnel</p>
+            <h3 class="text-center text-white montserrat font-semibold mt-4">Développement <br> personnel</h3>
         </div>
         <div>
             <img src="/assets/3.png" alt="Image 3" class="object-cover h-24 md:h-32 lg:h-40">
-            <p class="text-center text-white montserrat font-semibold mt-4">Conseil <br> parental</p>
+            <h3 class="text-center text-white montserrat font-semibold mt-4">Conseil <br> parental</h3>
         </div>
     </div>
 </div>

@@ -22,9 +22,12 @@ class CustomerController extends Controller
         if($customer->status == 0){
             return redirect('/');
         }
+    }
 
-
-
+    public function deleteUser($id){
+        $customer = Customer::find($id);
+        $customer->delete();
+        return response()->json(['success' => 'Le client a été supprimé avec succès!']);
     }
 
     public function login(Request $request){

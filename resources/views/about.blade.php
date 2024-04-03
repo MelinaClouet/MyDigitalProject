@@ -15,19 +15,19 @@
 <div class="w-screen mt-16 flex flex-col md:flex-row  ">
     <div class="w-full p-8 md:ml-10">
         <div class="lg:flex lg:items-center lg:justify-center ">
-            <p class="text-violet font-bold text-2xl text-center mt-12 madimi-one-regular">QUELQUES MOTS <br> SUR
-                L'ENTREPRISE</p>
+            <h1 class="text-violet font-bold text-2xl text-center mt-12 madimi-one-regular">QUELQUES MOTS <br> SUR
+                L'ENTREPRISE</h1>
         </div>
 
-        <p class="montserrat my-10 text-justify">Bienvenue chez Mayuda, entreprise spécialisée dans le bien-être de l’enfant et son voyage vers
-            l’adolescence.</p>
+        <h2 class="montserrat my-10 text-justify">
+            Bienvenue chez Mayuda, votre partenaire dévoué dans le domaine du coaching de bien-être, spécialisé dans l'accompagnement de l'enfant vers l'adolescence.</h2>
         <div class="lg:flex lg:items-center lg:justify-center ">
             <p class="text-violet font-bold text-xl mt-12 madimi-one-regular lg:mt-6">Le pourquoi du comment.</p>
         </div>
 
-        <p class="montserrat my-10 text-justify"> Diplômée d’une Licence de Psychologie et Sciences de l’Education ainsi que d’un Master des Métiers
-            de l’Enseignement, de l’Education et de la Formation, mon cursus a toujours été centré sur le bien-
-            être et la transmission. </p>
+        <p class="montserrat my-10 text-justify"> Diplômée en Psychologie et Sciences de l'Éducation,
+            avec une expertise avérée dans les Métiers de l'Enseignement, de l'Éducation et de la Formation,
+            j'ai consacré mon parcours à cultiver le bien-être et à faciliter la transmission des connaissances. </p>
         <p class="montserrat my-10 mt-6 text-justify"></p>
     </div>
 
@@ -49,13 +49,15 @@
 
     <div class="w-full flex items-center justify-center mt-14">
         <div class="mr-5">
-            <p class="montserrat text-justify">C’est donc par le biais de mes études, et tout particulièrement lors de mes
-                expériences professionnelles, que je me suis rendue compte que la société actuelle contraint les
-                enfants à être de plus en plus sollicités à l’école et donc par conséquent, à se trouver plus
-                régulièrement en situation de stress. </p>
-            <p class="montserrat text-justify mt-10">A cela, s’ajoute un rythme intense entre la maison et l’école, avec
-                des horaires harassantes, des quantités de sommeil variables, des devoirs, des activités extra-
-                scolaires,… tout ce qui empêche l’enfant de se trouver dans une posture idéale d’apprentissage.</p>
+            <p class="montserrat text-justify">À travers mes expériences professionnelles,
+                j'ai constaté la pression grandissante que subissent les enfants,
+                soumis à un rythme effréné entre l'école, la maison, et les activités extrascolaires.
+                Cette réalité engendre un stress croissant, compromettant leur épanouissement
+                et leur apprentissage optimal. </p>
+            <p class="montserrat text-justify mt-10">C'est pourquoi je me suis orientée vers les métiers du
+                développement personnel, où j'ai découvert la puissance de la conscience de soi pour
+                une guérison individuelle. Le chemin vers le mieux-être passe par la gestion émotionnelle,
+                la découverte de soi, et l'amour propre.</p>
 
             <div class="flex justify-center mt-12 w-full">
                 <a href="/services">
@@ -75,11 +77,11 @@
                 ont permis pour tout individu, une prise en main de sa propre guérison. Se diriger vers un mieux-être,
                 c’est apprendre à gérer ses émotions, c’est découvrir la possibilité de grandir autrement, c’est
                 apprendre à aimer son corps et son être comme il se doit.</p>
-            <p class="montserrat text-justify mt-12">Mon expérience professionnelle en tant qu’Assistante pédagogique au sein d’un collège m’a permis
-                d’en apprendre beaucoup au sujet des enfants et des difficultés qu’ils rencontrent pour apprendre à
-                se connaître eux-mêmes, se comprendre et comprendre les autres. Pour cela, je souhaite me consacrer
-                personnellement au bien-être de l’enfant et de l’adolescent afin d’être en phase avec mes valeurs
-                profondes, et ainsi, diffuser au plus grand nombre l’épanouissement et la confiance en soi.</p>
+            <p class="montserrat text-justify mt-12">Mon engagement professionnel en tant qu'Assistante pédagogique m'a
+            permis de comprendre les besoins cruciaux des enfants et des adolescents dans leur quête d'identité et
+            d'équilibre. Ainsi, chez Mayuda, nous nous engageons à offrir un accompagnement personnalisé,
+            en phase avec vos valeurs profondes, pour favoriser l'épanouissement et la confiance en soi
+            de chaque individu.</p>
             <p class="montserrat text-justify mt-12"> Bienvenue chez Mayuda! </p>
             <div class="flex justify-center mt-12 mb-10">
                 <a href="/contact">

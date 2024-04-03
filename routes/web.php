@@ -53,4 +53,4 @@ Route::get('/admin/users', function () {
     return view('admin.users', ['customers' => $customers]);
 })->name('admin')->middleware(AdminMiddleware::class);
 
-
+Route::post('/admin/deleteUser/{id}', [CustomerController:: class , 'deleteUser'])->name('deleteUser')->middleware(AdminMiddleware::class);

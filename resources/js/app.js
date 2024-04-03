@@ -7,6 +7,9 @@ import interactionPlugin from '@fullcalendar/interaction';
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
