@@ -52,3 +52,5 @@ Route::get('/admin/users', function () {
     $customers= App\Models\Customer::all();
     return view('admin.users', ['customers' => $customers]);
 })->name('admin')->middleware(AdminMiddleware::class);
+
+
