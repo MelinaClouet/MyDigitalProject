@@ -17,6 +17,7 @@
 </head>
 <body class="bg-beige">
 @include ('layouts.headerAdmin')
+<p>Test</p>
 
 
 </body>

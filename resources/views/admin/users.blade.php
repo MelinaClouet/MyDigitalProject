@@ -20,11 +20,11 @@
     </style>
 </head>
 
-<body class="bg-beige mt-32">
+<body class="bg-beige ">
 
-@include ('layouts.header', ['active' => 'about'])
+@include ('layouts.headerAdmin')
 
-<div class="flex py-4">
+<div class="flex">
     <div class="w-3/4">
         <p class="text-3xl pl-10 text-orange font-bold"> • • Gestion des clients • •</p>
     </div>
@@ -38,9 +38,9 @@
 
 </div>
 
-<div class="flex justify-center items-center">
+<div class="flex justify-end items-end mr-10 " id="divTableUser">
     <div class="bg-white w-3/4 rounded overflow-hidden shadow-lg p-3">
-        <table class="w-full cell-border stripe" id="myTable">
+        <table class="w-full cell-border stripe " id="myTable">
             <thead class="text-orange">
             <tr class="bg-white">
                 <th class="px-4 py-2">NOM</th>
@@ -115,6 +115,9 @@
     });
 </script>
 <script>
+
+
+
 
 
 
