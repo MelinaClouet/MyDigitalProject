@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('type_events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->string('color');
-            $table->float('price');
-            $table->integer('duration');
             $table->timestamps();
         });
     }

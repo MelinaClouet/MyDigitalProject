@@ -25,17 +25,9 @@
 @include ('layouts.headerAdmin')
 
 <div class="flex">
-    <div class="w-3/4">
-        <p class="text-3xl pl-10 text-orange font-bold"> • • Gestion des clients • •</p>
+    <div class="w-3/4 flex ml-auto" id="divTitleUsers">
+        <p class="text-3xl p-5 text-violet font-bold"> • • GESTION DES CLIENTS • •</p>
     </div>
-    <div class="w-1/4 flex justify-end">
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-    </div>
-
 </div>
 
 <div class="flex justify-end items-end mr-10 " id="divTableUser">
@@ -43,6 +35,7 @@
         <table class="w-full cell-border stripe " id="myTable">
             <thead class="text-orange">
             <tr class="bg-white">
+                <th class="">#</th>
                 <th class="px-4 py-2">NOM</th>
                 <th class="px-4 py-2">PRENOM</th>
                 <th class="px-4 py-2">Adresse</th>
@@ -54,6 +47,7 @@
             <tbody>
             @foreach($customers as $customer)
                 <tr>
+                    <td class="border px-4 py-2">{{ $customer->id }}</td>
                     <td class="border px-4 py-2">{{ $customer->lastName }}</td>
                     <td class="border px-4 py-2">{{ $customer->firstName }}</td>
                     <td class="border px-4 py-2">{{ $customer->address }} {{$customer->postal_code}} {{$customer->city}}</td>
@@ -64,7 +58,7 @@
                             <i class="fas fa-pencil-alt"></i> <!-- Icone de crayon -->
                         </a>
                         <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="deleteModal">
-                            <div class="flex items-center justify-center min-h-screen">
+                            <div class="flex items-center justify-center min-h-screen" id="deleteModal1">
                                 <div class="relative bg-white w-96 max-w-md mx-auto rounded shadow-lg">
                                     <div class="p-6">
                                         <h2 class="text-xl font-semibold text-red-600">Confirmation de suppression</h2>
@@ -128,7 +122,7 @@
     }
 
     function closeDeleteModal() {
-        document.getElementById('deleteModal').classList.add('hidden');
+        document.getElementById('deleteModal1').classList.add('hidden');
     }
 
     function deleteClient(id) {

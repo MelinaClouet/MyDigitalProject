@@ -42,19 +42,19 @@ $me=session('me');
             <ul class="mt-10">
                 <p class="text-orange font-bold montserrat py-5">ADMIN</p>
                 <li class="mb-1 group">
-                    <a href="" class="flex items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <a href="/admin/services" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                         <i class='bx bx-book-heart pr-3 text-xl' style='color:#F8B59C'  ></i>
                         <p class="montserrat text-sm ">SERVICES</p>
                     </a>
                 </li>
                 <li class="mb-1 group">
-                    <a href="/admin/users" class="flex items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                    <a href="/admin/users" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class='bx bx-user pr-3 text-xl' style='color:#f8b59c'  ></i>
                         <span class="montserrat text-sm">CLIENTS</span>
                     </a>
                 </li>
                 <li class="mb-1 group">
-                    <a href="" class="flex  items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <a href="" class="flex  items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                         <i class='bx bxs-graduation pr-3 text-xl' style='color:#F8B59C' ></i>
                         <span class="montserrat text-sm">FORMATIONS</span>
                     </a>
@@ -62,18 +62,22 @@ $me=session('me');
 
                 <p class="text-orange font-bold montserrat py-5">PERSO</p>
                 <li class="mb-1 group ">
-                    <a href="" class="flex items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <a href="" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                         <i class='bx bx-calendar pr-3 text-xl' style='color:#F8B59C'></i>
                         <span class=" montserrat text-sm">RÉSERVATIONS</span>
                     </a>
                 </li>
                 <li class="mb-1 group">
-                    <a href="" class="flex items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <a href="" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                         <i class='bx bx-envelope pr-3 text-lg' style='color:#F8B59C'></i>
                         <span class="montserrat text-sm">MESSAGES</span>
                     </a>
                 </li>
+
+
+
             </ul>
+            <a href="/logout" class="absolute bottom-0 left-0 w-full bg-orange text-white py-3 text-center">Déconnexion</a>
         </div>
         <!-- end sidenav -->
 
@@ -84,14 +88,17 @@ $me=session('me');
             const toggleMenuBtn = document.getElementById('toggleMenuBtn');
             const sidebarMenu = document.querySelector('.sidebar-menu');
             const myTable= document.getElementById('divTableUser');
-
-
+            const divTitleServices= document.getElementById('divTitleServices');
 
             toggleMenuBtn.addEventListener('click', function() {
                 sidebarMenu.classList.toggle('-translate-x-full');
                 toggleMenuBtn.classList.toggle('pl-64');
                 divTableUser.classList.toggle('justify-center');
                 divTableUser.classList.toggle('items-center');
+                divTitleUsers.classList.toggle('ml-auto');
+
+
+
 
             });
 
