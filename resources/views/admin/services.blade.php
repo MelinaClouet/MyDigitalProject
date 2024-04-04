@@ -19,6 +19,19 @@
 
     </style>
 </head>
+<?php
+    use App\Models\Event;
+    use App\Models\EventCategorie;
+    use App\Models\EventVariation;
+
+    $events = Event::all();
+    $eventCategories= EventCategorie::where('event_id', '1')->get();
+    $eventVariationsAtelier= EventVariation::where('eventCategorie_id', '1')->get();
+    $eventsDebat= EventVariation::where('eventCategorie_id', '2')->get();
+    $eventConsulationIndividuelle= EventVariation::where('eventCategorie_id', '3')->get();
+    $eventCoursParticuliers= EventVariation::where('eventCategorie_id', '4')->get();
+
+?>
 
 <body class="bg-beige ">
 
@@ -29,12 +42,56 @@
         <p class="text-3xl text-violet font-bold"> • • SERVICES • •</p>
     </div>
 
-    <div class="bg-orangeClair rounded-2xl w-1/2 flex flex-col px-5">
-        <p class="text-lg font-semibold montserrat py-5">ATELIER BIEN-ÊTRE</p>
-        <div>
+    <div class="w-full flex flex-col items-center justify-center gap-y-5">
+        @foreach($eventCategories as $event)
+            <div class="bg-orangeClair rounded-2xl w-1/2 flex flex-col px-4" >
+                <p class="text-lg font-semibold montserrat pt-3 pb-2">{{$event->name}}</p>
+                <div>
+                        @if($event->id == 1)
+                            @foreach($eventVariationsAtelier as $eventVariation)
+                                <div class="flex flex-row items-center justify-between py-3">
+                                    <p class="montserrat ml-4"> • Atelier {{$eventVariation->duration}}</p>
+                                    <p class=" montserrat">{{$eventVariation->price}} </p>
+                                </div>
+                            @endforeach
+                        @endif
+                        @if($event->id==2)
+                            @foreach($eventsDebat as $eventDebat)
+                                <div class="flex flex-row items-center justify-between py-2">
+                                    <p class="montserrat ml-4"> • {{$eventDebat->name}}</p>
+                                    <p class="montserrat">{{$eventDebat->price}} </p>
+                                </div>
 
-        </div>
+                            @endforeach
+                        @endif
+                        @if($event->id==3)
+                            @foreach($eventConsulationIndividuelle as $eventConsulation)
+                                <div class="flex flex-row items-center justify-between py-2">
+                                    <p class="montserrat ml-4"> • {{$eventConsulation->name}}</p>
+                                    <p class="montserrat">{{$eventConsulation->price}}</p>
+                                </div>
+                          @endforeach
+                        @endif
+                        @if($event->id==4)
+                            @foreach($eventCoursParticuliers as $eventCours)
+                                <div class="flex flex-row items-center justify-between py-2">
+                                    <p class="montserrat ml-4"> • {{$eventCours->name}}</p>
+                                    <p class="montserrat">{{$eventCours->price}}</p>
+                                </div>
+                            @endforeach
+                         @endif
+
+                    <button class="w-full bg-beige rounded-2xl mb-5 font-semibold">
+                        +
+                    </button>
+
+                </div>
+            </div>
+        @endforeach
     </div>
+
+
+
 </div>
 
 
