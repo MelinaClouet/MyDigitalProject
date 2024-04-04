@@ -2,26 +2,23 @@
 
 namespace Database\Seeders;
 
-use App\Models\Customer;
 use App\Models\Event;
-use App\Models\typeEvent;
+use App\Models\EventCategorie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
-class TypeEventSeeder extends Seeder
+class EventCategorieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $jsonFile = file_get_contents(database_path('data/typeEvent.json'));
+        $jsonFile = file_get_contents(database_path('data/eventCategories.json'));
         //create typeEvent for all lines in the json file
         foreach (json_decode($jsonFile, true) as $typeEvent) {
-            $typeEvent = new Event($typeEvent);
+            $typeEvent = new EventCategorie($typeEvent);
             $typeEvent->save();
         }
-
     }
 }

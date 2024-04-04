@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Atelier bien-être",
+        "event_id": 1
+    },
+    {
+        "name": "Mini débat",
+        "event_id": 1
+    },
+    {
+        "name": "Consultation individuelle",
+        "event_id": 1
+    },
+    {
+        "name": "Cours Particulier",
+        "event_id": 1
+    },
+    {
+        "name": "Formation pour adultes",
+        "event_id": 2
+    },
+    {
+        "name": "Formation pour enfants",
+        "event_id": 2
+    }
+]
