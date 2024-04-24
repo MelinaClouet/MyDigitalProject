@@ -1,7 +1,7 @@
 <?php
 use App\Models\EventCategorie;
 ?>
-<!-- Inclure Tailwind CSS -->
+    <!-- Inclure Tailwind CSS -->
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 <!-- HTML de la modal -->
@@ -15,14 +15,14 @@ use App\Models\EventCategorie;
     <div x-show="isOpen" @click.away="isOpen = false" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500 bg-opacity-50">
         <div class="bg-white rounded-lg p-8 max-w-md mx-auto">
             <!-- Contenu de la modal -->
-            <h2 class="text-2xl font-semibold mb-4 text-orange">Ajouter un service</h2>
-            <form action="{{route('addService')}}" method="POST">
+            <h2 class="text-2xl font-semibold mb-4 text-orange">Ajouter un type de service</h2>
+            <form action="{{route('addFormation')}}" method="POST">
                 @csrf
                 <div>
                     <label class="text-orangeClair" for="type">Type</label>
                     <select name="type" id="type" class="w-full bg-gray-100 p-2 rounded-md mt-2">
                         <?php
-                        $events=EventCategorie::where('event_id', '1')->get();
+                        $events=EventCategorie::where('event_id', '2')->get();
                         ?>
                         @foreach($events as $event)
                             <option value="{{ $event->id }}" @if($event->id === $defaultValue) selected @endif>{{ $event->name }}</option>
@@ -39,9 +39,9 @@ use App\Models\EventCategorie;
                             <input type="text" name="duration" id="duration" class="w-full bg-gray-100 p-2 rounded-md mt-2" required>
                         </div>
 
-                       <div class="w-1/2">
+                        <div class="w-1/2">
                             <label class="text-orangeClair" for="price">Prix</label>
-                            <input type="number" name="price" id="price" class="w-full bg-gray-100 p-2 rounded-md mt-2" required>
+                            <input type="number" name="price" id="price" class="w-full bg-gray-100 p-2 rounded-md mt-2" >
                         </div>
 
                     </div>
@@ -64,52 +64,3 @@ use App\Models\EventCategorie;
 
 <!-- Inclure Alpine.js pour gérer la logique JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-<script>
-    //if all champs is not remplis the bouton Ajouter is disable
-
-    const name = document.getElementById('name');
-    const duration = document.getElementById('duration');
-    const price = document.getElementById('price');
-    const max_capacity = document.getElementById('max_capacity');
-    const type = document.getElementById('type');
-    const ajouter = document.getElementById('btnAdd');
-    ajouter.disabled = true;
-    name.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    duration.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    price.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    max_capacity.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    type.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-
-
-
-</script>

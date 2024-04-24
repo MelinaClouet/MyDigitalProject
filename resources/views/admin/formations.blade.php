@@ -26,7 +26,7 @@ use App\Models\EventCategorie;
 use App\Models\EventVariation;
 
 $events = Event::all();
-$eventCategories = EventCategorie::where('event_id', '1')->get();
+$eventCategories = EventCategorie::where('event_id', '2')->get();
 $eventVariationsAtelier = EventVariation::where('eventCategorie_id', '1')->get();
 $eventsDebat = EventVariation::where('eventCategorie_id', '2')->get();
 $eventConsulationIndividuelle = EventVariation::where('eventCategorie_id', '3')->get();
@@ -40,7 +40,7 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
 
 <div class="flex flex-col items-center justify-center ">
     <div class="w-full py-10 flex flex-col items-center" id="divTitleServices">
-        <p class="text-3xl text-violet font-bold"> • • SERVICES • •</p>
+        <p class="text-3xl text-violet font-bold"> • • FORMATIONS • •</p>
     </div>
 
     <div class="w-full flex flex-col items-center justify-center gap-y-5">
@@ -48,22 +48,29 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
             <div class="bg-orangeClair rounded-2xl w-full md:w-1/2 flex flex-col items-center px-4">
                 <p class="text-lg font-semibold montserrat pt-3 pb-2">{{$event->name}}</p>
                 <div class="w-full">
-                        <?php
-                        $eventVariations = EventVariation::where('eventCategorie_id', $event->id)->get();
+                    <?php
+                    $eventVariations = EventVariation::where('eventCategorie_id', $event->id)->get();
                         ?>
                     @foreach($eventVariations as $eventVariation)
                         <div class="flex flex-row items-center justify-between py-2">
                             <p class="montserrat ml-4"> • {{$eventVariation->name}}</p>
-                            <p class="montserrat">{{$eventVariation->price}}€</p>
+                            @if($eventVariation->price==null)
+                                <p class="montserrat ml-4">{{$eventVariation->max_capacity}} personnes</p>
+                            @else
+                                <p class="montserrat ml-4"> • {{$eventVariation->price}}€</p>
+                            @endif
                         </div>
                     @endforeach
-                </div>
-                <div class="w-full">
-                    @include ('contents.modalAddEventVariation', ['defaultValue' => $event->id])
+                    <div class="w-full">
+                        @include ('contents.modalAddEventVariationFormation', ['defaultValue' => $event->id])
+                    </div>
+
                 </div>
             </div>
         @endforeach
-        @include('contents.modalAddEventCategorie', ['defaultValue' => '1'])
+
+        @include('contents.modalAddEventCategorie', ['defaultValue' => '2'])
+
     </div>
 </div>
 

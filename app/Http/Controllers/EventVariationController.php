@@ -16,9 +16,17 @@ class EventVariationController extends Controller
         $eventVariation->max_capacity = $request->max_capacity;
         $eventVariation->duration = $request->duration;
         $eventVariation->save();
+        return redirect('/admin/services');
+    }
+    public function addFormation(Request $request){
+        $eventVariation = new EventVariation();
+        $eventVariation->name = $request->name;
+        $eventVariation->price = $request->price;
+        $eventVariation->eventCategorie_id = $request->type;
+        $eventVariation->max_capacity = $request->max_capacity;
+        $eventVariation->duration = $request->duration;
 
-        return redirect('/admin/services')->with('success', 'Service added successfully');
-
-
+        $eventVariation->save();
+        return redirect('/admin/formations');
     }
 }

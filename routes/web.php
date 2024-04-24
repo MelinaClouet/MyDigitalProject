@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EventCategorieController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventVariationController;
 use App\Http\Middleware\AdminMiddleware;
@@ -61,3 +62,11 @@ Route::get ('/admin/services', function () {
 })->name('admin')->middleware(AdminMiddleware::class);
 
 Route::post('/admin/addService', [EventVariationController:: class , 'addService'])->name('addService')->middleware(AdminMiddleware::class);
+
+Route::post('/admin/addEventCategorie', [EventCategorieController:: class , 'addEventCategorie'])->name('addEventCategorie')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/formations', function () {
+    return view('admin.formations');
+})->name('admin')->middleware(AdminMiddleware::class);
+
+Route::post('/admin/addFormation', [EventVariationController:: class , 'addFormation'])->name('addFormation')->middleware(AdminMiddleware::class);
