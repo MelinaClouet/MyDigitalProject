@@ -51,39 +51,44 @@
                             @foreach($eventVariationsAtelier as $eventVariation)
                                 <div class="flex flex-row items-center justify-between py-3">
                                     <p class="montserrat ml-4"> • Atelier {{$eventVariation->duration}}</p>
-                                    <p class=" montserrat">{{$eventVariation->price}} </p>
+                                    <p class=" montserrat">{{$eventVariation->price}} €</p>
                                 </div>
+
                             @endforeach
+
+                            @include ('contents.modal', ['defaultValue' => $event->id])
                         @endif
+
                         @if($event->id==2)
                             @foreach($eventsDebat as $eventDebat)
                                 <div class="flex flex-row items-center justify-between py-2">
                                     <p class="montserrat ml-4"> • {{$eventDebat->name}}</p>
-                                    <p class="montserrat">{{$eventDebat->price}} </p>
+                                    <p class="montserrat">{{$eventDebat->price}}€ </p>
                                 </div>
 
                             @endforeach
+
+                            @include ('contents.modal', ['defaultValue' => $event->id])
                         @endif
                         @if($event->id==3)
                             @foreach($eventConsulationIndividuelle as $eventConsulation)
                                 <div class="flex flex-row items-center justify-between py-2">
                                     <p class="montserrat ml-4"> • {{$eventConsulation->name}}</p>
-                                    <p class="montserrat">{{$eventConsulation->price}}</p>
+                                    <p class="montserrat">{{$eventConsulation->price}}€</p>
                                 </div>
                           @endforeach
+
+                            @include ('contents.modal', ['defaultValue' => $event->id])
                         @endif
                         @if($event->id==4)
                             @foreach($eventCoursParticuliers as $eventCours)
                                 <div class="flex flex-row items-center justify-between py-2">
                                     <p class="montserrat ml-4"> • {{$eventCours->name}}</p>
-                                    <p class="montserrat">{{$eventCours->price}}</p>
+                                    <p class="montserrat">{{$eventCours->price}}€</p>
                                 </div>
                             @endforeach
+                            @include ('contents.modal', ['defaultValue' => $event->id])
                          @endif
-
-                    <button class="w-full bg-beige rounded-2xl mb-5 font-semibold">
-                        +
-                    </button>
 
                 </div>
             </div>
@@ -96,6 +101,14 @@
 
 
 
+<script>
+    // Inclure le code Alpine.js pour la gestion de l'état de la modal
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('modal', () => ({
+            isOpen: false,
+        }));
+    });
+</script>
 
 
 

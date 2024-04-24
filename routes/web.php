@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventVariationController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +59,5 @@ Route::post('/admin/deleteUser/{id}', [CustomerController:: class , 'deleteUser'
 Route::get ('/admin/services', function () {
     return view('admin.services',);
 })->name('admin')->middleware(AdminMiddleware::class);
+
+Route::post('/admin/addService', [EventVariationController:: class , 'addService'])->name('addService')->middleware(AdminMiddleware::class);
