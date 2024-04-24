@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
+
+    public function getCustomers(Request $request){
+        $customer= Customer::where('id', $request->id)->first();
+        return $customer;
+    }
+
     public function addCustomer(Request $request){
         $customer= new Customer();
         $customer->firstName = $request->firstName;

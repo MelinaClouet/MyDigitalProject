@@ -29,4 +29,9 @@ class EventVariationController extends Controller
         $eventVariation->save();
         return redirect('/admin/formations');
     }
+
+    public function typeEvent($id){
+        $eventVariation = EventVariation::where('id', $id)->get();
+        return $eventVariation;
+    }
 }

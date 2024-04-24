@@ -4,6 +4,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EventCategorieController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventVariationController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +38,9 @@ Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
 Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent');
 
-Route::get('/getEvents', [EventController:: class , 'getEvents'])->name('getEvents');
+Route::get('/getEvents', [ReservationController:: class , 'getEvents'])->name('getEvents');
+
+Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
 Route::get('/trash', function () {
     return view('trash');
@@ -70,3 +73,12 @@ Route::get('/admin/formations', function () {
 })->name('admin')->middleware(AdminMiddleware::class);
 
 Route::post('/admin/addFormation', [EventVariationController:: class , 'addFormation'])->name('addFormation')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/allReservations', function () {
+    $events= App\Models\Event::all();
+    return view('admin.allReservations', ['events' => $events]);
+})->name('admin')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/getAllEvent' , [ReservationController:: class , 'getAllEvent'])->name('getAllEvent')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/getCustomer' , [CustomerController:: class , 'getCustomers'])->name('getCustomers')->middleware(AdminMiddleware::class);

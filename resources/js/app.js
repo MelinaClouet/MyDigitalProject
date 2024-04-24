@@ -49,15 +49,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     var reservations= response.events;
                     for (var i = 0; i < reservations.length; i++) {
                         console.log(reservations[i]);
-                        events.push({
-                            title: reservations[i].lastName + ' ' + reservations[i].firstName,
-                            start: reservations[i].startDate,
-                            end: reservations[i].endDate,
-                            color: typeEvent(reservations[i].type_event),
+
+                        $.ajax({
+                            url: '/typeEvent/'+reservations[i].event_id,
+                            type: 'GET',
+                            success: function(response) {
+                                console.log(response);
+                                var typeEvent = response;
+                               for (var j = 0; j < typeEvent.length; j++){
+                                   events.push({
+                                       title: typeEvent[j].name,
+                                       start: reservations[i].startDate,
+                                       end: reservations[i].endDate,
+                                   });
+                                   console.log(events);
+                                      successCallback(events);
+                               }
+                            }
                         });
+
                     }
-                    console.log(events);
-                    successCallback(events);
                 }
             });
         },
@@ -72,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function typeEvent(type) {
     switch (type) {
         case 'meeting':
-            return '#9C84C2';
+            return '1';
         case 'sick':
             return 'bg-primary';
         case 'Maladie':
@@ -83,3 +94,85 @@ function typeEvent(type) {
             return 'bg-info';
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendarAdmin');
+
+    var calendar = new Calendar(calendarEl, {
+        locale: 'fr',
+        plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
+        firstDay: 1,
+        headerToolbar: {
+            left: 'prev,next today',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        businessHours: {
+            daysOfWeek: [1, 2, 3, 4, 5],
+            startTime: '08:00',
+            endTime: '18:00'
+        },
+        initialView: 'dayGridMonth',
+        editable:false,
+        buttonIcons: true,
+        themeSystem: 'bootstrap5',
+        buttonText: {
+            prev:'<',
+            next:'>',
+            today: 'Aujourd\'hui',
+            month: 'Mois',
+            week: 'Semaine',
+            day: 'Jour'
+        },
+        events: function (fetchInfo, successCallback, failureCallback) {
+            var events=[];
+            // Récupérer les congés depuis la route getAllLeave
+            $.ajax({
+                url: '/admin/getAllEvent',
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    var reservations= response;
+                    for (var i = 0; i < reservations.length; i++) {
+                        console.log(reservations[i]);
+                        //requet ajax with route /Admin/getCustomer
+                        $.ajax({
+                            url: '/admin/getCustomer',
+                            type: 'GET',
+                            data: {
+                                id: reservations[i].customer_id
+                            },
+                            success: function(response) {
+                                console.log(response);
+                                var customer = response;
+                                console.log('reservations');
+                                console.log(reservations[0]);
+                                for(var j = 0; j < reservations.length; j++){
+                                    if(reservations[j].customer_id == customer.id){
+                                        events.push({
+                                            title: customer.lastName + ' ' + customer.firstName,
+                                            start: reservations[j].startDate,
+                                            end: reservations[j].endDate,
+                                            color: typeEvent(reservations[j].type_event),
+                                        });
+                                    }
+                                }
+
+                                console.log(events);
+                                successCallback(events);
+                            }
+                        });
+
+
+                    }
+                }
+            });
+        },
+
+
+    });
+
+    calendar.render();
+
+});
+

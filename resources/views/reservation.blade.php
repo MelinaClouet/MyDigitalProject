@@ -8,7 +8,6 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
 
-        <script src="/assets/js/calendar.js"></script>
 
 
     </head>
@@ -35,8 +34,8 @@
             </div>
             <hr class="flex-grow h-1 bg-orangeClair">
         </div>
-        <div class="flex w-full">
-            <div class="w-full p-10" id="calendar"></div>
+        <div class="flex w-full p-10">
+            <div class="w-full " id="calendar"></div>
         </div>
 
 

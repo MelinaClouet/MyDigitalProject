@@ -41,6 +41,7 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
 <div class="flex flex-col items-center justify-center ">
     <div class="w-full py-10 flex flex-col items-center" id="divTitleServices">
         <p class="text-3xl text-violet font-bold"> • • FORMATIONS • •</p>
+        <p class="text-lg text-orange font-bold">INTERVENTIONS DANS LES ÉTABLISSEMENTS</p>
     </div>
 
     <div class="w-full flex flex-col items-center justify-center gap-y-5">

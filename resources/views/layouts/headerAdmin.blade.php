@@ -62,7 +62,7 @@ $me=session('me');
 
                 <p class="text-orange font-bold montserrat py-5">PERSO</p>
                 <li class="mb-1 group ">
-                    <a href="" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <a href="/admin/allReservations" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                         <i class='bx bx-calendar pr-3 text-xl' style='color:#F8B59C'></i>
                         <span class=" montserrat text-sm">RÉSERVATIONS</span>
                     </a>
@@ -89,6 +89,7 @@ $me=session('me');
             const sidebarMenu = document.querySelector('.sidebar-menu');
             const myTable= document.getElementById('divTableUser');
             const divTitleServices= document.getElementById('divTitleServices');
+            const calendarAdmin= document.getElementById('calendarAdmin');
 
             toggleMenuBtn.addEventListener('click', function() {
                 sidebarMenu.classList.toggle('-translate-x-full');
@@ -96,8 +97,6 @@ $me=session('me');
                 divTableUser.classList.toggle('justify-center');
                 divTableUser.classList.toggle('items-center');
                 divTitleUsers.classList.toggle('ml-auto');
-
-
 
 
             });
