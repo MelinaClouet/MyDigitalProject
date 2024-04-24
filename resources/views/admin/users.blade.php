@@ -41,7 +41,7 @@
                 <th class="px-4 py-2">Adresse</th>
                 <th class="px-4 py-2">N° téléphone</th>
                 <th class="px-4 py-2">Email</th>
-                <th class="px-4 py-2">ACTIONS</th>
+                <!--<th class="px-4 py-2">ACTIONS</th>-->
             </tr>
             </thead>
             <tbody>
@@ -53,9 +53,9 @@
                     <td class="border px-4 py-2">{{ $customer->address }} {{$customer->postal_code}} {{$customer->city}}</td>
                     <td class="border px-4 py-2">{{ $customer->phone }}</td>
                     <td class="border px-4 py-2">{{ $customer->email }}</td>
-                    <td class="border py-2 ">
+                   <!-- <td class="border py-2 ">
                         <a href="#" class="text-blue-500 mr-2 ml-4">
-                            <i class="fas fa-pencil-alt"></i> <!-- Icone de crayon -->
+                            <i class="fas fa-pencil-alt"></i>
                         </a>
                         <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="deleteModal">
                             <div class="flex items-center justify-center min-h-screen" id="deleteModal1">
@@ -74,7 +74,7 @@
                         <a href="#" class="text-red-500" id="delete{{$customer->id}}" onclick="openDeleteModal({{$customer->id}})">
                             <i class="fas fa-trash-alt"></i> <!-- Icone de poubelle -->
                         </a>
-                    </td>
+                    </td>-->
                 </tr>
             @endforeach
             </tbody>

@@ -42,6 +42,8 @@ Route::get('/getEvents', [ReservationController:: class , 'getEvents'])->name('g
 
 Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
+Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation');
+
 Route::get('/trash', function () {
     return view('trash');
 })->name('trash');
