@@ -19,7 +19,7 @@ class FirstAdmin extends Seeder
         // Create an employee from the decoded JSON
         $employee = new Customer(json_decode($jsonFile, true));
 
-        $employee->password = Hash::make($employee->password);
+        $employee->password = md5($employee->password);
 
         // Save the employee in the database
         $employee->save();
