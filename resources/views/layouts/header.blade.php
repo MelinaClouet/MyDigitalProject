@@ -58,6 +58,13 @@
                         <a id="reservation" href="/reservation" class="block py-2 px-3 text-gray-900 rounded hover:bg-orangeClair md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ $active == 'reservation' ? 'active-link' : '' }}">RÉSERVATION</a>
                         @endif
                     </li>
+                    @if(session('me'))
+                        @if($active == 'rendezVous')
+                            <a id="rendezVous" href="/rendezVous" class="block py-2 px-3 text-orange rounded  md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ">MES RENDEZ-VOUS</a>
+                        @else
+                            <a id="rendezVous" href="/rendezVous" class="block py-2 px-3 text-gray-900 rounded hover:bg-orangeClair md:hover:bg-transparent md:border-0 md:hover:text-orange md:p-0 dark:text-white md:dark:hover:text-orange dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ $active == 'rendezVous' ? 'active-link' : '' }}">MES RENDEZ-VOUS</a>
+                        @endif
+                    @endif
 
                     <div class="flex items-center justify-between">
                         <a href="/login" class="mr-5">
