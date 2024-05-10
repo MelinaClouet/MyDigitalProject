@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CollectiveEventController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EventCategorieController;
 use App\Http\Controllers\EventController;
@@ -91,3 +92,13 @@ Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->
 Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation')->middleware(AdminMiddleware::class);
 
 Route::get('/admin/activeAccount/{id}', [CustomerController:: class , 'activeAccount'])->name('activeAccount')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/meet', function () {
+    return view('admin.meet');
+})->name('admin')->middleware(AdminMiddleware::class);
+
+Route::post('/admin/addMeet', [CollectiveEventController:: class , 'addMeet'])->name('addMeet')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/getEventCategories/{eventId}', [EventCategorieController:: class , 'getEventCategories'])->name('getEventCategories')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/getEventVariations/{eventCategoryId}', [EventVariationController:: class , 'getEventVariations'])->name('getEventVariations')->middleware(AdminMiddleware::class);

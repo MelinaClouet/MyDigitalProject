@@ -34,4 +34,11 @@ class EventVariationController extends Controller
         $eventVariation = EventVariation::where('id', $id)->get();
         return $eventVariation;
     }
+    public function getEventVariations($eventCategoryId) {
+        // Récupérer les variations d'événements en fonction de l'ID de la catégorie d'événement
+        $eventVariations = EventVariation::where('eventCategorie_id', $eventCategoryId)->get();
+
+        return response()->json($eventVariations);
+    }
+
 }

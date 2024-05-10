@@ -67,6 +67,12 @@ $me=session('me');
                         <span class=" montserrat text-sm">RÉSERVATIONS</span>
                     </a>
                 </li>
+                <li class="mb-1 group ">
+                    <a href="/admin/meet" class="flex items-center py-2 px-4 text-gray-900 hover:bg-beige hover:text-black rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                        <i class='bx bxs-school pr-3 text-xl' style='color:#F8B59C'></i>
+                        <span class=" montserrat text-sm">RENDEZ-VOUS COMMUN</span>
+                    </a>
+                </li>
 
 
 

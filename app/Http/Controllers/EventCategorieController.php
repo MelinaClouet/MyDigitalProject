@@ -20,4 +20,12 @@ class EventCategorieController extends Controller
             return redirect('/admin/formations');
 
     }
+
+    public function getEventCategories($eventId) {
+        // Récupérer les catégories d'événements en fonction de l'ID de l'événement
+        $eventCategories = EventCategorie::where('event_id', $eventId)->get();
+
+        return response()->json($eventCategories);
+    }
+
 }
