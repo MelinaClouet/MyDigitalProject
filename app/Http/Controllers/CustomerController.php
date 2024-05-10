@@ -19,7 +19,7 @@ class CustomerController extends Controller
         $customer->firstName = $request->firstName;
         $customer->lastName = $request->lastName;
         $customer->email = $request->email;
-        $customer->password = Hash::make($request->password);
+        $customer->password = md5($request->password);
         $customer->phone = $request->phone;
         $customer->address = $request->address;
         $customer->city = $request->city;
@@ -30,18 +30,33 @@ class CustomerController extends Controller
         }
     }
 
+    public function updateCustomer(Request $request){
+        $customer = Customer::find($request->id);
+        $customer->firstName = $request->firstName;
+        $customer->lastName = $request->lastName;
+        $customer->email = $request->email;
+        $customer->password = Hash::make($request->password);
+        $customer->phone = $request->phone;
+        $customer->address = $request->address;
+        $customer->city = $request->city;
+        $customer->postal_code = $request->postalCode;
+        $customer->save();
+        return redirect('/admin/users');
+    }
+
     public function deleteUser($id){
         $customer = Customer::find($id);
         $customer->delete();
-        return response()->json(['success' => 'Le client a été supprimé avec succès!']);
+        return redirect('/admin/users');
     }
 
     public function login(Request $request){
         $customer = Customer::where('email', $request->email)->first();
-        if($customer && Hash::check($request->password, $customer->password)){
+
+        if($customer && $customer->password==md5($request->password)){
             session()->put('me', $customer);
             if($customer->status==1){
-                return redirect('/admin');
+                return redirect('/admin/services');
             }
             return redirect('/');
         }
@@ -51,6 +66,14 @@ class CustomerController extends Controller
     public function logout(){
         session()->forget('me');
         return redirect('/');
+    }
+
+    public function activeAccount($id){
+        $customer = Customer::find($id);
+        $customer->status = 1;
+        $customer->save();
+        return redirect('/admin/users');
+
     }
 
 }

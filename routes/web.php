@@ -36,17 +36,14 @@ Route::post('/addCustomer', [CustomerController:: class , 'addCustomer'])->name(
 
 Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
-Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent');
-
-Route::get('/getEvents', [ReservationController:: class , 'getEvents'])->name('getEvents');
-
-Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
-
-Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation');
 
 Route::get('/trash', function () {
     return view('trash');
 })->name('trash');
+
+Route::get('/rendezVous', function () {
+    return view('rendezVous');
+})->name('rendezVous');
 
 Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
 
@@ -60,7 +57,7 @@ Route::get('/admin/users', function () {
     return view('admin.users', ['customers' => $customers]);
 })->name('admin')->middleware(AdminMiddleware::class);
 
-Route::post('/admin/deleteUser/{id}', [CustomerController:: class , 'deleteUser'])->name('deleteUser')->middleware(AdminMiddleware::class);
+Route::get('/admin/deleteUser/{id}', [CustomerController:: class , 'deleteUser'])->name('deleteUser')->middleware(AdminMiddleware::class);
 
 Route::get ('/admin/services', function () {
     return view('admin.services',);
@@ -84,3 +81,13 @@ Route::get('/admin/allReservations', function () {
 Route::get('/admin/getAllEvent' , [ReservationController:: class , 'getAllEvent'])->name('getAllEvent')->middleware(AdminMiddleware::class);
 
 Route::get('/admin/getCustomer' , [CustomerController:: class , 'getCustomers'])->name('getCustomers')->middleware(AdminMiddleware::class);
+
+Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent')->middleware(AdminMiddleware::class);
+
+Route::get('/getEvents', [ReservationController:: class , 'getEvents'])->name('getEvents')->middleware(AdminMiddleware::class);
+
+Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent')->middleware(AdminMiddleware::class);
+
+Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation')->middleware(AdminMiddleware::class);
+
+Route::get('/admin/activeAccount/{id}', [CustomerController:: class , 'activeAccount'])->name('activeAccount')->middleware(AdminMiddleware::class);
