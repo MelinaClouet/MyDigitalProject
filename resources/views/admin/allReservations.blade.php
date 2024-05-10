@@ -107,22 +107,11 @@ use App\Models\EventVariation;
 
         </div>
 
-
         <!-- Inclure Alpine.js pour gérer la logique JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
-
-
     </div>
-
-
-
-
 </div>
-
-
-
-
 
 </body>
 </html>

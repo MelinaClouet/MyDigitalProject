@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 url: '/getReservation/' + info.event._def.publicId,
                 type: 'GET',
                 success: function(response) {
+                    console.log('admin reservation')
                     // Cette fonction est appelée lorsque vous cliquez sur un événement dans le calendrier
                     var modal = document.getElementById('modal');
 
@@ -186,7 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log(response);
                     var reservation = response
 
-                    var start = new Date(reservation.event.startDate);
                     // Formater la date de début
                     var start = new Date(reservation.event.startDate);
                     start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear();
@@ -216,11 +216,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         events: function (fetchInfo, successCallback, failureCallback) {
+            events = [];
             // Récupérer les événements depuis la route '/admin/getAllEvent'
             $.ajax({
                 url: '/admin/getAllEvent',
                 type: 'GET',
                 success: function(response) {
+                    console.log('admin event')
                     console.log(response);
                     var reservations = response;
 

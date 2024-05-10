@@ -31,7 +31,7 @@ use App\Models\EventCategorie;
 
                 </div>
                 <div class="flex justify-between items-center mt-6">
-                    <button @click="isOpen = false" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-300">Fermer</button>
+                    <button type="button" @click="isOpen = false" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-300">Fermer</button>
 
                     <button id="btnAdd" class="bg-orangeClair text-white py-2 px-4 rounded-md hover:bg-orange">Ajouter</button>
 
