@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css','resources/js/app.js'])
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
 
 </head>
+<style>
+    .font-poetsen {
+        font-family: 'Poetsen One', sans-serif;
+    }
+    p {
+        font-family: 'Quicksand', sans-serif;
+    }
+
+</style>
 <body class="bg-beige mt-10">
 @include ('layouts.header', ['active' => 'home'])
 <div class="flex flex-col lg:flex-row w-full position-relative">
@@ -30,7 +41,7 @@
         <div class="flex items-center justify-center md:justify-centermd:mt-10 lg:justify-center">
 
 
-            <h1 class="montserrat text-2xl sm:text-xl mt-10 text-center lg:text-center lg:text-3xl">Mayuda - Accompagnement au bien-être <br> pour enfants et adolescents</h1>
+            <h1 class="font-poetsen text-2xl sm:text-xl mt-10 text-center lg:text-center lg:text-3xl">Mayuda - Accompagnement au bien-être <br> pour enfants et adolescents</h1>
         </div>
         <div class="mt-7 montserrat text-center md:text-left">
             <p class="text-justify lg:text-lg">
@@ -56,7 +67,7 @@
 </div>
 <div class="flex relative justify-between w-full mt-10">
     <div class="w-1/2 flex justify-center items-center bg-orangeClair relative ">
-        <p class="text-lg text-beige text-center mx-2 z-0 md:text-2xl lg:text-4xl lg:mx-10" style="font-family: 'Heiti TC'">"Il est grand temps de rallumer les étoiles."</p>
+        <p class="text-lg text-beige text-center mx-2 z-0 md:text-2xl lg:text-4xl lg:mx-10" >"Il est grand temps de rallumer les étoiles."</p>
     </div>
 
     <div class="h-full w-1/2 z-10 relative">
@@ -69,11 +80,11 @@
 
 <div class="pb-10 bg-orange relative">
     <div class="flex items-center justify-center z-20">
-        <h2 class="text-beige montserrat text-lg mt-5 font-bold lg:text-2xl">NOS SERVICES</h2>
+        <h2 class="text-beige font-poetsen text-lg mt-5 font-bold lg:text-2xl">NOS SERVICES</h2>
     </div>
     <div class="flex items-center justify-center">
         <div class="w-2/3">
-            <p class="text-justify py-5 lg:p-20 montserrat lg:text-lg text-white">
+            <p class="text-justify py-5 lg:p-20  lg:text-lg text-white">
                 Nous proposons une gamme complète de services, comprenant des séances individuelles,
                 des ateliers de groupe et des formations sur mesure.
                 Que vous soyez à la recherche d'une relaxation profonde,
@@ -89,17 +100,17 @@
     <div class="flex justify-evenly z-20 mt-5">
         <div>
             <img src="/assets/5.png" alt="Image 1" class="object-cover h-24 md:h-32 lg:h-40">
-            <h3 class="text-center text-white montserrat font-semibold mt-4">
+            <h3 class="text-center text-white font-semibold mt-4">
                 Soutient <br> scolaire
             </3>
         </div>
         <div>
             <img src="/assets/4.png" alt="Image 2" class="object-cover h-24 md:h-32 lg:h-40">
-            <h3 class="text-center text-white montserrat font-semibold mt-4">Développement <br> personnel</h3>
+            <h3 class="text-center text-white font-semibold mt-4">Développement <br> personnel</h3>
         </div>
         <div>
             <img src="/assets/3.png" alt="Image 3" class="object-cover h-24 md:h-32 lg:h-40">
-            <h3 class="text-center text-white montserrat font-semibold mt-4">Conseil <br> parental</h3>
+            <h3 class="text-center text-white font-semibold mt-4">Conseil <br> parental</h3>
         </div>
     </div>
 </div>

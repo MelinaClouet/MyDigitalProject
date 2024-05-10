@@ -2,7 +2,7 @@
 @vite(['resources/css/app.css','resources/js/app.js'])
 <div class="w-full flex h-1/3 bg-violet" >
     <div class="w-full md:w-1/2  my-12">
-        <p class="madimi-one-regular text-xl flex justify-center text-beige lg:text-3xl" >Nous contacter!</p>
+        <p class="font-poetsen text-xl flex justify-center text-beige lg:text-3xl" >Contact</p>
 
         <img src="/assets/6.png" alt="Image 2" class="absolute h-20 mt-64 -ml-2 lg:h-32">
 
