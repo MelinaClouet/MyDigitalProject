@@ -41,7 +41,7 @@
                 <th class="px-4 py-2">Adresse</th>
                 <th class="px-4 py-2">N° téléphone</th>
                 <th class="px-4 py-2">Email</th>
-                <!--<th class="px-4 py-2">ACTIONS</th>-->
+                <th class="px-4 py-2">ACTIONS</th>
             </tr>
             </thead>
             <tbody>
@@ -53,6 +53,20 @@
                     <td class="border px-4 py-2">{{ $customer->address }} {{$customer->postal_code}} {{$customer->city}}</td>
                     <td class="border px-4 py-2">{{ $customer->phone }}</td>
                     <td class="border px-4 py-2">{{ $customer->email }}</td>
+                    <td>
+                        @if($customer->status==0)
+                            <a href="activeAccount/{{$customer->id}}" class="text-violet mr-2 ml-4">
+                                <i class="fas fa-user "></i> <span class="text-sm text-black">Activer le compte</span>
+                            </a>
+                        @endif
+                        @if($customer->status==1)
+                            <a href="/admin/deleteUser/{{$customer->id}}" class="text-red-500 mr-2 ml-4">
+                                <i class="fas fa-trash"></i>
+                            </a>
+
+                        @endif
+                    </td>
+
                    <!-- <td class="border py-2 ">
                         <a href="#" class="text-blue-500 mr-2 ml-4">
                             <i class="fas fa-pencil-alt"></i>
@@ -72,7 +86,7 @@
                             </div>
                         </div>
                         <a href="#" class="text-red-500" id="delete{{$customer->id}}" onclick="openDeleteModal({{$customer->id}})">
-                            <i class="fas fa-trash-alt"></i> <!-- Icone de poubelle -->
+                            <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>-->
                 </tr>
