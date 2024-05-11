@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             day: 'Jour'
         },
         events: function (fetchInfo, successCallback, failureCallback) {
+            events = [];
             // Récupérer les événements depuis la route '/getEvents'
             $.ajax({
                 url: '/getEvents',

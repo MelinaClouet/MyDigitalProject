@@ -20,6 +20,7 @@ module.exports = {
                 'Montserrat': ['Montserrat', 'sans-serif'],
                 'Caramel': ['Caramel', 'cursive'],
                 'custom': ['Edu NSW ACT Foundation', 'serif'],
+                'poetsen': ['Poetsen One', 'sans-serif'],
             },
         },
     },

@@ -6,7 +6,8 @@ use App\Models\Customer;
 use App\Models\Event;
 use App\Models\EventVariation;
 use App\Models\Reservation;
-
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 class ReservationController extends Controller
 {
     public function getAllEvent()
@@ -15,6 +16,12 @@ class ReservationController extends Controller
         return $reservations;
 
     }
+
+    public function getAllReservation(Request $request){
+        $reservations = Reservation::whereDate('startDate', '=', $request->date)->get();
+        return $reservations;
+    }
+
 
     public function getEvents(){
         if(session()->get('me')){
@@ -30,5 +37,64 @@ class ReservationController extends Controller
         $event_variation=EventVariation::find($event->event_variation_id);
 
         return ['event' => $event, 'customer' => $customer, 'event_variation' => $event_variation];
+    }
+
+    public function addReservation(Request $request)
+    {
+
+            $event = new Reservation();
+            $event->customer_id = session()->get('me')->id;
+            if ($request->event_id == 1) {
+                $event->event_id = 1;
+                $event->event_categorie_id = 4;
+                $event->event_variation_id = 9;
+                $event->time = "1h";
+                $event->price = "20";
+
+            }
+            if ($request->event_id == 2) {
+                $event->event_id = 1;
+                $event->event_categorie_id = 3;
+                $event->event_variation_id = 5;
+                $event->time = "1h";
+                $event->price = "20";
+            }
+            if ($request->event_id == 3) {
+                $event->event_id = 1;
+                $event->event_categorie_id = 3;
+                $event->event_variation_id = 6;
+                $event->time = "30-45min";
+                $event->price = "30";
+            }
+            if ($request->event_id == 4) {
+                $event->event_id = 1;
+                $event->event_categorie_id = 3;
+                $event->event_variation_id = 7;
+                $event->time = "45min-1h";
+                $event->price = "35";
+            }
+            if ($request->event_id == 5) {
+                $event->event_id = 1;
+                $event->event_categorie_id = 3;
+                $event->event_variation_id = 8;
+                $event->time = "45min-1h";
+                $event->price = "40";
+            }
+
+            $date = Carbon::parse($request->date);
+            $heureStr = str_replace('h', ':', $request->selectedHoraire);
+            $heure = Carbon::createFromFormat('H:i', $heureStr);
+            $startDate = $date->copy()->addHours($heure->hour)->addMinutes($heure->minute);
+
+    // Cloner la date pour endDate
+            $endDate = $date->copy()->addHours($heure->hour)->addMinutes($heure->minute);
+
+            $event->startDate = $startDate;
+            $event->endDate = $endDate->add('1h');
+
+            $event->status = "pending";
+            $event->save();
+            return redirect('/rendezVous')->with('success', 'Demande de rendez-vous envoyée avec succès');
+
     }
 }

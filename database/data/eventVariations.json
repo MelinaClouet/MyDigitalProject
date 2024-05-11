@@ -48,7 +48,7 @@
     {
         "name": "Adolescent de 11 à 15 ans",
         "duration": "45min - 1h",
-        "price": "20€",
+        "price": "35€",
         "max_capacity": 10,
         "eventCategorie_id": 3
     },
@@ -67,14 +67,14 @@
         "eventCategorie_id": 4
     },
     {
-        "name": "Formation harcèlement au milieu scolaire",
+        "name": "Formation harcèlement en milieu scolaire",
         "duration": "1 journée",
         "price": "",
         "max_capacity": 10,
         "eventCategorie_id": 5
     },
     {
-        "name": "Relaxation et gestio des émotions",
+        "name": "Relaxation et gestion des émotions",
         "duration": "1 journée",
         "price": "",
         "max_capacity": 10,

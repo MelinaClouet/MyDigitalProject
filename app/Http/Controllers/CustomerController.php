@@ -55,7 +55,7 @@ class CustomerController extends Controller
 
         if($customer && $customer->password==md5($request->password)){
             session()->put('me', $customer);
-            if($customer->status==1){
+            if($customer->isAdmin==1){
                 return redirect('/admin/services');
             }
             return redirect('/');

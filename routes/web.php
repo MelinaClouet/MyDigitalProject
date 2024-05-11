@@ -46,6 +46,8 @@ Route::get('/rendezVous', function () {
     return view('rendezVous');
 })->name('rendezVous');
 
+Route::post('/addReservation', [ReservationController:: class , 'addReservation'])->name('addReservation');
+
 Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
 
 
@@ -80,6 +82,8 @@ Route::get('/admin/allReservations', function () {
 })->name('admin')->middleware(AdminMiddleware::class);
 
 Route::get('/admin/getAllEvent' , [ReservationController:: class , 'getAllEvent'])->name('getAllEvent')->middleware(AdminMiddleware::class);
+
+Route::get('getAllReservation', [ReservationController:: class , 'getAllReservation'])->name('getAllReservation');
 
 Route::get('/admin/getCustomer' , [CustomerController:: class , 'getCustomers'])->name('getCustomers')->middleware(AdminMiddleware::class);
 
