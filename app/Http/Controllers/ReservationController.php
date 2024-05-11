@@ -97,4 +97,10 @@ class ReservationController extends Controller
             return redirect('/rendezVous')->with('success', 'Demande de rendez-vous envoyée avec succès');
 
     }
+
+    public function deleteReservation(Request $request){
+        $event = Reservation::find($request->reservation_id);
+        $event->delete();
+        return redirect('/rendezVous')->with('success', 'Rendez-vous supprimé avec succès');
+    }
 }

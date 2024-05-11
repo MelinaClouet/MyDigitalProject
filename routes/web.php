@@ -48,6 +48,8 @@ Route::get('/rendezVous', function () {
 
 Route::post('/addReservation', [ReservationController:: class , 'addReservation'])->name('addReservation');
 
+Route::post('/deleteReservation', [ReservationController:: class , 'deleteReservation'])->name('deleteReservation');
+
 Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
 
 

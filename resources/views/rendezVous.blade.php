@@ -6,6 +6,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 <style>
@@ -61,13 +62,13 @@ $reservations = App\Models\Reservation::where('customer_id', $me->id)
     </div>
 @endif
 
-<div class="flex justify-end items-end mr-5">
+<div class="flex justify-end items-end md:mr-5 mt-3">
     <button id="openModalButton" class="bg-orangeClair text-white py-2 px-4 rounded-md hover:bg-orange">Faire une demande de rendez-vous</button>
 </div>
 
-<div class="flex justify-center items-center h-full my-10">
-    <div>
-        <table class="table-auto w-full border-collapse">
+<div class="flex justify-center items-center h-full my-10 mx-5">
+    <div class="overflow-x-auto">
+        <table class=" table-fixed border-collapse w-auto">
             <thead class="bg-orange">
             <tr class="text-beige">
                 <th class="px-4 py-2">Nom de l'événement</th>
@@ -81,18 +82,45 @@ $reservations = App\Models\Reservation::where('customer_id', $me->id)
             <tbody>
             @foreach($reservations as $reservation)
                 <tr>
-                    <td class="border px-4 py-2">{{ $reservation->eventVariation->name }}</td>
-                    <td class="border px-4 py-2">{{ $reservation->startDate }}</td>
-                    <td class="border px-4 py-2">{{ $reservation->endDate }}</td>
+
+                    <td class=" px-4 py-2">{{ $reservation->eventVariation->name }}</td>
+                    <td class=" px-4 py-2">{{ $reservation->startDate }}</td>
+                    <td class=" px-4 py-2">{{ $reservation->endDate }}</td>
                     @if($reservation->status == 'confirmed')
-                        <td class="border px-4 py-2 text-green-400">Confirmé</td>
+                        <td class=" px-4 py-2 text-green-400">Confirmé</td>
                     @elseif($reservation->status == 'pending')
-                        <td class="border px-4 py-2 text-orange">En attente</td>
+                        <td class=" px-4 py-2 text-orange">En attente</td>
+
                     @else
-                        <td class="border px-4 py-2 text-red-500">Annulé</td>
+                        <td class=" px-4 py-2 text-red-500">Annulé</td>
                     @endif
-                    <td class="border px-4 py-2">{{ $reservation->price }}€</td>
-                    <td id="delete{{$reservation->id}}"></td>
+                    <td class=" px-4 py-2">{{ $reservation->price }}€</td>
+                    @if($reservation->status == 'pending')
+                        <td id="delete{{$reservation->id}}">
+                            <i class="fas fa-trash-alt cursor-pointer" id="deleteIcon{{$reservation->id}}"></i>
+                        </td>
+
+
+                        <div id="confirmationModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                            <div class="bg-white p-8 rounded-lg">
+                                <p class="text-xl mb-4">Êtes-vous sûr de vouloir supprimer cette demande de rendez-vous ?</p>
+                                <form id="deleteForm{{$reservation->id}}" action="{{ route('deleteReservation') }}" method="POST">
+                                    @csrf
+                                    <div class="flex justify-end">
+                                        <input type="hidden" name="reservation_id" value="{{$reservation->id}}">
+                                        <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md mr-4">Confirmer</button>
+                                        <button id="cancelButton" type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400">Annuler</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                    @endif
+
+
+
                 </tr>
             @endforeach
             </tbody>
@@ -145,6 +173,30 @@ $reservations = App\Models\Reservation::where('customer_id', $me->id)
 @include('layouts.footer')
 
 <script>
+
+
+    // Sélectionnez l'icône de suppression
+    var deleteIcon = document.getElementById('deleteIcon{{$reservation->id}}');
+
+    // Sélectionnez la modal de confirmation
+    var confirmationModal = document.getElementById('confirmationModal');
+
+    // Sélectionnez le bouton d'annulation dans la modal
+    var cancelButton = document.getElementById('cancelButton');
+
+    // Ajoutez un écouteur d'événements pour le clic sur l'icône de suppression
+    deleteIcon.addEventListener('click', function() {
+        // Afficher la modal de confirmation
+        confirmationModal.classList.remove('hidden');
+    });
+
+    // Ajoutez un écouteur d'événements pour le clic sur le bouton d'annulation
+    cancelButton.addEventListener('click', function() {
+        // Cacher la modal de confirmation
+        confirmationModal.classList.add('hidden');
+    });
+
+
     var btnSubmit=document.getElementById('submit');
     function selectHoraire(time) {
         const selectedHoraireInput = document.getElementById('selectedHoraire');
