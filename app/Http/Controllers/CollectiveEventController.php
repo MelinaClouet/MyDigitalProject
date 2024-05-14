@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CollectiveEvent;
+use App\Models\Event;
+use App\Models\EventVariation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CollectiveEventController extends Controller
 {
@@ -25,4 +28,40 @@ class CollectiveEventController extends Controller
         return redirect('/admin/meet');
 
     }
+
+    public function getCollectiveEvents(){
+        $collectiveEvents = CollectiveEvent::all();
+        return $collectiveEvents;
+    }
+
+    public function requestCollectiveEvent($idEvent) {
+        // Récupérer l'événement collectif et la variation d'événement correspondante
+        $collectiveEvent = CollectiveEvent::find($idEvent);
+        $eventVariation = EventVariation::where('id', $collectiveEvent->event_variation_id)->first();
+
+        // Vérifier si une demande de participation a déjà été faite par la même personne
+        $existingRequest = DB::table('collective_event_customer')
+            ->where('collective_event_id', $idEvent)
+            ->where('customer_id', session()->get('me')->id)
+            ->first();
+
+        // Si une demande existe déjà, renvoyer une erreur
+        if ($existingRequest) {
+            return ['status' => 'error', 'message' => 'Une demande pour ce cours a déjà été soumise.'];
+        }
+
+        // Vérifier si le nombre de participants n'a pas dépassé la capacité maximale
+        $nbParticipants = DB::table('collective_event_customer')->where('collective_event_id', $idEvent)->count();
+        if ($nbParticipants < $eventVariation->max_capacity) {
+            // Insérer la nouvelle demande de participation
+            DB::table('collective_event_customer')->insert([
+                'collective_event_id' => $idEvent,
+                'customer_id' => session()->get('me')->id
+            ]);
+            return ['status' => 'success'];
+        } else {
+            return ['status' => 'error', 'message' => 'La capacité maximale pour ce cours a été atteinte.'];
+        }
+    }
+
 }

@@ -27,6 +27,7 @@
 
 <?php
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 $me=session()->get('me');
 
 
@@ -44,6 +45,15 @@ $reservations = App\Models\Reservation::where('customer_id', $me->id)
     ->whereBetween('startDate', [$threeMonthsAgo, $threeMonthsLater])
     ->orderBy('startDate', 'desc')
     ->get();
+
+$collectiveEvents = DB::table('collective_events as ce')
+    ->join('collective_event_customer as cec', 'ce.id', '=', 'cec.collective_event_id')
+    ->join('event_variations as ev', 'ev.id', '=', 'ce.event_variation_id')
+    ->where('cec.customer_id', $me->id) // Assurez-vous de remplacer 14 par la valeur que vous souhaitez
+    ->select('ce.startDate', 'ce.endDate', 'ce.price', 'ce.address', 'ce.city', 'ce.zipCode', 'ev.name')
+    ->get();
+
+
 ?>
 
 <h1 class="text-violet text-2xl font-bold mt-32 flex items-center justify-center montserrat">TOUTES MES RÉSERVATIONS</h1>
@@ -122,6 +132,15 @@ $reservations = App\Models\Reservation::where('customer_id', $me->id)
 
 
                 </tr>
+            @endforeach
+            @foreach($collectiveEvents as $event)
+                <tr>
+                    <td class=" px-4 py-2">{{ $event->name }}</td>
+                    <td class=" px-4 py-2">{{ $event->startDate }}</td>
+                    <td class=" px-4 py-2">{{ $event->endDate }}</td>
+                    <td class=" px-4 py-2 text-green-400">Confirmé</td>
+                    <td class=" px-4 py-2">{{ $event->price }}€</td>
+
             @endforeach
             </tbody>
         </table>

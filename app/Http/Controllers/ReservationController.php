@@ -17,6 +17,14 @@ class ReservationController extends Controller
 
     }
 
+    public function getReservationPersonnal(){
+        $me = session()->get('me');
+        if($me){
+            $reservations = Reservation::where('customer_id', $me->id)->get();
+            return [$reservations];
+        }
+    }
+
     public function getAllReservation(Request $request){
         $reservations = Reservation::whereDate('startDate', '=', $request->date)->get();
         return $reservations;

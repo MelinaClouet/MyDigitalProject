@@ -37,74 +37,92 @@ Route::post('/addCustomer', [CustomerController:: class , 'addCustomer'])->name(
 
 Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
+Route::get('getAllReservation', [ReservationController:: class , 'getAllReservation'])->name('getAllReservation');
+
+
 
 Route::get('/trash', function () {
     return view('trash');
 })->name('trash');
 
-Route::get('/rendezVous', function () {
-    return view('rendezVous');
-})->name('rendezVous');
-
-Route::post('/addReservation', [ReservationController:: class , 'addReservation'])->name('addReservation');
-
-Route::post('/deleteReservation', [ReservationController:: class , 'deleteReservation'])->name('deleteReservation');
-
-Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
 
 
-Route::get('/admin', function () {
-    return view('admin.admin');
-})->name('admin')->middleware(AdminMiddleware::class);
+Route::middleware([\App\Http\Middleware\CheckSession::class])->group(function () {
+    Route::get('/rendezVous', function () {
+        return view('rendezVous');
+    })->name('rendezVous');
 
-Route::get('/admin/users', function () {
-    $customers= App\Models\Customer::all();
-    return view('admin.users', ['customers' => $customers]);
-})->name('admin')->middleware(AdminMiddleware::class);
+    Route::post('/addReservation', [ReservationController:: class , 'addReservation'])->name('addReservation');
 
-Route::get('/admin/deleteUser/{id}', [CustomerController:: class , 'deleteUser'])->name('deleteUser')->middleware(AdminMiddleware::class);
+    Route::post('/deleteReservation', [ReservationController:: class , 'deleteReservation'])->name('deleteReservation');
 
-Route::get ('/admin/services', function () {
-    return view('admin.services',);
-})->name('admin')->middleware(AdminMiddleware::class);
+    Route::get('/getCollectiveEvents', [CollectiveEventController:: class , 'getCollectiveEvents'])->name('getCollectiveEvents');
 
-Route::post('/admin/addService', [EventVariationController:: class , 'addService'])->name('addService')->middleware(AdminMiddleware::class);
+    Route::get('/requestCollectiveEvent/{idEvent}' ,[CollectiveEventController::class , 'requestCollectiveEvent'])->name('requestCollectiveEvent');
 
-Route::post('/admin/addEventCategorie', [EventCategorieController:: class , 'addEventCategorie'])->name('addEventCategorie')->middleware(AdminMiddleware::class);
+    Route::get('logout', [CustomerController:: class , 'logout'])->name('logout');
 
-Route::get('/admin/formations', function () {
-    return view('admin.formations');
-})->name('admin')->middleware(AdminMiddleware::class);
+    Route::get('/getReservationPersonnal', [ReservationController::class , 'getReservationPersonnal'])->name('getEventPersonnal');
 
-Route::post('/admin/addFormation', [EventVariationController:: class , 'addFormation'])->name('addFormation')->middleware(AdminMiddleware::class);
+    Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
-Route::get('/admin/allReservations', function () {
-    $events= App\Models\Event::all();
-    return view('admin.allReservations', ['events' => $events]);
-})->name('admin')->middleware(AdminMiddleware::class);
+});
 
-Route::get('/admin/getAllEvent' , [ReservationController:: class , 'getAllEvent'])->name('getAllEvent')->middleware(AdminMiddleware::class);
 
-Route::get('getAllReservation', [ReservationController:: class , 'getAllReservation'])->name('getAllReservation');
 
-Route::get('/admin/getCustomer' , [CustomerController:: class , 'getCustomers'])->name('getCustomers')->middleware(AdminMiddleware::class);
+Route::middleware([\App\Http\Middleware\CheckAdmin::class])->group(function () {
 
-Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent')->middleware(AdminMiddleware::class);
+    Route::get('/admin', function () {
+        return view('admin.admin');
+    })->name('admin');
 
-Route::get('/getEvents', [ReservationController:: class , 'getEvents'])->name('getEvents')->middleware(AdminMiddleware::class);
+    Route::get('/admin/users', function () {
+        $customers= App\Models\Customer::all();
+        return view('admin.users', ['customers' => $customers]);
+    })->name('admin');
 
-Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent')->middleware(AdminMiddleware::class);
+    Route::get('/admin/deleteUser/{id}', [CustomerController:: class , 'deleteUser'])->name('deleteUser');
 
-Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation')->middleware(AdminMiddleware::class);
+    Route::get ('/admin/services', function () {
+        return view('admin.services',);
+    })->name('admin');
 
-Route::get('/admin/activeAccount/{id}', [CustomerController:: class , 'activeAccount'])->name('activeAccount')->middleware(AdminMiddleware::class);
+    Route::post('/admin/addService', [EventVariationController:: class , 'addService'])->name('addService');
 
-Route::get('/admin/meet', function () {
-    return view('admin.meet');
-})->name('admin')->middleware(AdminMiddleware::class);
+    Route::post('/admin/addEventCategorie', [EventCategorieController:: class , 'addEventCategorie'])->name('addEventCategorie');
 
-Route::post('/admin/addMeet', [CollectiveEventController:: class , 'addMeet'])->name('addMeet')->middleware(AdminMiddleware::class);
+    Route::get('/admin/formations', function () {
+        return view('admin.formations');
+    })->name('admin');
 
-Route::get('/admin/getEventCategories/{eventId}', [EventCategorieController:: class , 'getEventCategories'])->name('getEventCategories')->middleware(AdminMiddleware::class);
+    Route::post('/admin/addFormation', [EventVariationController:: class , 'addFormation'])->name('addFormation');
 
-Route::get('/admin/getEventVariations/{eventCategoryId}', [EventVariationController:: class , 'getEventVariations'])->name('getEventVariations')->middleware(AdminMiddleware::class);
+    Route::get('/admin/allReservations', function () {
+        $events= App\Models\Event::all();
+        return view('admin.allReservations', ['events' => $events]);
+    })->name('admin');
+
+    Route::get('/admin/getAllEvent' , [ReservationController:: class , 'getAllEvent'])->name('getAllEvent');
+
+    Route::get('/admin/getCustomer' , [CustomerController:: class , 'getCustomers'])->name('getCustomers');
+
+    Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent');
+
+
+    Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation');
+
+    Route::get('/admin/activeAccount/{id}', [CustomerController:: class , 'activeAccount'])->name('activeAccount');
+
+    Route::get('/admin/meet', function () {
+        return view('admin.meet');
+    })->name('admin');
+
+    Route::post('/admin/addMeet', [CollectiveEventController:: class , 'addMeet'])->name('addMeet');
+
+    Route::get('/admin/getEventCategories/{eventId}', [EventCategorieController:: class , 'getEventCategories'])->name('getEventCategories');
+
+    Route::get('/admin/getEventVariations/{eventCategoryId}', [EventVariationController:: class , 'getEventVariations'])->name('getEventVariations');
+
+});
+
+

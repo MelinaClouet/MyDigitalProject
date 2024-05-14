@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+
+    public function getEventPersonnal(){
+        $me = session()->get('me');
+        if($me){
+            $events = Event::where('customer_id', $me->id)->get();
+            return ['events' => $events];
+        }
+    }
     public function addEvent(Request $request){
         $event= new Event();
         if(session()->get('me')){
