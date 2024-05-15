@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class EventVariationController extends Controller
 {
+
+    public function deleteEventVariation(Request $request){
+        $eventVariation = EventVariation::where('id', $request->id)->first();
+        $eventVariation->delete();
+        return redirect('/admin/services');
+    }
     public function addService(Request $request)
     {
         $eventVariation = new EventVariation();

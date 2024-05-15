@@ -129,6 +129,10 @@ Route::middleware([\App\Http\Middleware\CheckAdmin::class])->group(function () {
     Route::post('/admin/refuseReservation', [ReservationController:: class , 'refuseReservation'])->name('refuseReservation');
 
     Route::post('/admin/deleteCollectiveEvent', [CollectiveEventController:: class , 'deleteCollectiveEvent'])->name('deleteCollectiveEvent');
+
+    Route::post('/admin/EventVariation/delete', [EventVariationController:: class , 'deleteEventVariation'])->name('deleteEventVariation');
+
+    Route::post('/admin/EventCategories/delete', [EventCategorieController:: class , 'deleteEventCategorie'])->name('deleteEventCategorie');
 });
 
 

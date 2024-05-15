@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class EventCategorieController extends Controller
 {
+    public function deleteEventCategorie(Request $request){
+        $eventCategorie = EventCategorie::where('id', $request->id)->first();
+        $eventCategorie->delete();
+        return redirect('/admin/services');
+    }
+
+
     public function addEventCategorie(Request $request)
     {
         $eventCategorie = new EventCategorie();

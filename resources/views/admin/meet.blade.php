@@ -132,9 +132,7 @@ $collectiveEvents = DB::table('collective_events AS ce')
                     <td class="px-4 py-2">{{ $reservation->customer_count }}</td>
                     <td class="px-4 py-2">{{ $reservation->price }}€</td>
                     <td class="px-4 py-2">{{ $reservation->address }}, {{ $reservation->zipCode }} {{ $reservation->city }}</td>
-                    <td id="delete{{$reservation->id}}">
-                        <i class="fas fa-trash-alt cursor-pointer" id="deleteIcon{{$reservation->id}}"></i>
-                    </td>
+
 
 
                     <div id="confirmationModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
