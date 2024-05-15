@@ -55,6 +55,7 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
                         <div class="flex flex-row items-center justify-between py-2">
                             <p class="montserrat ml-4"> • {{$eventVariation->name}}</p>
                             <p class="montserrat">{{$eventVariation->price}}€</p>
+
                         </div>
                     @endforeach
                 </div>

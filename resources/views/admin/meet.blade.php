@@ -33,7 +33,7 @@
 
                     <div class="flex flex-row items-center justify-between py-2">
                         <label for="event_id"  class="text-beige mr-5" >Événement</label>
-                        <select name="event_id" id="event_id" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                        <select name="event_id" id="event_id" class="w-3/5 bg-gray-100 p-2 rounded-md mt-2">
                             @foreach($events as $event)
                                 <option value="{{$event->id}}">{{$event->name}}</option>
                             @endforeach
@@ -42,46 +42,48 @@
 
                     <div class="flex flex-row items-center justify-between py-2" id="eventCategorySelect" style="display: none;">
                         <label for="event_category_id"  class="text-beige mr-5" >Catégorie d'événement</label>
-                        <select name="event_category_id" id="event_category_id" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                        <select name="event_category_id" id="event_category_id" class="w-3/5 bg-gray-100 p-2 rounded-md mt-2">
                             <!-- Options seront ajoutées dynamiquement par JavaScript -->
                         </select>
                     </div>
 
                     <div class="flex flex-row items-center justify-between py-2" id="eventVariationSelect" style="display: none;">
                         <label for="event_variation_id"  class="text-beige mr-5" >Variation d'événement</label>
-                        <select name="event_variation_id" id="event_variation_id" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                        <select name="event_variation_id" id="event_variation_id" class="w-3/5 bg-gray-100 p-2 rounded-md mt-2">
                             <!-- Les options seront ajoutées dynamiquement par JavaScript -->
                         </select>
                     </div>
 
                     <div class="flex flex-row items-center justify-between py-2">
                         <label for="startDate" class="text-beige mr-5">Date et heure de début</label>
-                        <input type="datetime-local" name="startDate" id="startDate" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                        <input type="datetime-local" name="startDate" id="startDate" class="w-3/5 bg-gray-100 p-2 rounded-md mt-2">
                     </div>
                     <div class="flex flex-row items-center justify-between py-2">
                         <label for="endDate" class="text-beige mr-5">Date et heure de fin</label>
-                        <input type="datetime-local" name="endDate" id="endDate" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                        <input type="datetime-local" name="endDate" id="endDate" class="w-3/5 bg-gray-100 p-2 rounded-md mt-2">
                     </div>
-
-                    <div class="flex flex-row items-center justify-between py-2">
-                        <label for="price"class="text-beige mr-5">Prix</label>
-                        <input type="number" name="price" id="price" class="w-full bg-gray-100 p-2 rounded-md mt-2">
-                    </div>
-
-                    <div class="flex flex-row items-center justify-between py-2">
-                        <label for="address" class="text-beige mr-5">Adresse</label>
-                        <input type="text" name="address" id="address" class="w-full bg-gray-100 p-2 rounded-md mt-2">
-                    </div>
-
-                    <div class="flex flex-row items-center justify-between py-2">
-                        <div class="flex">
-                            <label for="zipCode" class="text-beige mr-5">Code postal</label>
-                            <input type="text" name="zipCode" id="zipCode" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                    <div class="flex flex-row items-center justify-between">
+                        <div class="flex items-center w-1/2">
+                            <label for="price" class="text-beige mr-16">Prix</label>
+                            <input type="number" name="price" id="price" class="w-full bg-gray-100 p-2 rounded-md mt-2">
                         </div>
 
-                        <div class="flex ml-4 items-center">
-                            <label for="city" class="text-beige mr-5 ">Ville</label>
-                            <input type="text" name="city" id="city" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                        <div class="flex ml-4 items-center w-1/2">
+                            <label for="address" class="text-beige mr-2">Adresse</label>
+                            <input type="text" name="address" id="address" class="w-3/4 bg-gray-100 p-2 rounded-md mt-2">
+                        </div>
+
+                    </div>
+
+                    <div class="flex flex-row items-center justify-between py-2">
+                        <div class="flex w-1/2">
+                            <label for="zipCode" class="text-beige mr-5">Code postal</label>
+                            <input type="text" name="zipCode" id="zipCode" class="w-3/4 bg-gray-100 p-2 rounded-md mt-2">
+                        </div>
+
+                        <div class="flex ml-4 items-center w-1/2">
+                            <label for="city" class="text-beige mr-9 ">Ville</label>
+                            <input type="text" name="city" id="city" class="w-3/4 bg-gray-100 p-2 rounded-md mt-2">
                         </div>
                     </div>
                     <div class="flex flex-row justify-end items-center py-2">
