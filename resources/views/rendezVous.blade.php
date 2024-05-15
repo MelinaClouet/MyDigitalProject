@@ -124,6 +124,32 @@ $collectiveEvents = DB::table('collective_events as ce')
                                 </form>
                             </div>
                         </div>
+                        <script>
+                            // Sélectionnez l'icône de suppression
+                            var deleteIcon = document.getElementById('deleteIcon{{$reservation->id}}');
+                            // Ajoutez un écouteur d'événements pour le clic sur l'icône de suppression
+                            deleteIcon.addEventListener('click', function() {
+                                // Afficher la modal de confirmation
+                                confirmationModal.classList.remove('hidden');
+                            });
+
+                            // Sélectionnez la modal de confirmation
+                            var confirmationModal = document.getElementById('confirmationModal');
+
+                            // Sélectionnez le bouton d'annulation dans la modal
+                            var cancelButton = document.getElementById('cancelButton');
+
+
+
+                            // Ajoutez un écouteur d'événements pour le clic sur le bouton d'annulation
+                            cancelButton.addEventListener('click', function() {
+                                // Cacher la modal de confirmation
+                                confirmationModal.classList.add('hidden');
+                            });
+
+
+                            var btnSubmit=document.getElementById('submit');
+                        </script>
 
 
 
@@ -194,32 +220,11 @@ $collectiveEvents = DB::table('collective_events as ce')
 <script>
 
 
-    // Sélectionnez l'icône de suppression
-    var deleteIcon = document.getElementById('deleteIcon{{$reservation->id}}');
 
-    // Sélectionnez la modal de confirmation
-    var confirmationModal = document.getElementById('confirmationModal');
-
-    // Sélectionnez le bouton d'annulation dans la modal
-    var cancelButton = document.getElementById('cancelButton');
-
-    // Ajoutez un écouteur d'événements pour le clic sur l'icône de suppression
-    deleteIcon.addEventListener('click', function() {
-        // Afficher la modal de confirmation
-        confirmationModal.classList.remove('hidden');
-    });
-
-    // Ajoutez un écouteur d'événements pour le clic sur le bouton d'annulation
-    cancelButton.addEventListener('click', function() {
-        // Cacher la modal de confirmation
-        confirmationModal.classList.add('hidden');
-    });
-
-
-    var btnSubmit=document.getElementById('submit');
     function selectHoraire(time) {
         const selectedHoraireInput = document.getElementById('selectedHoraire');
-        selectedHoraireInput.value = time; // Stocker l'horaire sélectionné dans le champ de formulaire caché
+        selectedHoraireInput.value = time;// Stocker l'horaire sélectionné dans le champ de formulaire caché
+        console.log(time);
     }
     // Lorsque la date est changée
     document.getElementById('date').addEventListener('change', function() {
@@ -292,6 +297,10 @@ $collectiveEvents = DB::table('collective_events as ce')
             button.style.color = '#333';
 
             button.addEventListener('click', function(event) {
+                var allButton = document.querySelectorAll('#horaires button');
+                allButton.forEach(function(bouton) {
+                    bouton.style.background = '#F8B59C';
+                });
                 event.preventDefault();
                 button.style.background = '#FD6D2F'; // Ajout de la couleur de fond
                 selectHoraire(heure);

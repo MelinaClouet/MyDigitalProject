@@ -34,9 +34,9 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
 
 ?>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<body class="bg-beige ">
 
+<body class="bg-beige ">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @include ('layouts.headerAdmin')
 
 <div class="flex flex-col items-center justify-center ">

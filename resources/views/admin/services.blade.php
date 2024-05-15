@@ -40,6 +40,7 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
 @include ('layouts.headerAdmin')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 <div class="flex flex-col items-center justify-center ">
     <div class="w-full py-10 flex flex-col items-center" id="divTitleServices">
         <p class="text-3xl text-violet font-bold"> • • SERVICES • •</p>
@@ -124,16 +125,16 @@ $eventCoursParticuliers = EventVariation::where('eventCategorie_id', '4')->get()
 
                             <div class="flex items-center w-1/5 justify-end"> <!-- La deuxième div est plus petite -->
                                 <p id="delete{{$eventVariation->id}}">
-                                    <i class="fas fa-trash-alt cursor-pointer" id="deleteIcon{{$eventVariation->id}}"></i>
+                                    <i class="fas fa-trash-alt cursor-pointer" id="deleteIconEvent{{$eventVariation->id}}"></i>
                                 </p>
                             </div>
 
                             <script>
                                 document.addEventListener('DOMContentLoaded', function() {
-                                    var deleteIcon = document.getElementById('deleteIcon{{$eventVariation->id}}');
+                                    var deleteIconEvent = document.getElementById('deleteIconEvent{{$eventVariation->id}}');
 
                                     // Ajout d'un écouteur d'événement pour le clic sur l'icône
-                                    deleteIcon.addEventListener('click', function() {
+                                    deleteIconEvent.addEventListener('click', function() {
                                         id={{$eventVariation->id}};
                                         $.ajax({
                                             url: '/admin/EventVariation/delete',
