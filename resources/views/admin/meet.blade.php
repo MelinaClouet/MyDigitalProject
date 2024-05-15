@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css','resources/js/app.js'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 
 </head>
@@ -94,6 +96,63 @@
    </div>
 
 
+</div>
+<?php
+
+use Illuminate\Support\Facades\DB;
+$collectiveEvents = DB::table('collective_events AS ce')
+    ->select('ce.*', 'ev.name AS event_name', DB::raw('COUNT(cec.customer_id) AS customer_count'))
+    ->join('event_variations AS ev', 'ev.id', '=', 'ce.event_variation_id')
+    ->leftJoin('collective_event_customer AS cec', 'ce.id', '=', 'cec.collective_event_id')
+    ->groupBy('ce.id')
+    ->get();
+?>
+<div class="flex justify-center items-center h-full my-10 mx-5">
+    <div class="overflow-x-auto">
+        <table class="table-fixed border-collapse max-w-sm max-h-60">
+            <thead class="bg-orange">
+            <tr class="text-beige">
+                <th class="px-4 py-2">Nom de l'événement</th>
+                <th class="px-4 py-2">Date de début</th>
+                <th class="px-4 py-2">Date de fin</th>
+                <th class="px-4 py-2">Nombre de participant actuel</th>
+                <th class="px-4 py-2">Prix</th>
+                <th class="px-4 py-2">Adresse</th>
+                <th class="px-4 py-2">Action</th>
+            </tr>
+            </thead>
+            <tbody class="text-center">
+            @foreach($collectiveEvents as $reservation)
+                <tr>
+                    <td class="px-4 py-2">{{ $reservation->event_name }}</td>
+                    <td class="px-4 py-2">{{ $reservation->startDate }}</td>
+                    <td class="px-4 py-2">{{ $reservation->endDate }}</td>
+                    <td class="px-4 py-2">{{ $reservation->customer_count }}</td>
+                    <td class="px-4 py-2">{{ $reservation->price }}€</td>
+                    <td class="px-4 py-2">{{ $reservation->address }}, {{ $reservation->zipCode }} {{ $reservation->city }}</td>
+                    <td id="delete{{$reservation->id}}">
+                        <i class="fas fa-trash-alt cursor-pointer" id="deleteIcon{{$reservation->id}}"></i>
+                    </td>
+
+
+                    <div id="confirmationModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                        <div class="bg-white p-8 rounded-lg">
+                            <p class="text-xl mb-4">Êtes-vous sûr de vouloir supprimer cette demande de rendez-vous ?</p>
+                            <form id="deleteForm{{$reservation->id}}" action="{{ route('deleteCollectiveEvent') }}" method="POST">
+                                @csrf
+                                <div class="flex justify-end">
+                                    <input type="hidden" name="reservation_id" value="{{$reservation->id}}">
+                                    <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md mr-4">Confirmer</button>
+                                    <button id="cancelButton" type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400">Annuler</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script>

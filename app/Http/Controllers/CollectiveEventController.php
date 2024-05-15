@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\DB;
 
 class CollectiveEventController extends Controller
 {
+
+    public function deleteCollectiveEvent(Request $request){
+        $collectiveEvent = CollectiveEvent::find($request->id);
+        $collectiveEvent->delete();
+        return redirect('/admin/meet');
+    }
+
     public function addMeet(Request $request){
 
 
