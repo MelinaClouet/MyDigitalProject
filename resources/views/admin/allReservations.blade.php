@@ -93,12 +93,20 @@ use App\Models\EventVariation;
                         </div>
                         <div class="mt-4">
                             <h4 class="text-lg font-semibold mb-4 text-violet">Réservation:</h4>
+                            <p class="hidden">Id: <span  class="font-semibold text-orangeClair" id="modalId"></span></p>
                             <p>Date de début: <span  class="font-semibold text-orangeClair" id="modalStartDate"></span></p>
                             <p>Date de fin: <span  class="font-semibold text-orangeClair" id="modalEndDate"></span></p>
+                            <p>Status:<span  class="font-semibold text-orangeClair" id="modalStatus"></span> </p>
+                            <div class="my-3 flex justify-between">
+                                <button class="bg-orange text-white py-2 px-4 rounded-md hover:bg-orangeClair" id="modalButtonAcept">Acepter</button>
+                                <button class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-300" id="modalButtonRefuse">Refuser</button>
+                            </div>
+
+
                         </div>
 
                         <!-- Boutons de la modal -->
-                        <div class="flex justify-between">
+                        <div class="flex justify-end">
                             <button @click="isOpen = false" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-300">Fermer</button>
                         </div>
                     </div>
@@ -109,6 +117,51 @@ use App\Models\EventVariation;
 
         <!-- Inclure Alpine.js pour gérer la logique JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+        <script>
+
+            const btnAccept = document.getElementById('modalButtonAcept');
+            const btnRefuse = document.getElementById('modalButtonRefuse');
+
+            //Add event click to button accept
+            btnAccept.addEventListener('click', function(){
+                let id = document.getElementById('modalId').innerText;
+                console.log(id);
+                $.ajax({
+                    url: '/admin/acceptReservation',
+                    type: 'POST',
+                    data: {
+                        id: id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response){
+                        console.log(response);
+                        location.reload();
+                    }
+                })
+
+
+            });
+
+            btnRefuse.addEventListener('click', function(){
+                let id = document.getElementById('modalId').innerText;
+                console.log(id);
+                $.ajax({
+                    url: '/admin/refuseReservation',
+                    type: 'POST',
+                    data: {
+                        id: id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response){
+                        console.log(response);
+                        location.reload();
+                    }
+                })
+
+
+            });
+        </script>
 
     </div>
 </div>

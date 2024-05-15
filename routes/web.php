@@ -39,6 +39,9 @@ Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
 Route::get('getAllReservation', [ReservationController:: class , 'getAllReservation'])->name('getAllReservation');
 
+Route::get('/getCollectiveEvents', [CollectiveEventController:: class , 'getCollectiveEvents'])->name('getCollectiveEvents');
+
+Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
 
 Route::get('/trash', function () {
@@ -56,7 +59,6 @@ Route::middleware([\App\Http\Middleware\CheckSession::class])->group(function ()
 
     Route::post('/deleteReservation', [ReservationController:: class , 'deleteReservation'])->name('deleteReservation');
 
-    Route::get('/getCollectiveEvents', [CollectiveEventController:: class , 'getCollectiveEvents'])->name('getCollectiveEvents');
 
     Route::get('/requestCollectiveEvent/{idEvent}' ,[CollectiveEventController::class , 'requestCollectiveEvent'])->name('requestCollectiveEvent');
 
@@ -64,7 +66,6 @@ Route::middleware([\App\Http\Middleware\CheckSession::class])->group(function ()
 
     Route::get('/getReservationPersonnal', [ReservationController::class , 'getReservationPersonnal'])->name('getEventPersonnal');
 
-    Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
 });
 
@@ -123,6 +124,9 @@ Route::middleware([\App\Http\Middleware\CheckAdmin::class])->group(function () {
 
     Route::get('/admin/getEventVariations/{eventCategoryId}', [EventVariationController:: class , 'getEventVariations'])->name('getEventVariations');
 
+    Route::post('/admin/acceptReservation', [ReservationController:: class , 'acceptReservation'])->name('acceptReservation');
+
+    Route::post('/admin/refuseReservation', [ReservationController:: class , 'refuseReservation'])->name('refuseReservation');
 });
 
 

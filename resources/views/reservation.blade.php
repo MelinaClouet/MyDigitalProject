@@ -45,9 +45,15 @@
             </div>
             <hr class="flex-grow h-1 bg-orangeClair">
         </div>
+        @if($me)
         <div class="flex w-full p-10">
             <div class="w-full " id="calendar"></div>
         </div>
+        @else
+        <div class="flex w-full p-10">
+            <div class="w-full " id="calendarPublic"></div>
+        </div>
+        @endif
 
 
 

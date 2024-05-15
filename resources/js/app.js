@@ -339,11 +339,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Formater la date de début
                     var start = new Date(reservation.event.startDate);
-                    start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear();
+                    start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear() + ' à ' + start.getHours() + ':' + start.getMinutes()
 
 // Formater la date de fin
                     var end = new Date(reservation.event.endDate);
-                    end = end.getDate() + ' ' + getMonthName(end.getMonth()) + ' ' + end.getFullYear();
+                    end = end.getDate() + ' ' + getMonthName(end.getMonth()) + ' ' + end.getFullYear() + ' à ' + end.getHours() + ':' + end.getMinutes();
 
 // Fonction pour obtenir le nom du mois en français
 
@@ -359,7 +359,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('modalAddress').innerHTML = reservation.customer.address;
                     document.getElementById('modalCity').innerHTML = reservation.customer.city;
                     document.getElementById('modalPostalCode').innerHTML = reservation.customer.postal_code;
+                    document.getElementById('modalId').innerHTML = reservation.event.id;
+                    if(reservation.event.status=='pending'){
+                        document.getElementById('modalStatus').innerHTML='En attente';
+                        console.log('ici')
+                        //display button
 
+                    }
+                    if(reservation.event.status=='confirmed'){
+                        document.getElementById('modalStatus').innerHTML='Confirmé';
+                    }
+                    if(reservation.event.status=='refused'){
+                        document.getElementById('modalStatus').innerHTML='Refusé';
+                    }
 
                 }
             });
@@ -420,6 +432,142 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         },
+    });
+
+    calendar.render();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendarPublic');
+    var events = [];
+
+    var calendar = new Calendar(calendarEl, {
+        locale: 'fr',
+        plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
+        firstDay: 1,
+        headerToolbar: {
+            left: 'prev,next today',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        businessHours: {
+            daysOfWeek: [1, 2, 3, 4, 5],
+            startTime: '08:00',
+            endTime: '18:00'
+        },
+        initialView: 'dayGridMonth',
+        editable:false,
+        buttonIcons: true,
+        themeSystem: 'bootstrap5',
+        buttonText: {
+            prev:'<',
+            next:'>',
+            today: 'Aujourd\'hui',
+            month: 'Mois',
+            week: 'Semaine',
+            day: 'Jour'
+        },
+
+
+        events: function (fetchInfo, successCallback, failureCallback) {
+            events = [];
+            // Récupérer les événements depuis la route '/admin/getAllEvent'
+            $.ajax({
+                url: '/getCollectiveEvents',
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    var reservations = response;
+
+                    // Fonction récursive pour traiter chaque réservation et associer son type d'événement
+                    function processReservation(index) {
+                        if (index < reservations.length) {
+                            var reservation = reservations[index];
+
+                            // Récupérer le type d'événement depuis la route '/typeEvent/:event_id'
+                            $.ajax({
+                                url: '/typeEvent/' + reservation.event_variation_id,
+                                type: 'GET',
+                                success: function(response) {
+                                    console.log(response);
+                                    var typeEvent = response;
+
+                                    for (var k = 0; k < typeEvent.length; k++) {
+                                        console.log(typeEvent[k].name);
+                                        events.push({
+                                            title: typeEvent[k].name,
+                                            start: reservation.startDate,
+                                            end: reservation.endDate,
+                                            color: colorEvent(typeEvent[k].name),
+                                            id: reservation.id,
+                                            address: reservation.address + ', ' + reservation.city + ', ' + reservation.zipCode,
+                                        });
+                                    }
+
+                                    // Appeler la fonction processReservation pour la réservation suivante
+                                    processReservation(index + 1);
+                                }
+                            });
+                        } else {
+                            // Toutes les réservations ont été traitées, appeler le callback de succès
+                            successCallback(events);
+                        }
+                    }
+
+                    // Démarrer le traitement des réservations à partir de l'index 0
+                    processReservation(0);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Erreur lors de la récupération des événements:", error);
+                    // Appeler le callback d'échec en cas d'erreur
+                    failureCallback(error);
+                }
+            });
+        },
+        eventClick: function(info) {
+            var event = info.event;
+            var modalContent = '';
+            console.log(event)
+
+            //formattage des date de début et de fin
+            var start = new Date(event.start);
+            start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear() + ' à ' + start.getHours() + ':' + start.getMinutes();
+
+            var end = new Date(event.end);
+            end = end.getDate() + ' ' + getMonthName(end.getMonth()) + ' ' + end.getFullYear() + ' à ' + end.getHours() + ':' + end.getMinutes();
+            // Si c'est un cours collectif, construire le contenu de la modal pour un cours collectif
+            modalContent = `
+            <div class="bg-white p-4 rounded shadow-md">
+                <h4 class="text-lg text-violet">Réservartion cours collectif</h4>
+                <br>
+                <p><strong class="text-violet">Titre:</strong> ${event.title}</p>
+                <br>
+                <p><strong class="text-violet">Début:</strong> ${start}</p>
+                <br>
+                <p><strong class="text-violet">Fin:</strong> ${end}</p>
+                <br>
+                <p><strong class="text-violet">Adresse:</strong> ${event.extendedProps.address}</p>
+                <br>
+
+
+            </div>
+        `;
+
+
+            // Ajouter la modal au DOM
+            var modal = document.createElement('div');
+            modal.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'h-full', 'flex', 'items-center', 'justify-center', 'bg-gray-800', 'bg-opacity-75', 'z-50');
+            modal.innerHTML = modalContent;
+            document.body.appendChild(modal);
+
+            // Fermer la modal lorsque l'utilisateur clique en dehors de la modal
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
     });
 
     calendar.render();

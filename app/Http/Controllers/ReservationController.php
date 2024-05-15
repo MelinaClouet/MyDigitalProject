@@ -10,6 +10,21 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 class ReservationController extends Controller
 {
+
+    public function refuseReservation(Request $request){
+        $event = Reservation::find($request->id);
+        $event->status = "refused";
+        $event->save();
+        return redirect('/admin/allReservations')->with('success', 'Rendez-vous refusé avec succès');
+    }
+
+    public function acceptReservation(Request $request){
+        $event = Reservation::find($request->id);
+        $event->status = "confirmed";
+        $event->save();
+        return redirect('/admin/allReservations')->with('success', 'Rendez-vous accepté avec succès');
+    }
+
     public function getAllEvent()
     {
         $reservations = Reservation::all();
@@ -23,6 +38,7 @@ class ReservationController extends Controller
             $reservations = Reservation::where('customer_id', $me->id)->get();
             return [$reservations];
         }
+
     }
 
     public function getAllReservation(Request $request){
