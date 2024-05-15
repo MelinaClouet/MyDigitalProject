@@ -59,7 +59,7 @@
                                 <i class="fas fa-user "></i> <span class="text-sm text-black">Activer le compte</span>
                             </a>
                         @endif
-                        @if($customer->status==1)
+                        @if($customer->status==1 && $customer->isAdmin==0)
                             <a href="/admin/deleteUser/{{$customer->id}}" class="text-red-500 mr-2 ml-4">
                                 <i class="fas fa-trash"></i>
                             </a>
