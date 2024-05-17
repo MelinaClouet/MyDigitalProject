@@ -66,37 +66,34 @@ use App\Models\EventVariation;
 
                         <!-- Champs de la modal -->
                         <div class="mt-4 gap-2">
-                            <h4 class="text-lg font-semibold mb-4 text-violet">Clients:</h4>
+                            <h4 class="text-lg font-semibold mb-4 text-violet">Client </h4>
 
                             <div class="flex flex-row"> <!-- Utilisation de flex pour aligner les éléments horizontalement -->
                                 <div class="mr-4"> <!-- Marge à droite pour séparer les éléments -->
-                                    <p>Nom: <span  class="font-semibold text-orangeClair" id="modalLastName"></span></p>
+                                    <p>Nom : <span  class="font-semibold text-orangeClair" id="modalLastName"></span></p>
                                 </div>
                                 <div>
-                                    <p>Prénom: <span  class="font-semibold text-orangeClair" id="modalFirstName"></span></p>
+                                    <p>Prénom : <span  class="font-semibold text-orangeClair" id="modalFirstName"></span></p>
                                 </div>
                             </div>
 
-                            <p>Email: <span  class="font-semibold text-orangeClair" id="modalEmail"></span></p>
-                            <p>Téléphone: <span  class="font-semibold text-orangeClair" id="modalPhone"></span></p>
+                            <p>Email : <span  class="font-semibold text-orangeClair" id="modalEmail"></span></p>
+                            <p>Téléphone : <span  class="font-semibold text-orangeClair" id="modalPhone"></span></p>
                             <div class="flex flex-row"> <!-- Utilisation de flex pour aligner les éléments horizontalement -->
                                 <div class="mr-4"> <!-- Marge à droite pour séparer les éléments -->
-                                    <p>Adresse: <span  class="font-semibold text-orangeClair" id="modalAddress"></span></p>
+                                    <p>Adresse : <span  class="font-semibold text-orangeClair" id="modalAddress"></span></p>
                                 </div>
-                                <div>
-                                    <p>Code Postal: <span  class="font-semibold text-orangeClair" id="modalPostalCode"></span></p>
-                                </div>
+
                             </div>
 
-                            <p>Ville: <span  class="font-semibold text-orangeClair" id="modalCity"></span></p>
+
 
                         </div>
                         <div class="mt-4">
-                            <h4 class="text-lg font-semibold mb-4 text-violet">Réservation:</h4>
+                            <h4 class="text-lg font-semibold mb-4 text-violet">Réservation</h4>
                             <p class="hidden">Id: <span  class="font-semibold text-orangeClair" id="modalId"></span></p>
-                            <p>Date de début: <span  class="font-semibold text-orangeClair" id="modalStartDate"></span></p>
-                            <p>Date de fin: <span  class="font-semibold text-orangeClair" id="modalEndDate"></span></p>
-                            <p>Status:<span  class="font-semibold text-orangeClair" id="modalStatus"></span> </p>
+                            <p><span  class="font-semibold text-orangeClair" id="modalStartDate"></span></p>
+                            <p>Statut : <span  class="font-semibold text-orangeClair" id="modalStatus"></span> </p>
                             <div class="my-3 flex justify-between">
                                 <button class="bg-orange text-white py-2 px-4 rounded-md hover:bg-orangeClair" id="modalButtonAcept">Acepter</button>
                                 <button class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-300" id="modalButtonRefuse">Refuser</button>

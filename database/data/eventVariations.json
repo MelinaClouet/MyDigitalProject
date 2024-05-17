@@ -1,6 +1,6 @@
 [
     {
-        "name": "Atelier Bien-être",
+        "name": "Atelier bien-être",
         "duration": "1h",
         "price": "15€",
         "max_capacity": 10,
@@ -8,7 +8,7 @@
 
     },
     {
-        "name": "Atelier Bien-être",
+        "name": "Atelier bien-être",
         "duration": "2h",
         "price": "20€",
         "max_capacity": 10,
@@ -16,7 +16,7 @@
 
     },
     {
-    "name": "Atelier Bien-être",
+    "name": "Atelier bien-être",
     "duration": "3h",
     "price": "25€",
     "max_capacity": 10,
@@ -24,7 +24,7 @@
 
     },
     {
-        "name": "Mini Débat",
+        "name": "Mini débat",
         "duration": "1h",
         "price": "10€",
         "max_capacity": 10,

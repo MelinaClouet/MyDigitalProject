@@ -17,30 +17,30 @@
                 <div class="flex mb-4">
                     <div class="w-1/2 mr-2">
                         <label for="firstName" class="block text-sm font-medium montserrat text-orangeClair">Prénom</label>
-                        <input type="text" id="firstName" name="firstName" class="mt-1 p-2 w-full border rounded-md">
+                        <input type="text" id="firstName" name="firstName" class="mt-1 p-2 w-full border rounded-md" required>
                     </div>
                     <div class="w-1/2 ml-2">
                         <label for="lastName" class="block text-sm font-medium montserrat text-orangeClair">Nom</label>
-                        <input type="text" id="lastName" name="lastName" class="mt-1 p-2 w-full border rounded-md">
+                        <input type="text" id="lastName" name="lastName" class="mt-1 p-2 w-full border rounded-md" required>
                     </div>
                 </div>
                 <div class="flex mb-4">
                     <div class="w-1/2 mr-2">
-                        <label for="address" class="block text-sm font-medium montserrat text-orangeClair">Addresse</label>
-                        <input type="text" id="address" name="address" class="mt-1 p-2 w-full border rounded-md">
+                        <label for="address" class="block text-sm font-medium montserrat text-orangeClair">Adresse</label>
+                        <input type="text" id="address" name="address" class="mt-1 p-2 w-full border rounded-md" required>
                     </div>
                     <div class="w-1/2 ml-2">
                         <label for="postalCode" class="block text-sm font-medium montserrat text-orangeClair">Code Postal</label>
-                        <input type="text" id="postalCode" name="postalCode" class="mt-1 p-2 w-full border rounded-md">
+                        <input type="text" id="postalCode" name="postalCode" class="mt-1 p-2 w-full border rounded-md" required>
                     </div>
                 </div>
                 <div class="mb-4">
                     <label for="city" class="block text-sm font-medium montserrat text-orangeClair">Ville</label>
-                    <input type="text" id="city" name="city" class="mt-1 p-2 w-full border rounded-md">
+                    <input type="text" id="city" name="city" class="mt-1 p-2 w-full border rounded-md" required>
                 </div>
                 <div class="mb-4">
                     <label for="phone" class="block text-sm font-medium montserrat text-orangeClair">Téléphone</label>
-                    <input type="text" id="phone" name="phone" class="mt-1 p-2 w-full border rounded-md">
+                    <input type="text" id="phone" name="phone" class="mt-1 p-2 w-full border rounded-md" required>
                 </div>
                 <div class="flex justify-end">
                     <button id="next" class="px-4 py-2 text-white rounded-md bg-orange ">Next</button>
@@ -50,17 +50,17 @@
             <div id="account-info" class="hidden">
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium montserrat text-orangeClair">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md">
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md" required>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-sm font-medium montserrat text-orangeClair" >Mot de passe</label>
-                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md">
+                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md" required>
                     <p id="passwordMessage" class="text-sm text-red-500 hidden">Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un caractère spécial et un chiffre.</p>
 
                 </div>
                 <div class="mb-6">
                     <label for="password_confirmation" class="block text-sm font-medium montserrat text-orangeClair">Confirmation mot de passe</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation" class="mt-1 p-2 w-full border rounded-md">
+                    <input type="password" id="password_confirmation" name="password_confirmation" class="mt-1 p-2 w-full border rounded-md" required>
                     <p id="passwordConfirmationMessage" class="text-sm text-red-500 hidden">Mots de passe incorect</p>
 
                 </div>
@@ -69,7 +69,7 @@
                     <!-- Bouton "Previous" -->
                     <button id="prev" class="px-4 py-2 bg-gray-200 text-gray-600 rounded-md hover:bg-gray-400 focus:outline-none focus:bg-gray-400" >Previous</button>
                     <!-- Bouton "Register" -->
-                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md bg-orange " style="background-color: #FD6D2F">Register</button>
+                    <button id="btnSubmit" type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md bg-orange " style="background-color: #FD6D2F">Ajouter</button>
                 </div>
             </div>
         </form>
@@ -93,6 +93,7 @@
             const passwordConfirmation = document.getElementById('password_confirmation');
             const passwordMessage = document.getElementById('passwordMessage');
             const passwordConfirmationMessage = document.getElementById('passwordConfirmationMessage');
+            const btnSubmit = document.getElementById('btnSubmit');
 
             password.addEventListener('input', function () {
                 var password = passwordInput.value; // Mettez la récupération de la valeur à l'intérieur de la fonction de rappel
@@ -111,15 +112,25 @@
                 }
             });
 
+
+
             passwordConfirmation.addEventListener('input', function () {
                 const passwordValue = password.value;
                 const passwordConfirmationValue = passwordConfirmation.value;
+
                 if (passwordValue !== passwordConfirmationValue) {
+                    console.log('Passwords do not match');
+                    console.log('Password:', passwordValue, 'Password Confirmation:', passwordConfirmationValue);
                     passwordConfirmationMessage.classList.remove('hidden');
+                    btnSubmit.disabled = true;
                 } else {
+                    console.log('Passwords match');
+                    console.log('Password:', passwordValue, 'Password Confirmation:', passwordConfirmationValue);
                     passwordConfirmationMessage.classList.add('hidden');
+                    btnSubmit.disabled = false;
                 }
             });
+
             nextBtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 personalInfoSection.classList.add('hidden');

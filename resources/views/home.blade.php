@@ -45,11 +45,9 @@
         </div>
         <div class="mt-7 montserrat text-center md:text-left">
             <p class="text-justify lg:text-lg">
-                Découvrez Mayuda, votre partenaire pour le développement personnel de vos enfants.
-                Formée en psychologie et éducation,
-                notre coach offre des séances individuelles et des ateliers axés sur la relaxation,
-                la gestion des émotions et la construction de l'estime de soi.
-                Ensemble, construisons un avenir serein pour vos enfants.
+                C’est une entreprise spécialisée dans le bien-être de l’enfant et de l’adolescent. Un accompagnement
+                personnalisé et adapté aux besoins de chacun. Des formations de qualité pour enfants, adolescents et
+                adultes.
             </p>
         </div>
 
@@ -101,8 +99,8 @@
         <div>
             <img src="/assets/5.png" alt="Image 1" class="object-cover h-24 md:h-32 lg:h-40">
             <h3 class="text-center text-white font-semibold mt-4">
-                Soutient <br> scolaire
-            </3>
+                Soutien <br> scolaire
+            </h3>
         </div>
         <div>
             <img src="/assets/4.png" alt="Image 2" class="object-cover h-24 md:h-32 lg:h-40">

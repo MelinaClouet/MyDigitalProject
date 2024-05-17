@@ -14,31 +14,31 @@ function colorEvent(type) {
     // Fonction pour obtenir la couleur pastel en fonction du nom de l'événement
     switch(type) {
         case 'Atelier Bien-être':
-            return '#FFD9B3'; // Orange pastel
+            return '#97DFC6'; // Orange pastel
         case 'Mini Débat':
-            return '#B3E0FF'; // Bleu pastel
+            return '#C72C48'; // framboise
         case 'Première séance':
-            return '#C2FFC2'; // Vert pastel
+            return '#FFDAB9'; // peach
         case 'Enfant de 5 à 11 ans':
-            return '#FFB3D9'; // Rose pastel
+            return '#FFDAB9'; // peach
         case 'Adolescent de 11 à 15 ans':
-            return '#FFFFB3'; // Jaune pastel
+            return '#FFDAB9'; // peach
         case 'Adulte':
-            return '#B3B3FF'; // Violet pastel
+            return '#FFDAB9'; // peach
         case 'Cours particuliers du CP à la 3ème':
             return '#D9B3FF'; // Lavande pastel
         case 'Formation harcèlement au milieu scolaire':
             return '#FFB366'; // Orange clair pastel
-        case 'Relaxation et gestio des émotions':
-            return '#B3E0E3'; // Cyan pastel
+        case 'Relaxation et gestion des émotions':
+            return '#FFB366'; // Orange clair pastel
         case 'Comment cultiver le bien-être à l\'école?':
-            return '#FF6666'; // Rouge pastel
+            return '#FFB366'; //Orange clair pastel
         case 'Education à la sexualité':
-            return '#66FF99'; // Vert clair pastel
+            return '#FFB366'; // Orange clair pastel
         case 'L\'empathie qu\'est-ce que c\'est?':
-            return '#FF99FF'; // Rose clair pastel
+            return '#FFB366'; // Orange clair pastel
         case 'Gérer ses émotions':
-            return '#D9D9D9'; // Gris pastel
+            return '#FFB366'; // Orange clair pastel
         default:
             return '#FFFFFF'; // Blanc
     }
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                     for (var j = 0; j < typeEvent.length; j++) {
                                                         console.log(typeEvent[j].name);
                                                         events.push({
-                                                            title: 'Cours collectif: ' + typeEvent[j].name,
+                                                            title: 'Cours collectif : ' + typeEvent[j].name,
                                                             start: collectiveEvent.startDate,
                                                             end: collectiveEvent.endDate,
                                                             color: colorEvent(typeEvent[j].name),
@@ -207,18 +207,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 end = end.getDate() + ' ' + getMonthName(end.getMonth()) + ' ' + end.getFullYear() + ' à ' + end.getHours() + ':' + end.getMinutes();
                 // Si c'est un cours collectif, construire le contenu de la modal pour un cours collectif
                 modalContent = `
-            <div class="bg-white p-4 rounded shadow-md">
-                <h4 class="text-lg text-violet">Réservartion cours collectif</h4>
-                <br>
-                <p><strong class="text-violet">Titre:</strong> ${event.title}</p>
-                <br>
-                <p><strong class="text-violet">Début:</strong> ${start}</p>
-                <br>
-                <p><strong class="text-violet">Fin:</strong> ${end}</p>
-                <br>
-                <p><strong class="text-violet">Adresse:</strong> ${event.extendedProps.address}</p>
-                <br>
 
+            <div class="bg-white p-4 rounded shadow-md">
+                <h4 class="text-lg text-violet text-center ">Réservation cours collectif</h4>
+                <br>
+                <b class="mb-3">${event.title}</b>
+                <br>
+                <br>
+                <p> ${start} à ${end}</p>
+
+                <br>
+                <p><strong class="text-violet">Lieu :</strong> ${event.extendedProps.address}</p>
+                <br>
                 <button id="requestParticipation" class="bg-orange hover:bg-orangeClair text-white font-bold py-2 px-4 rounded">Demander une participation</button>
 
 
@@ -268,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     type: 'get',
                     success: function(response) {
                         console.log('Demande de participation envoyée');
-                        alert(response.message);
                         modal.remove();
                     },
                     error: function(xhr, status, error) {
@@ -339,26 +338,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Formater la date de début
                     var start = new Date(reservation.event.startDate);
-                    start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear() + ' à ' + start.getHours() + ':' + start.getMinutes()
+                    start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear() + ' de ' + start.getHours() + ':' + start.getMinutes()
 
 // Formater la date de fin
                     var end = new Date(reservation.event.endDate);
-                    end = end.getDate() + ' ' + getMonthName(end.getMonth()) + ' ' + end.getFullYear() + ' à ' + end.getHours() + ':' + end.getMinutes();
+                    end =  end.getHours() + ':' + end.getMinutes();
 
 // Fonction pour obtenir le nom du mois en français
 
 
                     // Remplir les champs de la modal avec les informations de la réservation
                     document.getElementById('modalTitle').innerHTML = reservation.event_variation.name
-                    document.getElementById('modalStartDate').innerHTML = start;
-                    document.getElementById('modalEndDate').innerHTML =end;
+                    document.getElementById('modalStartDate').innerHTML = start + ' à ' + end;
                     document.getElementById('modalEmail').innerHTML = reservation.customer.email;
                     document.getElementById('modalPhone').innerHTML = reservation.customer.phone;
                     document.getElementById('modalFirstName').innerHTML = reservation.customer.firstName;
                     document.getElementById('modalLastName').innerHTML = reservation.customer.lastName;
-                    document.getElementById('modalAddress').innerHTML = reservation.customer.address;
-                    document.getElementById('modalCity').innerHTML = reservation.customer.city;
-                    document.getElementById('modalPostalCode').innerHTML = reservation.customer.postal_code;
+                    document.getElementById('modalAddress').innerHTML = reservation.customer.address + ', ' + reservation.customer.city + ', ' + reservation.customer.postal_code;
+
                     document.getElementById('modalId').innerHTML = reservation.event.id;
                     if(reservation.event.status=='pending'){
                         document.getElementById('modalStatus').innerHTML='En attente';
@@ -535,19 +532,19 @@ document.addEventListener('DOMContentLoaded', function() {
             start = start.getDate() + ' ' + getMonthName(start.getMonth()) + ' ' + start.getFullYear() + ' à ' + start.getHours() + ':' + start.getMinutes();
 
             var end = new Date(event.end);
-            end = end.getDate() + ' ' + getMonthName(end.getMonth()) + ' ' + end.getFullYear() + ' à ' + end.getHours() + ':' + end.getMinutes();
+            end = end.getHours() + ':' + end.getMinutes();
             // Si c'est un cours collectif, construire le contenu de la modal pour un cours collectif
             modalContent = `
             <div class="bg-white p-4 rounded shadow-md">
-                <h4 class="text-lg text-violet">Réservartion cours collectif</h4>
+                <h4 class="text-lg text-violet text-center ">Réservation cours collectif</h4>
                 <br>
-                <p><strong class="text-violet">Titre:</strong> ${event.title}</p>
+                <b class="mb-3">${event.title}</b>
                 <br>
-                <p><strong class="text-violet">Début:</strong> ${start}</p>
                 <br>
-                <p><strong class="text-violet">Fin:</strong> ${end}</p>
+                <p> ${start} à ${end}</p>
+
                 <br>
-                <p><strong class="text-violet">Adresse:</strong> ${event.extendedProps.address}</p>
+                <p><strong class="text-violet">Lieu :</strong> ${event.extendedProps.address}</p>
                 <br>
 
 

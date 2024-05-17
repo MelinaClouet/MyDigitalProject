@@ -22,5 +22,9 @@
     {
         "name": "Formation pour enfants",
         "event_id": 2
+    },
+    {
+        "name": "Gérer ses émotions",
+        "event_id": 1
     }
 ]

@@ -23,7 +23,7 @@ use App\Models\EventCategorie;
                 <div>
 
                     <label class="text-orangeClair" for="name">Nom du service</label>
-                    <input type="text" name="name" id="name" class="w-full bg-gray-100 p-2 rounded-md mt-2">
+                    <input type="text" name="name" id="name" class="w-full bg-gray-100 p-2 rounded-md mt-2" required>
 
 
                     <input type="hidden" name="event_id" id="event_id" value="{{$defaultValue}}" class="w-full bg-gray-100 p-2 rounded-md mt-2">
@@ -45,52 +45,3 @@ use App\Models\EventCategorie;
 
 <!-- Inclure Alpine.js pour gérer la logique JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-<script>
-    //if all champs is not remplis the bouton Ajouter is disable
-
-    const name = document.getElementById('name');
-    const duration = document.getElementById('duration');
-    const price = document.getElementById('price');
-    const max_capacity = document.getElementById('max_capacity');
-    const type = document.getElementById('type');
-    const ajouter = document.getElementById('btnAdd');
-    ajouter.disabled = true;
-    name.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    duration.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    price.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    max_capacity.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-    type.addEventListener('input', function() {
-        if (name.value !== '' && duration.value !== '' && price.value !== '' && max_capacity.value !== '' && type.value !== '') {
-            ajouter.disabled = false;
-        } else {
-            ajouter.disabled = true;
-        }
-    });
-
-
-
-</script>

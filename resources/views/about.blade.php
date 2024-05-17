@@ -97,15 +97,7 @@
             d'équilibre. Ainsi, chez Mayuda, nous nous engageons à offrir un accompagnement personnalisé,
             en phase avec vos valeurs profondes, pour favoriser l'épanouissement et la confiance en soi
             de chaque individu.</p>
-            <p class=" text-justify mt-12"> Bienvenue chez Mayuda! </p>
-            <div class="flex justify-center mt-12 mb-10">
-                <a href="/contact">
-                    <button class="rounded-3xl w-full h-10 text-white  items-center mx-10 bg-orange">
-                        NOUS CONTACTER
-                    </button>
-                </a>
 
-            </div>
         </div>
     </div>
     <div class="justify-end w-1/4 mt-52 md:mt-20 lg:mt-5">

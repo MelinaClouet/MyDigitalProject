@@ -198,7 +198,7 @@ $collectiveEvents = DB::table('collective_events as ce')
             <p id="dateErrorMessage" class="text-red-500"></p>
             <br><br>
             <label for="horaire">Choisir l'horaire :</label>
-            <div id="horaires">
+            <div id="horaires" class="mb-10">
                 <!-- Les boutons d'horaire seront ajoutés ici via JavaScript -->
             </div>
             <input type="hidden" id="selectedHoraire" name="selectedHoraire"> <!-- Champ de formulaire caché pour stocker l'horaire sélectionné -->
@@ -282,7 +282,7 @@ $collectiveEvents = DB::table('collective_events as ce')
         horairesContainer.innerHTML = ''; // Nettoyer les anciens boutons
 
 
-        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30", "13h30", "14h30", "15h30", "16h30", "17h30", "18h30"];
+        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30", "13h30", "14h30", "15h30", "16h30", "17h30", ];
 
         // Créer les boutons d'horaire et les désactiver si l'horaire est déjà pris
         heuresDisponibles.forEach(function(heure) {
