@@ -41,6 +41,8 @@ Route::get('getAllReservation', [ReservationController:: class , 'getAllReservat
 
 Route::get('/getCollectiveEvents', [CollectiveEventController:: class , 'getCollectiveEvents'])->name('getCollectiveEvents');
 
+Route::get('/getCollectiveEventsDate', [CollectiveEventController:: class , 'getCollectiveEventsDate'])->name('getCollectiveEventsDate');
+
 Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
 

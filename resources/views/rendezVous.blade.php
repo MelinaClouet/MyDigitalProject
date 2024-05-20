@@ -118,7 +118,7 @@ $collectiveEvents = DB::table('collective_events as ce')
                                     @csrf
                                     <div class="flex justify-end">
                                         <input type="hidden" name="reservation_id" value="{{$reservation->id}}">
-                                        <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md mr-4">Confirmer</button>
+                                        <button id="btnSubmitDelete" type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md mr-4 ">Confirmer</button>
                                         <button id="cancelButton" type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400">Annuler</button>
                                     </div>
                                 </form>
@@ -148,7 +148,7 @@ $collectiveEvents = DB::table('collective_events as ce')
                             });
 
 
-                            var btnSubmit=document.getElementById('submit');
+                            var btnSubmit=document.getElementById('btnSubmitDelete');
                         </script>
 
 
@@ -223,9 +223,10 @@ $collectiveEvents = DB::table('collective_events as ce')
 
     function selectHoraire(time) {
         const selectedHoraireInput = document.getElementById('selectedHoraire');
-        selectedHoraireInput.value = time;// Stocker l'horaire sélectionné dans le champ de formulaire caché
+        selectedHoraireInput.value = time; // Stocker l'horaire sélectionné dans le champ de formulaire caché
         console.log(time);
     }
+
     // Lorsque la date est changée
     document.getElementById('date').addEventListener('change', function() {
         var selectedDate = this.value;
@@ -236,7 +237,7 @@ $collectiveEvents = DB::table('collective_events as ce')
             document.getElementById('dateErrorMessage').textContent = 'Veuillez choisir une date égale ou ultérieure à aujourd\'hui.';
             this.value = ''; // Efface la valeur de l'input date
             //disable submit button
-            btnSubmit.disabled=true;
+            btnSubmit.disabled = true;
             return;
         } else {
             document.getElementById('dateErrorMessage').textContent = ''; // Efface le message d'erreur
@@ -251,7 +252,6 @@ $collectiveEvents = DB::table('collective_events as ce')
             document.getElementById('dateErrorMessage').textContent = ''; // Efface le message d'erreur
         }
 
-
         console.log(selectedDate);
 
         // Appel AJAX pour récupérer les réservations pour la date sélectionnée
@@ -262,13 +262,39 @@ $collectiveEvents = DB::table('collective_events as ce')
                 date: selectedDate
             },
             success: function(data) {
-
                 var reservations = data;
                 var horairesPris = data.map(function(reservation) {
-                    return new Date(reservation.startDate).toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'});
-                });// Extracting start times from reservations
-                console.log(horairesPris)
-                updateHoraires(horairesPris); // Update les boutons d'horaire avec les horaires pris
+                    return new Date(reservation.startDate).toLocaleTimeString('fr-FR', {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                }); // Extracting start times from reservations
+                console.log('Horaires pris :')
+                console.log(horairesPris);
+
+                // Appel AJAX pour vérifier les cours collectifs
+                $.ajax({
+                    url: '/getCollectiveEventsDate',
+                    method: 'GET',
+                    data: {
+                        date: selectedDate
+                    },
+                    success: function(data) {
+                        console.log('Cours collectifs :')
+                        console.log(data);
+                        var collectiveEvents = data;
+                        var isCollectiveEvent = collectiveEvents.length > 0;
+
+                        if (isCollectiveEvent) {
+                            disableAllHoraires(); // Désactive tous les boutons si un cours collectif est présent
+                        } else {
+                            updateHoraires(horairesPris); // Update les boutons d'horaire avec les horaires pris
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
             },
             error: function(xhr, status, error) {
                 console.error(error);
@@ -276,13 +302,13 @@ $collectiveEvents = DB::table('collective_events as ce')
         });
     });
 
+
     // Fonction pour mettre à jour les boutons d'horaire
     function updateHoraires(horairesPris) {
         var horairesContainer = document.getElementById('horaires');
         horairesContainer.innerHTML = ''; // Nettoyer les anciens boutons
 
-
-        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30", "13h30", "14h30", "15h30", "16h30", "17h30", ];
+        var heuresDisponibles = ["8h30", "9h30", "10h30","11h30", "13h30", "14h30", "15h30", "16h30", "17h30"];
 
         // Créer les boutons d'horaire et les désactiver si l'horaire est déjà pris
         heuresDisponibles.forEach(function(heure) {
@@ -309,7 +335,7 @@ $collectiveEvents = DB::table('collective_events as ce')
             // Vérifie si l'heure est dans les heures prises
             var isPris = false;
             horairesPris.forEach(function(horairePris) {
-                var formatHeure=heure.replace('h', ':');
+                var formatHeure = heure.replace('h', ':');
                 if (formatHeure === horairePris) {
                     isPris = true;
                     console.log(isPris);
@@ -326,6 +352,30 @@ $collectiveEvents = DB::table('collective_events as ce')
             horairesContainer.appendChild(button);
         });
     }
+
+    // Fonction pour désactiver tous les boutons d'horaire
+    function disableAllHoraires() {
+        var horairesContainer = document.getElementById('horaires');
+        horairesContainer.innerHTML = ''; // Nettoyer les anciens boutons
+
+        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30", "13h30", "14h30", "15h30", "16h30", "17h30"];
+
+        heuresDisponibles.forEach(function(heure) {
+            var button = document.createElement('button');
+            button.textContent = heure;
+            button.style.margin = '5px'; // Ajout de la marge
+            button.style.padding = '8px 12px'; // Ajout du rembourrage
+            button.style.border = '1px solid #ccc'; // Ajout de la bordure
+            button.style.borderRadius = '5px'; // Ajout du rayon de bordure
+            button.style.borderColor = '#ccc';
+            button.style.background = '#ccc'; // Ajout de la couleur de fond
+            button.style.color = '#333';
+            button.disabled = true;
+
+            horairesContainer.appendChild(button);
+        });
+    }
+
 </script>
 
 <script>
@@ -350,6 +400,10 @@ $collectiveEvents = DB::table('collective_events as ce')
         const reservationModal = document.getElementById('reservationModal');
         reservationModal.classList.add('hidden');
     });
+
+
+
+
 </script>
 </body>
 </html>

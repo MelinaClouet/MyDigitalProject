@@ -41,6 +41,11 @@ class CollectiveEventController extends Controller
         return $collectiveEvents;
     }
 
+    public function getCollectiveEventsDate(Request $request){
+        $collectiveEvents = CollectiveEvent::where('startDate', '>=', $request->date)->get();
+        return $collectiveEvents;
+    }
+
     public function requestCollectiveEvent($idEvent) {
         // Récupérer l'événement collectif et la variation d'événement correspondante
         $collectiveEvent = CollectiveEvent::find($idEvent);
