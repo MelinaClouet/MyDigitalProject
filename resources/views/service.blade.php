@@ -18,7 +18,7 @@
         }
 
     </style>
-    <body class="bg-beige" >
+    <body class="bg-beige h-screen" >
         @include ('layouts.header', ['active' => 'services'])
 
         <div class="w-full mt-32 flex mb-5 lg:mt-[15rem] " >
@@ -44,23 +44,24 @@
             </div>
 
         </div>
-        <div class="flex w-full bg-orange px-10 lg:px-[8rem]">
-            <div class="w-full flex items-center justify-center flex-col text-beige mt-5 md:w-2/3">
-                <h2 class="font-semibold text-xl text-center font-poetsen mt-5 lg:text-2xl">CONSULTATIONS INDIVIDUELLES</h2>
-                <p class="  mt-12 text-justify">Nos séances individuelles offrent un espace confidentiel où
-                    chaque enfant peut explorer ses émotions et préoccupations </p>
-                <p class="  mt-6 text-justify">C’est un travail en étroite collaboration avec chaque
-                    enfant leur permettant de développer ses propres stratégies afin d’apprendre à gérer ses émotions,
-                    renforcer sa confiance et son estime de soi et ce, afin de promouvoir un bien-être émotionnel durable.</p>
+        <div class="md:flex w-full bg-orange px-10 lg:px-[8rem] md:h-2/4 lg:h-2/3 ">
+            <div class="w-full md:w-1/2 py-5 h-full flex flex-col justify-center lg:justify-around relative">
+                <div class="">
+                    <h2 class="font-semibold text-xl text-center font-poetsen">CONSULTATIONS INDIVIDUELLES</h2>
+                    <p class="mt-6 text-justify">Nos séances individuelles offrent un espace confidentiel où chaque enfant peut explorer ses émotions et préoccupations</p>
+                    <p class="mt-3 text-justify">C’est un travail en étroite collaboration avec chaque enfant leur permettant de développer ses propres stratégies afin d’apprendre à gérer ses émotions, renforcer sa confiance et son estime de soi et ce, afin de promouvoir un bien-être émotionnel durable.</p>
+                </div>
+                <img src="/assets/7.png" class="absolute w-1/4 mt-48 -ml-10 lg:mt-20 md:mt-48 md:-ml-10 lg:-ml-24">
+                <div class="mt-10">
+                    <h2 class="font-poetsen font-semibold text-xl text-center">SÉANCES DE RELAXATION</h2>
+                    <p class="my-5 text-justify lg:mb-20">La relaxation est un outil essentiel pour permettre à l'enfant de gérer ses émotions et d'augmenter son sentiment de bien-être quotidien.</p>
+                </div>
+            </div>
 
-                <img src="/assets/enfantsColor.jpg" class="w-2/3 rounded-full ml-40 md:w-1/2 md:ml-[45rem] md:-mt-12 lg:w-1/2 lg:ml-[70rem] lg:-mt-36"  style="transform: rotate(12deg)">
-                <img src="/assets/7.png" class="w-1/3 -mt-20 -ml-56 md:-mt-52 lg:-mt-64 lg:-ml-[40rem]">
-                <h2 class="font-poetsen font-semibold text-xl text-center mt-2 md:-mt-2 lg:text-2xl lg:-mt-20">SÉANCES DE RELAXATION</h2>
-                <p class="  my-5 text-justify lg:mb-20">La relaxation est un outil essentiel pour permettre à l'enfant de
-                    gérer ses émotions et d'augmenter son sentiment de bien-être quotidien.
+            <div class="w-full md:w-1/2 flex justify-center items-center md:pl-20">
+                <img src="/assets/enfantsColor.jpg" class="h-1/2 lg:w-2/3 lg:h-3/4 rounded-full" style="transform: rotate(12deg)">
+            </div>
 
-                </p>
-             </div>
 
         </div>
         <div class="w-full">
