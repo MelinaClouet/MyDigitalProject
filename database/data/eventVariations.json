@@ -1,111 +1,107 @@
 [
     {
-        "name": "Atelier bien-être",
-        "duration": "1h",
-        "price": "15€",
-        "max_capacity": 10,
-        "eventCategorie_id": 1
-
-    },
-    {
-        "name": "Atelier bien-être",
+        "name": "Apprendre à s'aimer",
         "duration": "2h",
-        "price": "20€",
-        "max_capacity": 10,
+        "price": "15",
+        "max_capacity": 6,
         "eventCategorie_id": 1
 
     },
     {
-    "name": "Atelier bien-être",
+        "name": "Développer l'empathie",
+        "duration": "3h",
+        "price": "20",
+        "max_capacity": 6,
+        "eventCategorie_id": 1
+
+    },
+    {
+    "name": "Education à la sexualité",
     "duration": "3h",
-    "price": "25€",
-    "max_capacity": 10,
+    "price": "20",
+    "max_capacity": 6,
     "eventCategorie_id": 1
+
+    },
+    {
+        "name": "Attention et concentration",
+        "duration": "2h",
+        "price": "15",
+        "max_capacity": 6,
+        "eventCategorie_id": 1
 
     },
     {
         "name": "Mini débat",
         "duration": "1h",
-        "price": "10€",
-        "max_capacity": 10,
+        "price": "5",
+        "max_capacity": 8,
         "eventCategorie_id": 2
 
     },
     {
         "name": "Première séance",
         "duration": "1h",
-        "price": "20€",
-        "max_capacity": 10,
+        "price": "20",
+        "max_capacity": 1,
         "eventCategorie_id": 3
     },
     {
         "name": "Enfant de 5 à 11 ans",
         "duration": "30-45min",
-        "price": "30€",
-        "max_capacity": 10,
+        "price": "30",
+        "max_capacity": 1,
         "eventCategorie_id": 3
     },
     {
         "name": "Adolescent de 11 à 15 ans",
         "duration": "45min - 1h",
-        "price": "35€",
-        "max_capacity": 10,
+        "price": "35",
+        "max_capacity": 1,
         "eventCategorie_id": 3
     },
     {
         "name": "Adulte",
         "duration": "45min - 1h",
-        "price": "40€",
-        "max_capacity": 10,
+        "price": "40",
+        "max_capacity": 1,
         "eventCategorie_id": 3
     },
     {
         "name": "Cours particuliers du CP à la 3ème",
         "duration": "1h",
-        "price": "20€",
-        "max_capacity": 10,
+        "price": "20",
+        "max_capacity": 1,
         "eventCategorie_id": 4
     },
     {
-        "name": "Formation harcèlement en milieu scolaire",
-        "duration": "1 journée",
-        "price": "",
-        "max_capacity": 10,
-        "eventCategorie_id": 5
+        "name": "Chasser sa colère",
+        "duration": "1h",
+        "price": "10",
+        "max_capacity": 6,
+        "eventCategorie_id": 7
     },
     {
-        "name": "Relaxation et gestion des émotions",
-        "duration": "1 journée",
-        "price": "",
-        "max_capacity": 10,
-        "eventCategorie_id": 5
+        "name": "Installer le calme",
+        "duration": "1h",
+        "price": "10",
+        "max_capacity": 6,
+        "eventCategorie_id": 7
     },
     {
-        "name": "Comment cultiver le bien-être à l'école?",
-        "duration": "1 journée",
-        "price": "",
-        "max_capacity": 10,
-        "eventCategorie_id": 5
+        "name": "Evacuer le stress",
+        "duration": "1h",
+        "price": "10",
+        "max_capacity": 6,
+        "eventCategorie_id": 7
     },
     {
-        "name": "Education à la sexualité",
-        "duration": "1 journée",
-        "price": "",
-        "max_capacity": 10,
-        "eventCategorie_id": 5
-    },
-    {
-        "name": "L'empathie qu'est-ce que c'est?",
-        "duration": "1 journée",
-        "price": "",
-        "max_capacity": 10,
-        "eventCategorie_id": 6
-    },
-    {
-        "name": "Gérer ses émotions",
-        "duration": "1 journée",
-        "price": "",
-        "max_capacity": 10,
-        "eventCategorie_id": 5
+        "name": "Se remplir de joie",
+        "duration": "1h",
+        "price": "10",
+        "max_capacity": 6,
+        "eventCategorie_id": 7
     }
+
+
 ]
