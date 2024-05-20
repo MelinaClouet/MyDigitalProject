@@ -13,8 +13,22 @@ import interactionPlugin from '@fullcalendar/interaction';
 function colorEvent(type) {
     // Fonction pour obtenir la couleur pastel en fonction du nom de l'événement
     switch(type) {
-        case 'Atelier Bien-être':
-            return '#97DFC6'; // Orange pastel
+        case 'Apprendre à s\'aimer':
+            return '#97DFC6'; // vert pastel
+        case 'Développer l\'empathie':
+            return '#97DFC6'; // vert pastel
+        case 'Education à la sexualité':
+            return '#97DFC6'; // vert pastel
+        case 'Attention et concentration':
+            return '#97DFC6'; // vert pastel
+        case 'Chasser sa colère':
+            return '#97DFC6';
+        case 'Installer le calme':
+            return '#97DFC6';
+        case 'Evacuer le stress':
+            return '#97DFC6';
+        case 'Se remplir de joie':
+            return '#97DFC6';
         case 'Mini Débat':
             return '#C72C48'; // framboise
         case 'Première séance':

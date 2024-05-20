@@ -304,14 +304,18 @@ $collectiveEvents = DB::table('collective_events as ce')
 
 
     // Fonction pour mettre à jour les boutons d'horaire
+    // Fonction pour mettre à jour les boutons d'horaire
     function updateHoraires(horairesPris) {
         var horairesContainer = document.getElementById('horaires');
         horairesContainer.innerHTML = ''; // Nettoyer les anciens boutons
 
-        var heuresDisponibles = ["8h30", "9h30", "10h30","11h30", "13h30", "14h30", "15h30", "16h30", "17h30"];
+        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30", "13h30", "14h30", "15h30", "16h30", "17h30"];
+
 
         // Créer les boutons d'horaire et les désactiver si l'horaire est déjà pris
         heuresDisponibles.forEach(function(heure) {
+            heure = heure.replace('h', ':').padStart(5, '0');
+
             var button = document.createElement('button');
             button.textContent = heure;
             button.style.margin = '5px'; // Ajout de la marge
@@ -333,32 +337,28 @@ $collectiveEvents = DB::table('collective_events as ce')
             });
 
             // Vérifie si l'heure est dans les heures prises
-            var isPris = false;
-            horairesPris.forEach(function(horairePris) {
-                var formatHeure = heure.replace('h', ':');
-                if (formatHeure === horairePris) {
-                    isPris = true;
-                    console.log(isPris);
-                }
-            });
+            var isPris = horairesPris.includes(heure);
+            console.log('Heure : ' + horairesPris)
+            console.log('Heure prise : ' + heure)
 
             if (isPris) {
+                console.log('Heure prise : ' + heure)
                 button.disabled = true;
                 button.style.background = '#ccc'; // Ajout de la couleur de fond
                 button.style.borderColor = '#ccc';
-                console.log('ici');
             }
 
             horairesContainer.appendChild(button);
         });
     }
 
+
     // Fonction pour désactiver tous les boutons d'horaire
     function disableAllHoraires() {
         var horairesContainer = document.getElementById('horaires');
         horairesContainer.innerHTML = ''; // Nettoyer les anciens boutons
 
-        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30", "13h30", "14h30", "15h30", "16h30", "17h30"];
+        var heuresDisponibles = ["8h30", "9h30", "10h30", "11h30","12h30", "13h30", "14h30", "15h30", "16h30", "17h30"];
 
         heuresDisponibles.forEach(function(heure) {
             var button = document.createElement('button');

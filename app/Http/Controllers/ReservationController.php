@@ -71,7 +71,7 @@ class ReservationController extends Controller
             if ($request->event_id == 1) {
                 $event->event_id = 1;
                 $event->event_categorie_id = 4;
-                $event->event_variation_id = 9;
+                $event->event_variation_id = 10;
                 $event->time = "1h";
                 $event->price = "20";
 
@@ -79,28 +79,28 @@ class ReservationController extends Controller
             if ($request->event_id == 2) {
                 $event->event_id = 1;
                 $event->event_categorie_id = 3;
-                $event->event_variation_id = 5;
+                $event->event_variation_id = 6;
                 $event->time = "1h";
                 $event->price = "20";
             }
             if ($request->event_id == 3) {
                 $event->event_id = 1;
                 $event->event_categorie_id = 3;
-                $event->event_variation_id = 6;
+                $event->event_variation_id = 7;
                 $event->time = "30-45min";
                 $event->price = "30";
             }
             if ($request->event_id == 4) {
                 $event->event_id = 1;
                 $event->event_categorie_id = 3;
-                $event->event_variation_id = 7;
+                $event->event_variation_id = 8;
                 $event->time = "45min-1h";
                 $event->price = "35";
             }
             if ($request->event_id == 5) {
                 $event->event_id = 1;
                 $event->event_categorie_id = 3;
-                $event->event_variation_id = 8;
+                $event->event_variation_id = 9;
                 $event->time = "45min-1h";
                 $event->price = "40";
             }
