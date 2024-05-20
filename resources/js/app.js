@@ -43,6 +43,16 @@ function colorEvent(type) {
             return '#FFFFFF'; // Blanc
     }
 
+
+}
+function getColorByStatus(reservation, typeEvent) {
+    if (reservation.status === 'pending') {
+        return '#F7E269';
+    } else if (reservation.status === 'refused') {
+        return '#850606';
+    } else {
+        return colorEvent(typeEvent.name);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -404,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             title: typeEvent[k].name,
                                             start: reservation.startDate,
                                             end: reservation.endDate,
-                                            color: colorEvent(typeEvent[k].name),
+                                            color:   getColorByStatus(reservation, typeEvent[k]),
                                             id: reservation.id,
                                         });
                                     }
