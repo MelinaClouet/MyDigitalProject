@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>@yield('title')</title>
-
+    @cookieconsentscripts
 </head>
 <style>
     .font-poetsen {
@@ -23,14 +23,16 @@
     h2 {
         font-family: 'Quicksand', sans-serif;
     }
-
 </style>
 <body class="bg-beige mt-10">
+@cookieconsentview
 @include('layouts.header' , ['active' => $active])
-
-    @yield('content')
+@yield('content')
 
 @include ('layouts.contact')
+
+@livewireScripts
+
 
 </body>
 </html>

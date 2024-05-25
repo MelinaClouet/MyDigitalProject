@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+
 
 class Kernel extends HttpKernel
 {
@@ -25,7 +27,9 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\CheckSession::class,
-            \App\Http\Middleware\AdminMiddleware::class
+            \App\Http\Middleware\AdminMiddleware::class,
+            AddQueuedCookiesToResponse::class,
+
         ],
 
         'api' => [

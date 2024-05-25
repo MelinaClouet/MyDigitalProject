@@ -23,6 +23,7 @@
         "datatables.net-dt": "^2.0.3",
         "flowbite": "^2.3.0",
         "laravel-mix": "^6.0.49",
-        "postcss-import": "^16.0.1"
+        "postcss-import": "^16.0.1",
+        "tarteaucitronjs": "^1.18.0"
     }
 }
