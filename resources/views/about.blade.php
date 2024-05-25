@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css','resources/js/app.js'])
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
+@extends('layouts.base',  ['active' => 'about'])
 
+@section('title', 'A propos')
 
-</head>
-
-<style>
-
-     p {
-         font-family: 'Quicksand', sans-serif;
-     }
-     h2{
-         font-family: 'Quicksand', sans-serif;
-     }
-    .font-poetsen {
-        font-family: 'Poetsen One', sans-serif;
-    }
-
-</style>
-<body class="bg-beige">
-
-@include ('layouts.header', ['active' => 'about'])
-
+@section('content')
 <div class="w-screen mt-16 flex flex-col md:flex-row  ">
     <div class="w-full p-8 md:ml-10">
         <div class="lg:flex lg:items-center lg:justify-center ">
@@ -93,10 +69,10 @@
                 c’est apprendre à gérer ses émotions, c’est découvrir la possibilité de grandir autrement, c’est
                 apprendre à aimer son corps et son être comme il se doit.</p>
             <p class=" text-justify mt-12">Mon engagement professionnel en tant qu'Assistante pédagogique m'a
-            permis de comprendre les besoins cruciaux des enfants et des adolescents dans leur quête d'identité et
-            d'équilibre. Ainsi, chez Mayuda, nous nous engageons à offrir un accompagnement personnalisé,
-            en phase avec vos valeurs profondes, pour favoriser l'épanouissement et la confiance en soi
-            de chaque individu.</p>
+                permis de comprendre les besoins cruciaux des enfants et des adolescents dans leur quête d'identité et
+                d'équilibre. Ainsi, chez Mayuda, nous nous engageons à offrir un accompagnement personnalisé,
+                en phase avec vos valeurs profondes, pour favoriser l'épanouissement et la confiance en soi
+                de chaque individu.</p>
 
         </div>
     </div>
@@ -106,10 +82,4 @@
     </div>
 </div>
 
-
-
-@include('layouts.contact')
-@include('layouts.footer')
-
-</body>
-</html>
+@endsection

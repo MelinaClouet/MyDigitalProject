@@ -1,6 +1,6 @@
 
 @vite(['resources/css/app.css','resources/js/app.js'])
-<div class="w-full flex h-1/3 bg-violet" >
+<div class="w-full flex h-auto bg-violet" >
     <div class="w-full md:w-1/2  my-12">
         <p class="font-poetsen text-xl flex justify-center text-beige lg:text-3xl" >Contact</p>
 
