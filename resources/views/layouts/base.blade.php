@@ -30,6 +30,7 @@
 @yield('content')
 
 @include ('layouts.contact')
+@include('layouts.footer')
 
 @livewireScripts
 

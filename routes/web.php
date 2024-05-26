@@ -45,10 +45,15 @@ Route::get('/getCollectiveEventsDate', [CollectiveEventController:: class , 'get
 
 Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
+Route::get('legalNotice', function () {
+    return view('legalNotice');
+})->name('legalNotice');
 
 Route::get('/trash', function () {
     return view('trash');
 })->name('trash');
+
+
 
 
 
