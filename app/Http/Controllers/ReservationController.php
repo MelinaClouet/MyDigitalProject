@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class ReservationController extends Controller
 {
 
+    //fonction pour refuser un rendez-vous
     public function refuseReservation(Request $request){
         $event = Reservation::find($request->id);
         $event->status = "refused";
@@ -18,6 +19,7 @@ class ReservationController extends Controller
         return redirect('/admin/allReservations')->with('success', 'Rendez-vous refusé avec succès');
     }
 
+    //fonction pour accepter un rendez-vous
     public function acceptReservation(Request $request){
         $event = Reservation::find($request->id);
         $event->status = "confirmed";
@@ -25,6 +27,7 @@ class ReservationController extends Controller
         return redirect('/admin/allReservations')->with('success', 'Rendez-vous accepté avec succès');
     }
 
+    //fonction pour récupérer tous les rendez-vous
     public function getAllEvent()
     {
         $reservations = Reservation::all();
@@ -32,6 +35,7 @@ class ReservationController extends Controller
 
     }
 
+    //fonction pour récupérer tous les rendez-vous du client connecté
     public function getReservationPersonnal(){
         $me = session()->get('me');
         if($me){
@@ -41,20 +45,13 @@ class ReservationController extends Controller
 
     }
 
+    //fonction pour récupérer tous les rendez-vous en fonction de la date
     public function getAllReservation(Request $request){
         $reservations = Reservation::whereDate('startDate', '=', $request->date)->get();
         return $reservations;
     }
 
-
-    public function getEvents(){
-        if(session()->get('me')){
-            $me = session()->get('me');
-            $events = Reservation::where('customer_id', $me->id)->get();
-            return  ['events' => $events];
-        }
-    }
-
+    //fonction pour récupérer un rendez-vous en fonction de son ID et retourner les informations du client et de l'événement
     public function getReservation($id){
         $event = Reservation::find($id);
         $customer= Customer::find($event->customer_id);
@@ -63,6 +60,7 @@ class ReservationController extends Controller
         return ['event' => $event, 'customer' => $customer, 'event_variation' => $event_variation];
     }
 
+    //fonction pour ajouter un rendez-vous
     public function addReservation(Request $request)
     {
 
@@ -122,6 +120,7 @@ class ReservationController extends Controller
 
     }
 
+    //fonction pour supprimer un rendez-vous
     public function deleteReservation(Request $request){
         $event = Reservation::find($request->reservation_id);
         $event->delete();

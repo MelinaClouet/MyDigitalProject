@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 
 class EventCategorieController extends Controller
 {
+
+    //fonction pour supprimer une catégorie d'événement
     public function deleteEventCategorie(Request $request){
         $eventCategorie = EventCategorie::where('id', $request->id)->first();
         $eventCategorie->delete();
         return redirect('/admin/services');
     }
 
-
+    //fonction pour ajouter une catégorie d'événement
     public function addEventCategorie(Request $request)
     {
         $eventCategorie = new EventCategorie();
@@ -28,6 +30,7 @@ class EventCategorieController extends Controller
 
     }
 
+    //fonction pour recuperer les catégories d'événements en fonction de l'ID de l'événement
     public function getEventCategories($eventId) {
         // Récupérer les catégories d'événements en fonction de l'ID de l'événement
         $eventCategories = EventCategorie::where('event_id', $eventId)->get();

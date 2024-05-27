@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class CollectiveEventController extends Controller
 {
-
+    //fonction pour supprimer un cour collectif
     public function deleteCollectiveEvent(Request $request){
         $collectiveEvent = CollectiveEvent::find($request->id);
         $collectiveEvent->delete();
         return redirect('/admin/meet');
     }
 
+    //fonction pour ajouter un cour collectif
     public function addMeet(Request $request){
 
         $collectiveEvent = new CollectiveEvent();
@@ -35,16 +36,19 @@ class CollectiveEventController extends Controller
 
     }
 
+    //fonction pour récupérer tous les cours collectifs
     public function getCollectiveEvents(){
         $collectiveEvents = CollectiveEvent::all();
         return $collectiveEvents;
     }
 
+    //fonction pour récupérer les cours collectifs à partir d'une date donnée
     public function getCollectiveEventsDate(Request $request){
         $collectiveEvents = CollectiveEvent::where('startDate', '>=', $request->date)->get();
         return $collectiveEvents;
     }
 
+    //fonction pour faire une demande de participation d'un cours collectif
     public function requestCollectiveEvent($idEvent) {
         // Récupérer l'événement collectif et la variation d'événement correspondante
         $collectiveEvent = CollectiveEvent::find($idEvent);

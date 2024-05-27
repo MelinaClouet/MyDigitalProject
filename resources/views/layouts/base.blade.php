@@ -25,7 +25,9 @@
     }
 </style>
 <body class="bg-beige mt-10">
-@cookieconsentview
+@if (Route::currentRouteName() == 'home')
+    @cookieconsentview
+@endif
 @include('layouts.header' , ['active' => $active])
 @yield('content')
 

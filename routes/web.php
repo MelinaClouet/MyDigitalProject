@@ -9,46 +9,60 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
+//Route pour la page d'accueil
 Route::get('/', function () {
     return view('home');
 });
 
+//Route pour la page A propos
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+//Route pour la page Services
 Route::get('/services', function () {
     return view('service');
 })->name('services');
 
+//Route pour la page Calendrier
 Route::get('/reservation', function () {
     return view('reservation',['me' => session('me')]);
 })->name('reservation');
 
+//Route pour la page connexion
 Route::get('/login', function () {
     return view('login');
 });
 
+//Route pour la page d'inscription
 Route::get('/register', function () {
     return view('register');
 })->name('register');
 
+//Route pour ajouter un client lors de l'inscription
 Route::post('/addCustomer', [CustomerController:: class , 'addCustomer'])->name('addCustomer');
 
+//Route pour la connexion d'un client
 Route::post('/login', [CustomerController:: class , 'login'])->name('login');
 
+//Route pour recuperer tous les rendez-vous
 Route::get('getAllReservation', [ReservationController:: class , 'getAllReservation'])->name('getAllReservation');
 
+//Route pour recuperer tous les cours collectifs
 Route::get('/getCollectiveEvents', [CollectiveEventController:: class , 'getCollectiveEvents'])->name('getCollectiveEvents');
 
+//Route pour recuperer les cours collectifs en fonction de la date
 Route::get('/getCollectiveEventsDate', [CollectiveEventController:: class , 'getCollectiveEventsDate'])->name('getCollectiveEventsDate');
 
+//Route pour recuperer le type de cours selon son id
 Route::get('typeEvent/{id}', [EventVariationController:: class , 'typeEvent'])->name('typeEvent');
 
+//Route pour la page des Mentions Legales
 Route::get('legalNotice', function () {
     return view('legalNotice');
 })->name('legalNotice');
 
+//Route de test
 Route::get('/trash', function () {
     return view('trash');
 })->name('trash');
@@ -58,6 +72,7 @@ Route::get('/trash', function () {
 
 
 Route::middleware([\App\Http\Middleware\CheckSession::class])->group(function () {
+
     Route::get('/rendezVous', function () {
         return view('rendezVous');
     })->name('rendezVous');
@@ -113,9 +128,6 @@ Route::middleware([\App\Http\Middleware\CheckAdmin::class])->group(function () {
     Route::get('/admin/getAllEvent' , [ReservationController:: class , 'getAllEvent'])->name('getAllEvent');
 
     Route::get('/admin/getCustomer' , [CustomerController:: class , 'getCustomers'])->name('getCustomers');
-
-    Route::post('/addEvent', [EventController:: class , 'addEvent'])->name('addEvent');
-
 
     Route::get('getReservation/{id}', [ReservationController:: class , 'getReservation'])->name('getReservation');
 

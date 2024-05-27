@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Whitecube\LaravelCookieConsent\Consent;
 use Whitecube\LaravelCookieConsent\Facades\Cookies;
@@ -21,6 +22,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
 
         // Register Laravel's base cookies under the "required" cookies section:
         Cookies::essentials()

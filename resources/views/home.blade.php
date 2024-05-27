@@ -34,13 +34,13 @@
                 </p>
             </div>
 
-            <div class="flex relative justify-center -mt-6 md:-mt-2 lg:mt-6">
-                <div class="rounded-full overflow-hidden absolute z-10 mr-16 mt-10">
-                    <img src="/assets/7.png" alt="My image" class="h-16 w-full lg:h-28 ">
+            <div class="flex relative justify-center md:-mt-2 lg:mt-6">
+                <div class="rounded-full overflow-hidden absolute z-10 w-1/3 mt-10 ml-28 md:ml-40 md:mt-32">
+                    <img src="/assets/7.png" alt="fleur" class="h-auto w-full ">
                 </div>
 
-                <div class="rounded-full overflow-hidden relative z-0">
-                    <img src="/assets/8.png" alt="My image" class="h-24 w-full lg:h-32">
+                <div class="rounded-full overflow-hidden relative z-0 w-1/2 ">
+                    <img src="/assets/8.png" alt="fleur1" class="h-auto w-full">
                 </div>
             </div>
 

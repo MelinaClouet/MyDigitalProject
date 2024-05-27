@@ -70,7 +70,7 @@
 
                 </div>
                 <div class="text-center -mt-20 md:-mt-52 lg:w-1/2 lg:ml-[40rem] lg:-mt-[30rem]">
-                    <h2 class="text-orange font-poetsen font-semibold text-xl lg:text-2xl">ATELIERS INTERACTIS</h2>
+                    <h2 class="text-orange font-poetsen font-semibold text-xl lg:text-2xl">ATELIERS INTERACTIFS</h2>
                     <p class=" mt-12 text-justify">Les ateliers proposés offrent aux enfants l’opportunité de se connecter à d’autres enfants et
                         d’échanger dans un environnement amusant et stimulant.</p>
                     <p class=" mt-6 text-justify"> A travers une variété d’activités créatives

@@ -14,14 +14,12 @@
         <hr class="flex-grow h-1 bg-orangeClair">
         <div class="mx-4">
             <?php
-            setlocale(LC_TIME, 'fr_FR.UTF-8'); // Définit la locale en français
+
+            setlocale(LC_TIME, 'fr_FR.UTF-8'); // Définit la locale en français pour toute la durée du script
 
             $mois = ucfirst(strftime('%B')); // Obtient le nom du mois en français avec une majuscule initiale
 
-            // Remettre la locale par défaut
-            setlocale(LC_TIME, 'C');
-
-            $annee = date('Y');
+            $annee = date('Y'); // Obtient l'année courante
 
             ?>
             <p class="text-orange font-semibold text-xl  md:text-2xl">Planning du mois de {{$mois}} {{$annee}} </p>

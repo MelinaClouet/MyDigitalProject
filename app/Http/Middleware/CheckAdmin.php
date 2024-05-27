@@ -15,10 +15,12 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Vérifier si l'utilisateur est connecté
         if(!session()->has('me')){
             return redirect()->route('login')->with('error', 'Veuillez vous connecter pour accéder à cette page.');
         }
 
+        // Vérifier si l'utilisateur est un admin
         $me=session()->get('me');
         if($me->isAdmin==1){
             return $next($request);
