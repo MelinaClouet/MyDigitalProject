@@ -34,7 +34,7 @@
                 <p class="mt-6 text-justify">Nos séances individuelles offrent un espace confidentiel où chaque enfant peut explorer ses émotions et préoccupations</p>
                 <p class="mt-3 text-justify">C’est un travail en étroite collaboration avec chaque enfant leur permettant de développer ses propres stratégies afin d’apprendre à gérer ses émotions, renforcer sa confiance et son estime de soi et ce, afin de promouvoir un bien-être émotionnel durable.</p>
             </div>
-            <img src="/assets/7.png" class="absolute w-1/4 mt-48 -ml-10 lg:mt-20 md:mt-48 md:-ml-10 lg:-ml-24">
+            <img src="/assets/7.png" class="absolute w-1/4 mt-52 -ml-10 lg:mt-20 md:mt-48 md:-ml-10 lg:-ml-24">
             <div class="mt-10">
                 <h2 class="font-poetsen font-semibold text-xl text-center">SÉANCES DE RELAXATION</h2>
                 <p class="my-5 text-justify lg:mb-20">La relaxation est un outil essentiel pour permettre à l'enfant de gérer ses émotions et d'augmenter son sentiment de bien-être quotidien.</p>
